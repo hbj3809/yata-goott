@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
+<mapper namespace="com.yata.mapper.MemberMapper">
+	<!-- 1.13 수정 시작 -->
+	<insert id="insertMember" parameterType="MemberVO">
+		INSERT INTO tbl_user (user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum) 
+		VALUES (usernum_sequence.nextval, #{user_photo}, #{user_email}, #{user_passwd}, #{user_Name}, #{user_birth}, #{user_phone}, #{user_postcode}, #{user_addr}, #{user_detailAddr}, #{user_refAddr}, #{user_driveNum})	
+	</insert>
+	
+	<select id="selectMemberByEmailAndPasswd" parameterType="MemberVO" resultType="MemberVO">
+		SELECT user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type
+		FROM tbl_user
+		WHERE user_email = #{ user_email } AND user_passwd = #{ user_passwd }
+	</select> 
+	<!-- 1.13 수정 끝 -->
+</mapper>
