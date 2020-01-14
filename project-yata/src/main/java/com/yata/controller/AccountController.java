@@ -34,7 +34,7 @@ public class AccountController {
 		
 		memberService.registerMember(member);
 		
-		return "redirect:/resources/login.html";
+		return "redirect:/account/login";
 	}
 	
 	@GetMapping(path = { "/login"})

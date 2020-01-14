@@ -84,7 +84,7 @@
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
 								</c:when>
 			            		<c:otherwise>
-					            	<a style="color: white;" href="/project-yata/mypage/myprofile">${loginuser.user_Name}님</a>
+					            	<a style="color: white;" href="/project-yata/mypage">${loginuser.user_Name}님</a>
 					            	&nbsp;&nbsp;
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a> 
 				            	</c:otherwise>
