@@ -24,6 +24,12 @@ public class AccountController {
 	@Qualifier("memberService")
 	private MemberService memberService;
 	
+	@GetMapping(path = { "/regAccpt"})
+	public String showRegAccptForm() {
+		return "account/regAccpt";
+	}
+	
+	
 	@GetMapping(path = { "/register"})
 	public String showRegisterForm() {
 		return "account/register";

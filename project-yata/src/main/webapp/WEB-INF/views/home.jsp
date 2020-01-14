@@ -76,7 +76,7 @@
 	            				<c:when test="${ empty sessionScope.loginuser }">
 									<a style="color: white;" href="/project-yata/account/login">로그인</a>
 									&nbsp;&nbsp;
-									<a style="color: white;" href="/project-yata/account/register">회원가입</a>
+									<a style="color: white;" href="/project-yata/account/regAccpt">회원가입</a>
 								</c:when>
 								<c:when test="${ loginuser.user_type eq 'admin' }">
 									<a style="color: white;" href="/project-yata/admin/admin-main">관리자페이지</a>
