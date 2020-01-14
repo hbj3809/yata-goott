@@ -41,7 +41,7 @@
 		  class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="hikariDataSource" />
 	</bean>
-			
+					
 	<!-- beans for mybatis & mybatis-spring -->
 	<!-- SqlSessionFactoryBean.getObject()를 호출해서 SqlSessionFactory 생성 -->
 	<bean id="sqlSessionFactory"

@@ -72,7 +72,8 @@
 								<li class=""><a href="#nino-happyClient">야타 후기</a></li>
 								<li class=""><a href="#nino-map">야타 지도</a></li>
 							</ul>
-							<c:choose>
+							
+							<c:choose>	
 	            				<c:when test="${ empty sessionScope.loginuser }">
 									<a style="color: white;" href="/project-yata/account/login">로그인</a>
 									&nbsp;&nbsp;
@@ -83,10 +84,18 @@
 					            	&nbsp;&nbsp;
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
 								</c:when>
-			            		<c:otherwise>
+			            		<c:when test="${ loginuser.user_active eq 'true' }">
 					            	<a style="color: white;" href="/project-yata/mypage">${loginuser.user_Name}님</a>
 					            	&nbsp;&nbsp;
-					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a> 
+					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
+					            </c:when>
+					            <c:otherwise>
+					            	<script type="text/javascript">
+										alert('인증을 거쳐주세요');
+					            	</script> 
+					            	<a style="color: white;" href="/project-yata/account/login">로그인</a>
+									&nbsp;&nbsp;
+									<a style="color: white;" href="/project-yata/account/regAccpt">회원가입</a>
 				            	</c:otherwise>
 		           		 	</c:choose>
 						</div><!-- /.navbar-collapse -->

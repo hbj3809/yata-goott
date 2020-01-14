@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -36,11 +37,19 @@ public class AccountController {
 	}
 	
 	@PostMapping(path = { "/register" })
-	public String register(MemberVO member) {
+	public String register(MemberVO member) throws Exception {
 		
 		memberService.registerMember(member);
 		
 		return "redirect:/account/login";
+	}
+	
+	
+	@PostMapping(path = { "/approval_member" })
+	public void approval_member(@ModelAttribute MemberVO member, HttpServletResponse resp) throws Exception {
+		
+		memberService.approval_member(member, resp);
+		
 	}
 	
 	@GetMapping(path = { "/login"})

@@ -8,8 +8,8 @@
 <mapper namespace="com.yata.mapper.MemberMapper">
 	<!-- 1.13 수정 시작 -->
 	<insert id="insertMember" parameterType="MemberVO">
-		INSERT INTO tbl_user (user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum) 
-		VALUES (usernum_sequence.nextval, #{user_photo}, #{user_email}, #{user_passwd}, #{user_Name}, #{user_birth}, #{user_phone}, #{user_postcode}, #{user_addr}, #{user_detailAddr}, #{user_refAddr}, #{user_driveNum})	
+		INSERT INTO tbl_user (user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_key) 
+		VALUES (usernum_sequence.nextval, #{user_photo}, #{user_email}, #{user_passwd}, #{user_Name}, #{user_birth}, #{user_phone}, #{user_postcode}, #{user_addr}, #{user_detailAddr}, #{user_refAddr}, #{user_driveNum}, #{ user_key })	
 	</insert>
 	
 	<select id="selectMemberByEmailAndPasswd" parameterType="MemberVO" resultType="MemberVO">
@@ -18,4 +18,10 @@
 		WHERE user_email = #{ user_email } AND user_passwd = #{ user_passwd }
 	</select> 
 	<!-- 1.13 수정 끝 -->
+	
+	<update id="approval_member" parameterType="MemberVO">
+		update tbl_user set user_active = '1' where user_email = #{ user_email } 
+		and user_key = #{ user_key }
+	</update>
+	
 </mapper>

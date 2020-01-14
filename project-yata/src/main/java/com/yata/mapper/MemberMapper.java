@@ -1,6 +1,7 @@
 package com.yata.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yata.vo.MemberVO;
 
@@ -10,5 +11,7 @@ public interface MemberMapper {
 	void insertMember(MemberVO member);
 
 	MemberVO selectMemberByEmailAndPasswd(MemberVO member);
+
+	int approval_member(MemberVO member) throws Exception;
 
 }
