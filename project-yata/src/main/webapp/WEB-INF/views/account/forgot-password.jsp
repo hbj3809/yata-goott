@@ -1,3 +1,4 @@
+<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8"  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,10 +51,10 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="register.html">회원가입하러가기!</a>
+                    <a class="small" href="/project-yata/account/regAccpt">회원가입하러가기!</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="login.html">계정이 있으면 로그인해라!</a>
+                    <a class="small" href="/project-yata/account/login">계정이 있으면 로그인해라!</a>
                   </div>
                 </div>
               </div>

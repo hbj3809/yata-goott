@@ -1,8 +1,5 @@
 package com.yata.controller;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -34,6 +31,11 @@ public class AccountController {
 	@GetMapping(path = { "/register"})
 	public String showRegisterForm() {
 		return "account/register";
+	}
+	
+	@GetMapping(path = { "/forgot-password"})
+	public String showFindPasswordForm() {
+		return "account/forgot-password";
 	}
 	
 	@PostMapping(path = { "/register" })

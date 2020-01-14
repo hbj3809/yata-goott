@@ -68,10 +68,10 @@
                   </form>	
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">비번 까먹음?</a>
+                    <a class="small" href="/project-yata/account/forgot-password">비번 까먹음?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="/project-yata/account/register">회원가입할래?</a>
+                    <a class="small" href="/project-yata/account/regAccpt">회원가입할래?</a>
                   </div>
                 </div>
               </div>
