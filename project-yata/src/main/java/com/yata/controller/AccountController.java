@@ -1,5 +1,8 @@
 package com.yata.controller;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -33,11 +36,6 @@ public class AccountController {
 		return "account/register";
 	}
 	
-	@GetMapping(path = { "/forgot-password"})
-	public String showFindPasswordForm() {
-		return "account/forgot-password";
-	}
-	
 	@PostMapping(path = { "/register" })
 	public String register(MemberVO member) throws Exception {
 		
@@ -57,6 +55,7 @@ public class AccountController {
 	
 	@GetMapping(path = { "/login"})
 	public String showLoginForm() {
+		
 		return "account/login";
 	}
 	
@@ -65,13 +64,13 @@ public class AccountController {
 	public String login(MemberVO member, HttpSession session) {
 				
 		MemberVO member2 = memberService.findMemberByEmailAndPasswd(member);
+		
 		if (member2 == null) {
 			
 			return "redirect:/account/login";
 		} else {
 			// 로그인 처리 -> session에 데이터 저장
 			session.setAttribute("loginuser", member2);
-			
 			return "redirect:/";
 		}
 	}
@@ -83,4 +82,19 @@ public class AccountController {
 		
 		return "redirect:/";
 	}
+	
+	@PostMapping(path = { "/modify" })
+	public String modify(HttpSession session,MemberVO member) {
+		
+		memberService.modifyMember(member);
+		MemberVO member2 = memberService.findMemberByEmailAndPasswd(member);
+		
+		if (member2 == null) {
+		} else {
+			// 로그인 처리 -> session에 데이터 저장
+			session.setAttribute("loginuser", member2);			
+		}
+		return "mypage/mypage-main";
+	}
+	
 }

@@ -16,4 +16,6 @@ public interface MemberService {
 
 	void approval_member(MemberVO member, HttpServletResponse resp) throws Exception;
 
+	void modifyMember(MemberVO member);
+
 }

@@ -14,4 +14,6 @@ public interface MemberMapper {
 
 	int approval_member(MemberVO member) throws Exception;
 
+	void updateMember(MemberVO member);
+
 }

@@ -119,5 +119,12 @@ public class MemberServiceImpl implements MemberService {
 		}
 		
 	}
+	
+	@Override
+	public void modifyMember(MemberVO member) {
+				
+		memberMapper.updateMember(member);
+		
+	}
 
 }

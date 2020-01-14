@@ -20,8 +20,17 @@
 	<!-- 1.13 수정 끝 -->
 	
 	<update id="approval_member" parameterType="MemberVO">
-		update tbl_user set user_active = '1' where user_email = #{ user_email } 
+		update tbl_user
+		set user_active = '1'
+		where user_email = #{ user_email } 
 		and user_key = #{ user_key }
 	</update>
+	
+	<update id="updateMember" parameterType="MemberVO">
+		update tbl_user
+		set user_email = #{ user_email }, user_passwd = #{ user_passwd }, user_Name = #{ user_Name }, user_birth = #{ user_birth }, user_phone = #{ user_phone }, user_postcode = #{ user_postcode }, user_addr = #{ user_addr }, user_detailAddr = #{ user_detailAddr }, user_refAddr = #{ user_refAddr }, user_driveNum = #{ user_driveNum }
+		where user_num = #{ user_num }
+	</update>
+	
 	
 </mapper>
