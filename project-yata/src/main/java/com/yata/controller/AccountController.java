@@ -24,6 +24,11 @@ public class AccountController {
 	@Qualifier("memberService")
 	private MemberService memberService;
 	
+	@GetMapping(path = { "/register"})
+	public String showRegisterForm() {
+		return "account/register";
+	}
+	
 	@PostMapping(path = { "/register" })
 	public String register(MemberVO member) {
 		
@@ -32,13 +37,19 @@ public class AccountController {
 		return "redirect:/resources/login.html";
 	}
 	
+	@GetMapping(path = { "/login"})
+	public String showLoginForm() {
+		return "account/login";
+	}
+	
+	
 	@PostMapping(path = { "/login" })
 	public String login(MemberVO member, HttpSession session) {
 				
 		MemberVO member2 = memberService.findMemberByEmailAndPasswd(member);
 		if (member2 == null) {
 			
-			return "redirect:/resources/login.html";
+			return "redirect:/account/login";
 		} else {
 			// 로그인 처리 -> session에 데이터 저장
 			session.setAttribute("loginuser", member2);
