@@ -46,9 +46,10 @@ public class AccountController {
 	
 	
 	@PostMapping(path = { "/approval_member" })
-	public void approval_member(@ModelAttribute MemberVO member, HttpServletResponse resp) throws Exception {
+	public void approval_member(@ModelAttribute MemberVO member, HttpServletResponse resp, HttpSession session) throws Exception {
 		
 		memberService.approval_member(member, resp);
+		session.removeAttribute("loginuser");
 		
 	}
 	
