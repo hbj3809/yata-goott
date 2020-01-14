@@ -90,16 +90,16 @@
                 	</div>
                 </div>
                 <!-- Map Start -->
-                  <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-
+                  <div id="map" style="width:100%;height:300px;margin-top:10px;display:none"></div>
+					<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 					<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 					<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c08b927e742e2037a1df667cf78a3cf8&libraries=services"></script>
 					<script>
-					    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-					        mapOption = {
-					            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+					    mapOption = {
+					    	    center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
 					            level: 5 // 지도의 확대 레벨
-					        };
+					    };
 					
 					    //지도를 미리 생성
 					    var map = new daum.maps.Map(mapContainer, mapOption);
@@ -173,7 +173,7 @@
 					                });
 					            }
 					        }).open();
-					    }
+					    } 
 					</script>
                		<div class="form-group">
                			<input type="text" name="user_driveNum" class="form-control form-control-user" id="driveNum" placeholder="면허번호">
