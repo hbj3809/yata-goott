@@ -186,17 +186,39 @@
 					<div class="col-lg-7">
 						<div class="p-5">
 							<div class="text-center">
-								<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
+								<h4 style="color: black;">회 원 가 입</h4>
+								<br>
 							</div>
-							<form id="register-form" action="/project-yata/account/register" method="post" class="user">
+							<form id="register-form" action="/project-yata/account/register" method="post" class="user" enctype="multipart/form-data">
 								<div class="form-group row">
-									<div class="col-sm-6 mb-3 mb-sm-0">
+									<div style="width: 150px; height: 150px; border-radius: 70%; overflow: hidden; margin: 0 auto;">
 										<img id="myfile1"
-											style="width: 150px; height: 150px; margin: 0 auto">
+											style="width: 100%; height: 100%; object-fit: cover;">
 									</div>
 									<div class="col-sm-6">
-										<input type="file" name="user_photo" id="photo">
+										<h1 style="color: white">&nbsp;</h1>
+										
+										<input type="file" name="myfile" data-idx="1" />
 									</div>
+									<script type="text/javascript">
+									$(function() {
+								
+										$('input[name=myfile]').on('change', function(event) {
+											var idx = $(this).attr('data-idx');
+								
+											if(this.files && this.files[0]) { // 파일 선택의 파일 선택 확인
+												var reader = new FileReader();
+								
+												// 파일을 다 읽었을 때 호출 할 함수 지정
+												reader.onload = function(e) {
+													$('#myfile' + idx).attr('src', e.target.result);
+												}
+												reader.readAsDataURL(this.files[0]); // 파일 읽기
+											}
+										});
+								
+									});
+									</script>
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">

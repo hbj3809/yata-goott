@@ -1,5 +1,9 @@
 package com.yata.controller;
 
+import java.io.File;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yata.service.MemberService;
 import com.yata.vo.MemberVO;
@@ -44,7 +49,20 @@ public class AccountController {
 	}
 	
 	@PostMapping(path = { "/register" })
-	public String register(MemberVO member) throws Exception {
+	public String register(@RequestParam("myfile") MultipartFile user_photo, HttpServletRequest req, MemberVO member) throws Exception {
+		
+		ServletContext application = req.getServletContext();
+		String path = application.getRealPath("/user-profile-photo");
+		String fileName = user_photo.getOriginalFilename();
+
+		try {				
+			File file = new File(path, fileName);
+			user_photo.transferTo( file );
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		System.out.println("프로필 사진 : " + fileName);
+		member.setUser_photo(fileName);
 		
 		memberService.registerMember(member);
 		
