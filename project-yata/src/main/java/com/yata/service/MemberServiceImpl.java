@@ -24,6 +24,7 @@ public class MemberServiceImpl implements MemberService {
 
 		member.setUser_key(create_key());
 		memberMapper.insertMember(member);
+		memberMapper.insertPoint(member.getUser_num());
 		send_mail(member);
 
 	}
