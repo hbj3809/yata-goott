@@ -13,7 +13,7 @@
 	</insert>
 	
 	<select id="selectMemberByEmailAndPasswd" parameterType="MemberVO" resultType="MemberVO">
-		SELECT user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_key
+		SELECT user_num, user_email, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_totalpoint, user_regDate
 		FROM tbl_user
 		WHERE user_email = #{ user_email } AND user_passwd = #{ user_passwd }
 	</select> 
@@ -32,5 +32,9 @@
 		where user_num = #{ user_num }
 	</update>
 	
-	
+	<select id="findMember" resultType="MemberVO">
+		SELECT user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_key
+		FROM tbl_user
+		WHERE user_active = '1'
+	</select>
 </mapper>
