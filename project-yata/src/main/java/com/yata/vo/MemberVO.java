@@ -24,4 +24,6 @@ public class MemberVO {
 	private boolean user_active;
 	private String user_key;
 	
+	private PointVO pointVO;
+	
 }

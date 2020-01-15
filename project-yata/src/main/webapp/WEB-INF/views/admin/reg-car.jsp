@@ -63,10 +63,10 @@
 											<div class="text-center">
 												<h1 class="h4 text-gray-900 mb-4">차량 등록</h1>
 											</div>
-											<form method="post">
+											<form action="/project-yata/admin/reg-car" method="post" enctype="multipart/form-data">
 												<div class="form-group">
 													<select class="form-control form-control-user"
-														name="car-type">
+														name="car-maker">
 														<option>벤틀리</option>
 														<option>페라리</option>
 														<option>람보르기니</option>
@@ -75,7 +75,7 @@
 												</div>
 
 												<div class="form-group">
-													<select class="form-control form-control-user">
+													<select class="form-control form-control-user" name="car-class">
 														<option>Bentayga</option>
 														<option>Continental GT</option>
 														<option>488 Spider</option>
@@ -88,7 +88,7 @@
 												</div>
 
 												<div class="form-group">
-													<textarea class="form-control form-control-user"
+													<textarea class="form-control form-control-user" name="car-content"
 														id="car-content" rows="8" placeholder="차량 상세"></textarea>
 												</div>
 												<div class="form-group row">
