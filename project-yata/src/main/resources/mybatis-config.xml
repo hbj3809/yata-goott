@@ -7,6 +7,6 @@
 
 	<typeAliases>
 		<typeAlias type="com.yata.vo.MemberVO" alias="MemberVO" />
+		<typeAlias type="com.yata.vo.PointVO" alias="PointVO" />
 	</typeAliases>
-	
 </configuration>

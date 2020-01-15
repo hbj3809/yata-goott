@@ -55,7 +55,12 @@
 
             <!-- Nav Item - Alerts -->
             
-
+		<a href="#" class="btn btn-danger btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    <span id="delete" class="text">탈퇴하기</span>
+                  </a>
             <!-- Nav Item - Messages -->
             <li class="nav-item">
               <a class="nav-link" href="/project-yata" >
@@ -64,6 +69,7 @@
               <!-- Dropdown - Messages -->
              
             </li>
+            
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -147,6 +153,23 @@
   <script src="/project-yata/resources/yata-member-admin/js/demo/chart-area-demo.js"></script>
   <script src="/project-yata/resources/yata-member-admin/js/demo/chart-pie-demo.js"></script>
   <script src="/project-yata/resources/yata-member-admin/js/demo/chart-bar-demo.js"></script>
-        
+  
+  <script type="text/javascript">
+	$(function() {
+		
+
+		$('#delete').on('click', function(event) {
+
+			var yes = confirm("탈퇴할까요?");
+			if (!yes) {
+				return;
+			}			
+			var form =
+				makeForm('delete.action');
+			form.submit();
+		});
+		
+		</script>
 </body>
+
 </html>

@@ -13,7 +13,7 @@
 	</insert>
 	
 	<insert id="insertPoint" parameterType="int">
-		INSERT INTO tbl_point (user_num, active_point, total_point)
+		INSERT INTO tbl_grade (user_num, active_point, total_point)
 		VALUES (#{user_num}, 1000000, 1000000)
 	</insert>
 	
@@ -37,10 +37,27 @@
 		where user_num = #{ user_num }
 	</update>
 	
-	<select id="findMember" resultType="MemberVO">
-		SELECT user_num, user_email, user_Name, user_birth, user_phone, user_regDate ,user_driveNum, user_Type
-		FROM tbl_user
-		WHERE user_active = '1'
+	<resultMap type="MemberVO" id="MemberMap">
+		<id column="user_num" property="user_num" />
+		<result column="user_email" property="user_email" />
+		<result column="user_Name" property="user_Name" />
+		<result column="user_birth" property="user_birth" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_regDate" property="user_regDate" />
+		<result column="user_driveNum" property="user_driveNum" />
+		<result column="user_type" property="user_type" />		
+		<association property="pointVO" column="user_num" resultMap="PointMap" />
+	</resultMap>
+	<resultMap type="PointVO" id="PointMap" >
+		<id column="user_num" property="user_num" />
+		<result column="total_point" property="total_point" />
+	</resultMap>
+			
+	<select id="findMember" resultMap="MemberMap" parameterType="MemberVO">
+		SELECT p.user_num, m.user_email, m.user_Name, m.user_birth, m.user_phone, m.user_regDate ,m.user_driveNum, m.user_type, p.total_point
+		FROM tbl_user m INNER JOIN tbl_point p
+		ON m.user_num = p.user_num 
+		WHERE m.user_active = '1'
 	</select>
 	
 </mapper>
