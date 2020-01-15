@@ -30,6 +30,10 @@ public class AccountController {
 		return "account/regAccpt";
 	}
 	
+	@GetMapping(path = { "/forgot-password"})
+	public String showFindPasswordForm() {
+		return "account/forgot-password";
+	}
 	
 	@GetMapping(path = { "/register"})
 	public String showRegisterForm() {
