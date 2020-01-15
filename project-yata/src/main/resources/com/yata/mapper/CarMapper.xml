@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
+<mapper namespace="com.yata.mapper.CarMapper">
+	<!-- 1.13 수정 시작 -->
+	<insert id="insertCar" parameterType="CarVO" useGeneratedKeys="true" keyColumn="car_num" keyProperty="car_num">
+		INSERT INTO car (car_num, car_fuel, car_content, car_price, car_manual) 
+		VALUES (carnum_sequence.nextval, #{car_fuel}, #{car_content}, #{car_price}, #{car_manual})	
+	</insert>
+	
+	<insert id="insertCarPhoto" parameterType="CarPhotoVO">
+		INSERT INTO car_photo (car_photonum, car_num, car_picture)
+		VALUES (carphotonum_sequence.nextval, #{car_num}, #{car_picture})
+	</insert>
+	
+	<insert id="insertCarType" parameterType="CarTypeVO">
+		INSERT INTO car_type (car_num, car_class, car_maker)
+		VALUES (#{car_num}, #{car_class}, #{car_maker})
+	</insert>
+	
+</mapper>

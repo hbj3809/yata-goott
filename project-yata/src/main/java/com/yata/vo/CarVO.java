@@ -14,7 +14,7 @@ public class CarVO {
 	private int car_price;
 	private int car_quantity;
 	
-	private CarTypeVO carTypeVO;
-	private List<CarPhotoVO> carPhotoVO;
+	private CarTypeVO carType;
+	private List<CarPhotoVO> carPhotos;
 	
 }

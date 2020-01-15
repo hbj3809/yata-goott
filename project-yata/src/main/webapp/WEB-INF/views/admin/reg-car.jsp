@@ -66,7 +66,7 @@
 											<form action="/project-yata/admin/reg-car" method="post" enctype="multipart/form-data">
 												<div class="form-group">
 													<select class="form-control form-control-user"
-														name="car-maker">
+														name="car_maker">
 														<option>벤틀리</option>
 														<option>페라리</option>
 														<option>람보르기니</option>
@@ -75,7 +75,7 @@
 												</div>
 
 												<div class="form-group">
-													<select class="form-control form-control-user" name="car-class">
+													<select class="form-control form-control-user" name="car_class">
 														<option>Bentayga</option>
 														<option>Continental GT</option>
 														<option>488 Spider</option>
@@ -88,43 +88,42 @@
 												</div>
 
 												<div class="form-group">
-													<textarea class="form-control form-control-user" name="car-content"
+													<textarea class="form-control form-control-user" name="car_content"
 														id="car-content" rows="8" placeholder="차량 상세"></textarea>
 												</div>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="text" class="form-control form-control-user"
+														<input type="text" class="form-control form-control-user" name="car_fuel"
 															id="car-fuel" placeholder="연비">
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="text" class="form-control form-control-user"
+														<input type="text" class="form-control form-control-user" name="car_price"
 															id="car-price" placeholder="시간당 가격">
 													</div>
 												</div>
 												<span>차량 사진</span>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="file" class="form-control">
+														<input type="file" name="car_picture" data-idx="1" class="form-control">
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="file" class="form-control">
+														<input type="file" name="car_picture" data-idx="2" class="form-control">
 													</div>
 												</div>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="file" class="form-control">
+														<input type="file" name="car_picture" data-idx="3" class="form-control">
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input type="file" class="form-control">
+														<input type="file" name="car_picture" data-idx="4" class="form-control">
 													</div>
 												</div>
 												<span>차량 매뉴얼</span>
 												<div class="form-group">
-													<input type="file" class="form-control">
+													<input type="file" name="car_manualx" class="form-control">
 												</div>
 												<hr>
-												<a href="login.html"
-													class="btn btn-primary btn-user btn-block">등록</a>
+												<input type="submit" value="등록" class="btn btn-primary btn-user btn-block">
 											</form>
 											<hr>
 										</div>

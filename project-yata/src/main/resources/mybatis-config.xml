@@ -7,6 +7,10 @@
 
 	<typeAliases>
 		<typeAlias type="com.yata.vo.MemberVO" alias="MemberVO" />
+		<typeAlias type="com.yata.vo.PointVO" alias="PointVO" />
+		<typeAlias type="com.yata.vo.CarVO" alias="CarVO" />
+		<typeAlias type="com.yata.vo.CarTypeVO" alias="CarTypeVO" />
+		<typeAlias type="com.yata.vo.CarPhotoVO" alias="CarPhotoVO" />
 	</typeAliases>
 	
 </configuration>

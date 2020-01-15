@@ -36,6 +36,13 @@
 	<bean id="memberService" class="com.yata.service.MemberServiceImpl">
 		<property name="memberMapper" ref="memberMapper" />
 	</bean>
+	
+	<bean id="carService" class="com.yata.service.CarServiceImpl">
+		<property name="carMapper" ref="carMapper" />
+	</bean>	
+	
+	<bean id="carPhotoVO" class="com.yata.vo.CarPhotoVO">
+	</bean>
 		
 	<bean id="jdbcTemplate"
 		  class="org.springframework.jdbc.core.JdbcTemplate">
