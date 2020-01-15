@@ -28,14 +28,7 @@
     
    </style>
    <!-- accordion 접히는 Script 선언 -->
-  <script>
-  $(function() {
-    $( "#accordion" ).accordion();
-    $('#accordion input[type="checkbox"]').click(function(e) {
-        e.stopPropagation();
-    });
-  });
-  </script>
+  
 </head>
 
 
@@ -49,9 +42,9 @@
  
    <td><input type="checkbox" name="all" id="all"></td><hr/>
   </tr>
- <div id="accordion">
+ <div id="">
   
-   <h3><a href="#"><font size="2">윤프로젝트 이용약관 동의(필수)</font><input type="checkbox" name="c1" id="c1"/></a></h3>
+   <h3><font size="2">야타(YATA) 이용약관 동의(필수)</font><input type="checkbox" name="c1" id="c1"/></h3>
    <td><textarea readonly="readonly" rows="5" cols="66">
 제 1 조 (목적)
 
@@ -69,7 +62,7 @@
 ⑥"포인트"라 함은 서비스의 효율적 이용을 위해 회사가 임의로 책정 또는 지급, 조정할 수 있는 재산적 가치가 없는 "서비스" 상의 가상 데이터를 의미합니다.
 ⑦"게시물"이라 함은 "회원"이 "서비스"를 이용함에 있어 "서비스상"에 게시한 부호ㆍ문자ㆍ음성ㆍ음향ㆍ화상ㆍ동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일과 링크 등을 의미합니다. 
    </textarea>
-   <h3><a href="#"><font size="2">개인정보 수집 및 이용에 대한 안내(필수)</font><input type="checkbox" name="c2" id="c2"/></a></h3>
+   <h3><font size="2">개인정보 수집 및 이용에 대한 안내(필수)</font><input type="checkbox" name="c2" id="c2"/></h3>
    <div>
      <textarea readonly="readonly" rows="5" cols="66">
 
@@ -82,7 +75,7 @@
  
    </textarea>
    </div>
-   <h3><a href="#"><font size="2">위치정보 이용약관 동의(선택)</font><input type="checkbox" name="c3" id="c3"/></a></h3>
+   <h3><font size="2">위치정보 이용약관 동의(필수)</font><input type="checkbox" name="c3" id="c3"/></h3>
    <div>
      <textarea readonly="readonly" rows="5" cols="66">
 
@@ -98,7 +91,7 @@
 
 
 제 3 조 (서비스 내용 및 요금)
-①회사는 직접 위치정보를 수집하거나 위치정보사업자인 이동통신사로부터 위치정보를 전달받아 아래와 같은 위치기반서비스를 제공합니다. 1.Geo Tagging 서비스: 게시글 등록 시점의 개인위치정보주체의 위치정보를 게시글과 함께 저장합니다.
+1.회사는 직접 위치정보를 수집하거나 위치정보사업자인 이동통신사로부터 위치정보를 전달받아 아래와 같은 위치기반서비스를 제공합니다. 1.Geo Tagging 서비스: 게시글 등록 시점의 개인위치정보주체의 위치정보를 게시글과 함께 저장합니다.
 2.위치정보를 활용한 검색결과 제공 서비스: 정보 검색을 요청하거나 개인위치정보주체 또는 이동성 있는 기기의 위치정보를 제공 시 본 위치정보를 이용한 검색결과 및 주변결과(맛집, 주변업체, 교통수단 등)를 제시합니다.
 3.위치정보를 활용한 친구찾기 및 친구맺기: 현재 위치를 활용하여 친구를 찾아주거나 친구를 추천하여 줍니다.
 4.연락처 교환하기: 위치정보를 활용하여 친구와 연락처를 교환할 수 있습니다.
@@ -107,14 +100,10 @@
  </textarea>
    </div>
  </div>
-  <tr>
-   <td align="left"><font size="2">이벤트 등 프로모션 알림 메일 수신(선택)</font></td>
-   <td><input type="checkbox" name="c4" id="c4"></td><hr/>
-  </tr>
- 
+  
  <div align="center">
   <br/>
-  <input type="submit" value="동의"><input type="reset" value="비동의">
+  <input type="submit" value="동의">
   <br/>
  </div>
 </div>
@@ -167,7 +156,7 @@ var doc = document;
  
   form1.onsubmit = function(e) {
    e.preventDefault();
- 
+ 	
    if ( !form1_data['c1'] ) {
     alert('이용동의 약관에 동의하지 않았습니다.');  
     return false; 
@@ -177,6 +166,11 @@ var doc = document;
     alert('개인정보 수집 및 이용에 대한 안내를 동의하지 않았습니다.'); 
     return false; 
    }
+
+   if ( !form1_data['c3'] ) {
+	    alert('위치정보 이용약관에 대한 안내를 동의하지 않았습니다.'); 
+	    return false; 
+	   }
  
    this.submit(); 
   }; 
