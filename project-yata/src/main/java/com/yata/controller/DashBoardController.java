@@ -23,6 +23,7 @@ import com.yata.vo.CarPhotoVO;
 import com.yata.vo.CarTypeVO;
 import com.yata.vo.CarVO;
 import com.yata.vo.MemberVO;
+import com.yata.vo.PointVO;
 
 @Controller
 @RequestMapping(path = { "/admin" })
@@ -35,7 +36,7 @@ public class DashBoardController {
 	@Autowired
 	@Qualifier("carService")
 	private CarService carService;
-	
+
 	@GetMapping(path = { "/dashboard" })
 	public String adminPage() {
 		
@@ -97,13 +98,11 @@ public class DashBoardController {
 	
 	@GetMapping(path = { "/car-list" })
 	public String carList() {
-		
 		return "admin/car-list";
 	}
 	
 	@GetMapping(path = { "/member-list" })
-	public String memberList(MemberVO member,Model model) {
-		
+	public String memberList(MemberVO member,PointVO point,Model model) {
 		List<MemberVO> members = memberService.findMember(member);
 		model.addAttribute("members", members);
 		return "admin/member-list";
