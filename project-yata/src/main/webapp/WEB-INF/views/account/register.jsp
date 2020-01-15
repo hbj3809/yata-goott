@@ -38,7 +38,7 @@
 		    var getName= RegExp(/^[가-힣]+$/);
 			var getPhone = /^\d{3}-\d{3,4}-\d{4}$/;
 			var getBirth = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-			var getCar = ([-\\s\\t\\n\\x0B\\f\\r]*)(\\d{2})([-\\s\\t\\n\\x0B\\f\\r]*)(\\d{2})([-\\s\\t\\n\\x0B\\f\\r]*)(\\d{6})([-\\s\\t\\n\\x0B\\f\\r]*)(\\d{2});
+			var getCar = /^[0-9]{2}[-~.[:space:]][0-9]{6}[-~.[:space:]][0-9]{2}$/;
 			
 			//이메일 공백 확인
 		    if($("#email").val() == ""){
@@ -133,7 +133,7 @@
 		    }
 
 		    //전화번호 유효성
-		    if(!getPhone.test($("#birth").val())) {
+		    if(!getBirth.test($("#birth").val())) {
 				alert("생년월일 양식에 맞게 입력해주세요 ex) 1900-00-00");
 			    $("#birth").val("");
 			    $("#birth").focus();
@@ -168,20 +168,20 @@
 		        return false;
 		    }
 		      
-		    //면허번호 공백 확인
+		    /* //면허번호 공백 확인
 		    if($("#driveNum").val() == ""){
 		        alert("면허번호를 입력해주세요");
 		        $("#driveNum").focus();
 		        return false;
 		    }
 
-		    //전화번호 유효성
+		    //면허번호 유효성
 		    if(!getCar.test($("#driveNum").val())) {
 				alert("운전면허 번호 양식에 맞게 입력해주세요 ex) 00-00-000000-00");
 			    $("#driveNum").val("");
 			    $("#driveNum").focus();
 		   		return false;
-		    }
+		    } */
 		    
 		    return true;
 		});
