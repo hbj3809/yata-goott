@@ -102,7 +102,7 @@ public class DashBoardController {
 	}
 	
 	@GetMapping(path = { "/member-list" })
-	public String memberList(MemberVO member, PointVO point, Model model) {
+	public String memberList(MemberVO member,PointVO point,Model model) {
 		List<MemberVO> members = memberService.findMember(member);
 		model.addAttribute("members", members);
 		return "admin/member-list";
