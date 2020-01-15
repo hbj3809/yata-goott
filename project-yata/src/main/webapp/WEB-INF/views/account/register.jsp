@@ -38,7 +38,7 @@
 		    var getName= RegExp(/^[가-힣]+$/);
 			var getPhone = /^\d{3}-\d{3,4}-\d{4}$/;
 			var getBirth = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-			var getCar = /^[0-9]{2}[-~.[:space:]][0-9]{6}[-~.[:space:]][0-9]{2}$/;
+			// var getCar = /^[0-9]{2}[0-9]{2}[-~.[:space:]][0-9]{6}[-~.[:space:]][0-9]{2}$/;
 			
 			//이메일 공백 확인
 		    if($("#email").val() == ""){
@@ -141,47 +141,32 @@
 		    }
 		      
 		    //우편번호 공백 확인
-		    if($("#postcode").val() == ""){
+		    if($("#sample3_postcode").val() == ""){
 		        alert("우편번호를 입력해주세요");
-		        $("#postcode").focus();
+		        $("#sample3_postcode").focus();
 		        return false;
 		    }
 		      
 		    //도로명주소 공백 확인
-		    if($("#addr").val() == ""){
+		    if($("#sample3_address").val() == ""){
 		        alert("도로명주소를 입력해주세요");
-		        $("#addr").focus();
-		        return false;
-		    }
-		      
-		    //참고주소 공백 확인
-		    if($("#refaddr").val() == ""){
-		        alert("참고주소를 입력해주세요");
-		        $("#refaddr").focus();
+		        $("#sample3_address").focus();
 		        return false;
 		    }
 		      
 		    //상세주소 공백 확인
-		    if($("#detailAddr").val() == ""){
+		    if($("#sample3_detailAddress").val() == ""){
 		        alert("상세주소를 입력해주세요");
-		        $("#detailAddr").focus();
+		        $("#sample3_detailAddress").focus();
 		        return false;
 		    }
 		      
-		    /* //면허번호 공백 확인
+		    //면허번호 공백 확인
 		    if($("#driveNum").val() == ""){
 		        alert("면허번호를 입력해주세요");
 		        $("#driveNum").focus();
 		        return false;
 		    }
-
-		    //면허번호 유효성
-		    if(!getCar.test($("#driveNum").val())) {
-				alert("운전면허 번호 양식에 맞게 입력해주세요 ex) 00-00-000000-00");
-			    $("#driveNum").val("");
-			    $("#driveNum").focus();
-		   		return false;
-		    } */
 		    
 		    return true;
 		});
@@ -252,8 +237,7 @@
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="text" id="sample3_postcode" name="user_postcode"
-											class="form-control form-control-user" id="postcode"
-											placeholder="우편번호">
+											class="form-control form-control-user" placeholder="우편번호">
 									</div>
 									<div class="col-sm-6">
 										<input id="mapopen" type="button"
@@ -263,19 +247,16 @@
 								</div>
 								<div class="form-group">
 									<input type="text" id="sample3_address" name="user_addr"
-										class="form-control form-control-user" id="addr"
-										placeholder="주소">
+										class="form-control form-control-user" placeholder="주소">
 								</div>
 								<div id="mapdiv" class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="text" id="sample3_extraAddress"
-											name="user_detailAddr" class="form-control form-control-user"
-											id="refaddr" placeholder="참고주소">
+											name="user_detailAddr" class="form-control form-control-user" placeholder="참고주소">
 									</div>
 									<div class="col-sm-6">
 										<input type="text" id="sample3_detailAddress"
-											name="user_refAddr" class="form-control form-control-user"
-											id="detailAddr" placeholder="상세주소">
+											name="user_refAddr" class="form-control form-control-user" placeholder="상세주소">
 									</div>
 								</div>
 								<!-- Map Start -->
