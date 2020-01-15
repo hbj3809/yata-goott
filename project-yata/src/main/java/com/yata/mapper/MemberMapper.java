@@ -1,5 +1,7 @@
 package com.yata.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,5 +17,7 @@ public interface MemberMapper {
 	int approval_member(MemberVO member) throws Exception;
 
 	void updateMember(MemberVO member);
+
+	List<MemberVO> findMember(MemberVO member);
 
 }
