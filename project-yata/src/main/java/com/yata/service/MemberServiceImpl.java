@@ -25,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 		member.setUser_key(create_key());
 		memberMapper.insertMember(member);
 		memberMapper.insertPoint(member.getUser_num());
-		send_mail(member);
+//		send_mail(member);
 
 	}
 
@@ -56,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.naver.com";
 		String hostSMTPid = "hbj3809@naver.com";
-		String hostSMTPpwd = "qudcn64570210";
+		String hostSMTPpwd = "#";
 
 		// 보내는 사람 EMail, 제목, 내용
 		String fromEmail = "hbj3809@naver.com";
@@ -84,7 +84,7 @@ public class MemberServiceImpl implements MemberService {
 			email.setCharset(charSet);
 			email.setSSL(true);
 			email.setHostName(hostSMTP);
-			email.setSmtpPort(587);
+			email.setSmtpPort(465);
 
 			email.setAuthentication(hostSMTPid, hostSMTPpwd);
 			email.setTLS(true);
