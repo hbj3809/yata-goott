@@ -443,7 +443,7 @@
 					<div class="col-md-3 col-sm-3">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
+								<a href="/project-yata/cardetail/cardetail.action"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">15</span>
 									<span class="text">Jan</span>
@@ -478,7 +478,7 @@
 						<article>
 							<div class="articleThumb">
 								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">
+								<div class="date">	
 									<span class="number">15</span>
 									<span class="text">Jan</span>
 								</div>
