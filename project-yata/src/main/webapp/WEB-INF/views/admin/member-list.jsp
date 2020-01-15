@@ -74,13 +74,8 @@
 											<th>이름</th>
 											<th>전화번호</th>
 											<th>생년월일</th>
-											<th>우편번호</th>
-											<th>도로명주소</th>											
-											<th>상세주소</th>
-											<th>참고주소</th>
 											<th>가입일자</th>
 											<th>유저타입</th>
-											<th>누적포인트</th>
 											<th>면허번호</th>
 										</tr>
 									</thead>
@@ -96,13 +91,8 @@
 											<td>${ member.user_Name }</td>
 											<td>${ member.user_phone }</td>
 											<td>${ member.user_birth }</td>
-											<td>${ member.user_postcode }</td>
-											<td>${ member.user_addr }</td>
-											<td>${ member.user_detailAddr }</td>
-											<td>${ member.user_refAddr }</td>
 											<td>${ member.user_regDate }</td>
 											<td>${ member.user_type }</td>
-											<td>${ member.user_totalPoint }</td>
 											<td>${ member.user_driveNum }</td>
 										</tr>
 									</c:forEach>

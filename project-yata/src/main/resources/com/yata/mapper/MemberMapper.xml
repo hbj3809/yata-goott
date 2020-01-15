@@ -38,8 +38,9 @@
 	</update>
 	
 	<select id="findMember" resultType="MemberVO">
-		SELECT user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_key
+		SELECT user_num, user_email, user_Name, user_birth, user_phone, user_regDate ,user_driveNum, user_Type
 		FROM tbl_user
 		WHERE user_active = '1'
 	</select>
+	
 </mapper>
