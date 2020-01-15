@@ -94,7 +94,7 @@
 											<td>${ member.user_birth }</td>
 											<td>${ member.user_regDate }</td>
 											<td>${ member.user_type }</td>
-											<td>${ member.pointVO.total_point }</td>
+											<td>${ member.point.total_point }</td>
 											<td>${ member.user_driveNum }</td>
 										</tr>
 									</c:forEach>
