@@ -184,7 +184,7 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="/project-yata/account/forgot-password">비밀번호를 잊으셨나요?</a>
+                <a class="small" href="forgot-password.html">비밀번호를 잊으셨나요?</a>
               </div>
               <div class="text-center">
                 <a class="small" href="/project-yata/account/login">계정이 있으신가요? 로그인 하세요!</a>
