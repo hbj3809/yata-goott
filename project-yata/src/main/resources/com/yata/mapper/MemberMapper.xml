@@ -7,13 +7,18 @@
 <!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
 <mapper namespace="com.yata.mapper.MemberMapper">
 	<!-- 1.13 수정 시작 -->
-	<insert id="insertMember" parameterType="MemberVO">
+	<insert id="insertMember" parameterType="MemberVO" useGeneratedKeys="true" keyColumn="user_num" keyProperty="user_num">
 		INSERT INTO tbl_user (user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_key) 
 		VALUES (usernum_sequence.nextval, #{user_photo}, #{user_email}, #{user_passwd}, #{user_Name}, #{user_birth}, #{user_phone}, #{user_postcode}, #{user_addr}, #{user_detailAddr}, #{user_refAddr}, #{user_driveNum}, #{ user_key })	
 	</insert>
 	
+	<insert id="insertPoint" parameterType="int">
+		INSERT INTO tbl_grade (user_num, active_point, total_point)
+		VALUES (#{user_num}, 1000000, 1000000)
+	</insert>
+	
 	<select id="selectMemberByEmailAndPasswd" parameterType="MemberVO" resultType="MemberVO">
-		SELECT user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_key
+		SELECT user_num, user_email, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_regDate
 		FROM tbl_user
 		WHERE user_email = #{ user_email } AND user_passwd = #{ user_passwd }
 	</select> 
@@ -32,5 +37,9 @@
 		where user_num = #{ user_num }
 	</update>
 	
-	
+	<select id="findMember" resultType="MemberVO">
+		SELECT user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_key
+		FROM tbl_user
+		WHERE user_active = '1'
+	</select>
 </mapper>

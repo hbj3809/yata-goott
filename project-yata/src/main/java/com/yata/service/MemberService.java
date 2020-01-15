@@ -1,5 +1,7 @@
 package com.yata.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import com.yata.vo.MemberVO;
@@ -17,5 +19,8 @@ public interface MemberService {
 	void approval_member(MemberVO member, HttpServletResponse resp) throws Exception;
 
 	void modifyMember(MemberVO member);
+
+	List<MemberVO> findMember(MemberVO member);
+
 
 }

@@ -21,8 +21,6 @@ public class MemberVO {
 	private Date user_regDate;
 	private String user_type;
 	private String user_driveNum;
-	private int user_totalPoint;
-	private int user_activePoint;
 	private boolean user_active;
 	private String user_key;
 	

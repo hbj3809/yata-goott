@@ -1,6 +1,7 @@
 package com.yata.service;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,14 +18,13 @@ public class MemberServiceImpl implements MemberService {
 //	<!-- 1.13 수정  -->
 	@Setter
 	private MemberMapper memberMapper;
-	
-
 
 	@Override
 	public void registerMember(MemberVO member) throws Exception {
 
 		member.setUser_key(create_key());
 		memberMapper.insertMember(member);
+		memberMapper.insertPoint(member.getUser_num());
 		send_mail(member);
 
 	}
@@ -56,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.naver.com";
 		String hostSMTPid = "hbj3809@naver.com";
-		String hostSMTPpwd = "qudcn6457@";
+		String hostSMTPpwd = "qudcn64570210";
 
 		// 보내는 사람 EMail, 제목, 내용
 		String fromEmail = "hbj3809@naver.com";
@@ -125,6 +125,12 @@ public class MemberServiceImpl implements MemberService {
 				
 		memberMapper.updateMember(member);
 		
+	}
+
+	@Override
+	public List<MemberVO> findMember(MemberVO member) {
+		
+		return memberMapper.findMember(member);
 	}
 
 }

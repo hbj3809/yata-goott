@@ -80,7 +80,7 @@
 									<a style="color: white;" href="/project-yata/account/regAccpt">회원가입</a>
 								</c:when>
 								<c:when test="${ loginuser.user_type eq 'admin' }">
-									<a style="color: white;" href="/project-yata/admin/admin-main">관리자페이지</a>
+									<a style="color: white;" href="/project-yata/admin/dashboard">관리자페이지</a>
 					            	&nbsp;&nbsp;
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
 								</c:when>

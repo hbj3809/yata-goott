@@ -1,8 +1,5 @@
 package com.yata.controller;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yata.service.MemberService;
 import com.yata.vo.MemberVO;
@@ -36,7 +34,12 @@ public class AccountController {
 	}
 	
 	@GetMapping(path = { "/register"})
-	public String showRegisterForm() {
+	public String showRegisterForm(@RequestParam(required = false) String c1, @RequestParam(required = false) String c2, @RequestParam(required = false) String c3) {
+				
+		if( c1 == null || c2 == null || c3 ==null) {
+			return "account/regAccpt";
+		}
+				
 		return "account/register";
 	}
 	
