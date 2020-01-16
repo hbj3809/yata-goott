@@ -12,4 +12,6 @@ public interface CarService {
 
 	List<CarVO> findCar();
 
+	void deleteCar(int car_num);
+
 }

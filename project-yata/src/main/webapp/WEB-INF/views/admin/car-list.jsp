@@ -87,9 +87,9 @@
 												<td>${ car.car_price }</td>	
 												<td>${ car.car_date }</td>
 												<td>
-													<a href="/project-yata/admin/modify-car">수정</a>
+													<a href="/project-yata/admin/modify-car?carNum=${ car.car_num }">수정</a>
 													&nbsp;&nbsp;
-													<a href="/project-yata/admin/delete-car">삭제</a>
+													<a href="/project-yata/admin/delete-car?carNum=${ car.car_num }">삭제</a>
 												</td>
 											</tr> 
 										</c:forEach>

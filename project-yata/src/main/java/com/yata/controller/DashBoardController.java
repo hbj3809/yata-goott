@@ -109,4 +109,13 @@ public class DashBoardController {
 		model.addAttribute("members", members);
 		return "admin/member-list";
 	}
+	
+	@GetMapping(path = { "/delete-car" })
+	public String deleteCar(@RequestParam("carNum") int car_num) {
+		
+		carService.deleteCar(car_num);
+		
+		return "redirect:/admin/car-list";
+	}
+	
 }

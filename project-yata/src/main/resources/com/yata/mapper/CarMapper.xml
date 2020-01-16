@@ -52,4 +52,9 @@
 		ON c.car_num = p.car_num
 	</select>
 	
+	<delete id="deleteCar" parameterType="int">
+		DELETE FROM car
+		WHERE car_num = #{car_num}
+	</delete>
+	
 </mapper>

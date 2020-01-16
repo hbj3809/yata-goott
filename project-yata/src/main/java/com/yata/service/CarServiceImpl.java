@@ -36,4 +36,11 @@ public class CarServiceImpl implements CarService {
 		return carMapper.findCar();
 	}
 
+	@Override
+	public void deleteCar(int car_num) {
+		
+		carMapper.deleteCar(car_num);
+		
+	}
+
 }

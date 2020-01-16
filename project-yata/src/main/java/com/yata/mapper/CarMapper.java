@@ -19,4 +19,6 @@ public interface CarMapper {
 
 	List<CarVO> findCar();
 
+	void deleteCar(int car_num);
+
 }
