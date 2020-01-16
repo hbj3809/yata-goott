@@ -197,6 +197,15 @@
                			<input type="submit" value="수정하기" class="btn btn-primary btn-user btn-block">
                 	</div>
               </form>
+              <hr>
+              <div>
+              		<a href="/project-yata/delete-user" class="btn btn-danger btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    <span id="delete" class="text">탈퇴하기</span>
+                  </a>
+              </div>
               <hr>              
             </div>
             </div>

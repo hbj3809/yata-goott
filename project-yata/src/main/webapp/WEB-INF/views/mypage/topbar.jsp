@@ -54,16 +54,8 @@
                 </form>
               </div>
             </li>
-
-            <!-- Nav Item - Alerts -->
             
-		<a href="/project-yata/delete-user" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                    </span>
-                    <span id="delete" class="text">탈퇴하기</span>
-                  </a>
-            <!-- Nav Item - Messages -->
+            <!-- Nav Item - Mainpage -->
             <li class="nav-item">
               <a class="nav-link" href="/project-yata" >
                홈페이지로 돌아가기
