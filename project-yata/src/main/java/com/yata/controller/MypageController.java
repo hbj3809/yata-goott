@@ -2,13 +2,27 @@ package com.yata.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yata.service.MemberService;
+import com.yata.vo.MemberVO;
+
 @Controller // @Component + spring mvc 기능 추가
 public class MypageController {
+	
+	@Autowired
+	@Qualifier("memberService")
+	private MemberService memberService;
 	
 	//@RequestMapping : 요청과 메서드를 매핑
 	@RequestMapping(path = { "/mypage" }, method = RequestMethod.GET)
@@ -47,5 +61,26 @@ public class MypageController {
 		public String update(Locale locale, Model model) {
 			
 			return "mypage/mypage-update"; // viewname -> /WEB-INF/views/ + home + .jsp
+	}
+		
+	//@RequestMapping : 요청과 메서드를 매핑
+		@RequestMapping(path = { "/delete-user" }, method = RequestMethod.GET)
+		public String showdeleteuser(Locale locale, Model model) {
+					
+			return "mypage/delete-user"; // viewname -> /WEB-INF/views/ + home + .jsp
+	}
+	//@RequestMapping : 요청과 메서드를 매핑
+		@GetMapping(path = { "/delete-user-form" })
+		public String showdeleteuserform(MemberVO member, Model model) {
+						
+			return "mypage/delete-user-form"; // viewname -> /WEB-INF/views/ + home + .jsp
+	}
+	//@RequestMapping : 요청과 메서드를 매핑
+		@PostMapping(path = { "/delete-user-form" })
+		public String deleteuser(MemberVO member,HttpSession session) {
+								
+			memberService.deleteUser(member);
+			session.removeAttribute("loginuser");
+			return "redirect:/"; // viewname -> /WEB-INF/views/ + home + .jsp
 	}
 }

@@ -3,6 +3,7 @@ package com.yata.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.ui.Model;
 
 import com.yata.vo.MemberVO;
 
@@ -20,5 +21,7 @@ public interface MemberMapper {
 	List<MemberVO> findMember(MemberVO member);
 
 	void insertPoint(int newUserNum);
+
+	void deleteUser(MemberVO member);
 
 }

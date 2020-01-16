@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.ui.Model;
+
 import com.yata.vo.MemberVO;
 
 public interface MemberService {
@@ -21,6 +23,9 @@ public interface MemberService {
 	void modifyMember(MemberVO member);
 
 	List<MemberVO> findMember(MemberVO member);
+
+	void deleteUser(MemberVO member);
+
 
 
 }

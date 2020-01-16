@@ -55,7 +55,7 @@
 
             <!-- Nav Item - Alerts -->
             
-		<a href="#" class="btn btn-danger btn-icon-split">
+		<a href="/project-yata/delete-user" class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-trash"></i>
                     </span>
@@ -93,9 +93,8 @@
                 
                 
                 
-                <img class="img-profile rounded-circle">
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
-              
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="/project-yata/mypage">
@@ -137,30 +136,6 @@
           </ul>
 
         </nav>
-        
-        
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-        
         <!-- Bootstrap core JavaScript-->
   <script src="/project-yata/resources/yata-member-admin/vendor/jquery/jquery.min.js"></script>
   <script src="/project-yata/resources/yata-member-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -195,16 +170,6 @@
 		});
 		
 		</script>
-		
-		
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript">
-	$(function() {
-		var profile = `/project-yata/resources/file/user-profile-photo/${ loginuser.user_photo }`;
-		console.log(profile);
-		$('.img-profile').attr('src', profile);
-	});
-</script>
 </body>
 
 </html>

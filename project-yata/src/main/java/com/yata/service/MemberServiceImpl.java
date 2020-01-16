@@ -7,7 +7,7 @@ import java.util.Random;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.mail.HtmlEmail;
-
+import org.springframework.ui.Model;
 
 import com.yata.mapper.MemberMapper;
 import com.yata.vo.MemberVO;
@@ -132,5 +132,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberMapper.findMember(member);
 	}
+
+	@Override
+	public void deleteUser(MemberVO member) {
+		memberMapper.deleteUser(member);
+		
+	}
+
 
 }
