@@ -1,6 +1,7 @@
 <%@ page language="java" 
 		 contentType="text/html; charset=utf-8"
     	 pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Topbar -->
 <nav
@@ -77,11 +78,10 @@
 				<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
 				<button class="close" type="button" data-dismiss="modal"
 					aria-label="Close">
-					<span aria-hidden="true">Ã</span>
+					<span aria-hidden="true">×</span>
 				</button>
 			</div>
-			<div class="modal-body">Select "Logout" below if you are ready
-				to end your current session.</div>
+			<div class="modal-body">YaTa에서 로그아웃 하시겠습니까?</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 				<a class="btn btn-primary" href="/project-yata/account/logout">Logout</a>
@@ -89,7 +89,6 @@
 		</div>
 	</div>
 </div>
-
 
 <script
 	src="/project-yata/resources/yata-member-admin/vendor/jquery/jquery.min.js"></script>
@@ -119,7 +118,8 @@
 <script type="text/javascript">
 	$(function() {
 		var profile = `/project-yata/resources/file/user-profile-photo/${ loginuser.user_photo }`;
-		if (${ loginuser } != null ) {
+		console.log(profile);
+		if (${ loginuser != null }) {
 			$('.img-profile').attr('src', profile);
 		}
 	});

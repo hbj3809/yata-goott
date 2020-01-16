@@ -78,6 +78,7 @@
 											<th>누적포인트</th>
 											<th>가용포인트</th>
 											<th>면허번호</th>
+											<th>탈퇴여부</th>
 										</tr>
 									</thead>
 									
@@ -97,6 +98,14 @@
 											<td>${ member.point.total_point }</td>
 											<td>${ member.point.active_point }</td>
 											<td>${ member.user_driveNum }</td>
+											<c:choose>
+											<c:when test="${ not member.deleted }">
+											<td></td>
+											</c:when>
+											<c:otherwise>
+											<td>탈퇴</td>
+											</c:otherwise>
+											</c:choose>
 										</tr>
 									</c:forEach>
 									</tbody>
