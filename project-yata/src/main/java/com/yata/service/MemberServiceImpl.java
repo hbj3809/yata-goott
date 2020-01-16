@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.ui.Model;
 
+import com.yata.common.Util;
 import com.yata.mapper.MemberMapper;
 import com.yata.vo.MemberVO;
 
@@ -22,16 +23,23 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void registerMember(MemberVO member) throws Exception {
 
+		String plainPasswd = member.getUser_passwd();
+		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
+		member.setUser_passwd(hashedPasswd);
+		
 		member.setUser_key(create_key());
 		memberMapper.insertMember(member);
 		memberMapper.insertPoint(member.getUser_num());
-//		send_mail(member);
+		//send_mail(member);
 
 	}
 
 	@Override
 	public MemberVO findMemberByEmailAndPasswd(MemberVO member) {
 
+		String plainPasswd = member.getUser_passwd();
+		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
+		member.setUser_passwd(hashedPasswd);
 		return memberMapper.selectMemberByEmailAndPasswd(member);
 
 	}
@@ -56,7 +64,7 @@ public class MemberServiceImpl implements MemberService {
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.naver.com";
 		String hostSMTPid = "hbj3809@naver.com";
-		String hostSMTPpwd = "#";
+		String hostSMTPpwd = "@";
 
 		// 보내는 사람 EMail, 제목, 내용
 		String fromEmail = "hbj3809@naver.com";
@@ -123,6 +131,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void modifyMember(MemberVO member) {
 				
+		String plainPasswd = member.getUser_passwd();
+		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
+		member.setUser_passwd(hashedPasswd);
+		
 		memberMapper.updateMember(member);
 		
 	}
