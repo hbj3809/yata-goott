@@ -73,10 +73,11 @@
 											<th>메뉴얼파일</th>
 											<th>시간당 가격</th>	
 											<th>등록일자</th>
+											<th>비고</th>
 										</tr>
 									</thead>
 									<tbody>
-										 <c:forEach items="${cars }" var="car">
+										 <c:forEach items="${ cars }" var="car">
 											<tr>
 												<td>${ car.car_num }</td>
 												<td>${ car.carType.car_maker }</td>
@@ -85,6 +86,11 @@
 												<td>${ car.car_manual }</td>
 												<td>${ car.car_price }</td>	
 												<td>${ car.car_date }</td>
+												<td>
+													<a href="/project-yata/admin/modify-car">수정</a>
+													&nbsp;&nbsp;
+													<a href="/project-yata/admin/delete-car">삭제</a>
+												</td>
 											</tr> 
 										</c:forEach>
 									</tbody>
