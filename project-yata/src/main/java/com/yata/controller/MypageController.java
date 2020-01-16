@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,14 +27,15 @@ public class MypageController {
 	@RequestMapping(path = { "/mypage" }, method = RequestMethod.GET)
 	public String mypage(Locale locale, Model model) {
 
-		return "mypage/mypage-main"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/mypage-main";
 	}
 	
 	//@RequestMapping : 요청과 메서드를 매핑
-	@RequestMapping(path = { "/point" }, method = RequestMethod.GET)
-	public String point(Locale locale, Model model) {
-
-		return "mypage/mypage-point"; // viewname -> /WEB-INF/views/ + home + .jsp
+	@GetMapping(path = { "/point" })
+	public String point(HttpSession session,MemberVO member) {
+//		memberService.selectMemberByNumAndPasswd(member);
+//		session.setAttribute("loginuser", member);
+		return "mypage/mypage-point";
 	}
 	
 	//@RequestMapping : 요청과 메서드를 매핑
@@ -78,7 +78,7 @@ public class MypageController {
 	//@RequestMapping : 요청과 메서드를 매핑
 		@PostMapping(path = { "/delete-user-form" })
 		public String deleteuser(MemberVO member,HttpSession session) {
-			MemberVO member2 = memberService.selectMemberByNumAndPasswd(member);
+			MemberVO member2 = memberService.selectMemberByEmailAndPasswd(member);
 			if (member2 == null) {
 			} else {
 			memberService.deleteUser(member);

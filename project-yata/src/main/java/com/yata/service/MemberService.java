@@ -12,7 +12,7 @@ public interface MemberService {
 //	<!-- 1.13 수정 -->
 	void registerMember(MemberVO member) throws Exception;
 
-	MemberVO findMemberByEmailAndPasswd(MemberVO member);
+	MemberVO selectMemberByEmailAndPasswd(MemberVO member);
 	
 	String create_key() throws Exception;
 	
@@ -26,8 +26,6 @@ public interface MemberService {
 
 	void deleteUser(MemberVO member);
 
-	MemberVO selectMemberByNumAndPasswd(MemberVO member);
-
-
+	void findPoint(MemberVO member);
 
 }

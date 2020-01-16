@@ -23,7 +23,6 @@ public interface MemberMapper {
 	void insertPoint(int newUserNum);
 
 	void deleteUser(MemberVO member);
-
-	MemberVO selectMemberByNumAndPasswd(MemberVO member);
-
+	
+	MemberVO findPoint(MemberVO member);
 }
