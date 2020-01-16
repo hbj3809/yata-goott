@@ -17,6 +17,6 @@ public interface CarMapper {
 
 	void insertCarType(CarTypeVO carType);
 
-	List<CarVO> findCar(CarVO car);
+	List<CarVO> findCar();
 
 }

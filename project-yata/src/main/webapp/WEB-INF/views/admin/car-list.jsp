@@ -55,7 +55,6 @@
 					<p class="mb-4">
 						보유하고 잇는 차량의 리스트를 보여준다.
 					</p>
-	
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
@@ -73,7 +72,7 @@
 											<th>연비</th>
 											<th>메뉴얼파일</th>
 											<th>시간당 가격</th>	
-											<th>등록일자</th>	
+											<th>등록일자</th>
 										</tr>
 									</thead>
 									<tbody>

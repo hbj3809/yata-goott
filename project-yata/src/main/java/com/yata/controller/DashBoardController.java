@@ -97,8 +97,8 @@ public class DashBoardController {
 	}
 	
 	@GetMapping(path = { "/car-list" })
-	public String carList(CarVO car , Model model){
-		List<CarVO> cars = carService.findCar(car);
+	public String carList(Model model){
+		List<CarVO> cars = carService.findCar();
 		model.addAttribute("cars", cars);
 		return "admin/car-list";
 	}

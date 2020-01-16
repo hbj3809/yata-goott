@@ -30,18 +30,26 @@
 		<result column="car_price" property="car_price" />
 		<result column="car_date" property="car_date" />
 		<association property="carType" column="car_num" resultMap="carTypeMap" />
+		<association property="carPhotos" column="car_num" resultMap="carPhotoMap" />
 	</resultMap>
 	<resultMap type="CarTypeVO" id="carTypeMap">
 		<id column="car_num" property="car_num"/>
 		<result column="car_maker" property="car_maker" />
 		<result column="car_class" property="car_class" />
 	</resultMap>
-	
+	<resultMap type="CarPhotoVO" id="carPhotoMap">
+		<id column="car_num" property="car_num"/>
+		<result column="car_photoNum" property="car_photoNum" />
+		<result column="car_picture" property="car_picture" />
+	</resultMap>
 	
 	<select id="findCar" resultMap="CarMap" resultType="CarVO">
-		SELECT c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date 
-		FROM car c INNER JOIN car_type t 
-		ON c.car_num = t.car_num 
+		SELECT c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date, p.car_num, p.car_photonum, p.car_picture
+		FROM car c 
+		INNER JOIN car_type t 
+		ON c.car_num = t.car_num
+		LEFT OUTER JOIN car_photo p
+		ON c.car_num = p.car_num
 	</select>
 	
 </mapper>
