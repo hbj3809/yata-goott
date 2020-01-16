@@ -449,13 +449,14 @@
 							<article>
 								<div class="articleThumb">
 									<a href="/project-yata/cardetail/cardetail.action">
-									<img src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
+									<img style="width: 263px;height: 163px" src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
 									</a>
 								</div>
 								<h3 class="articleTitle"><a href="#">[${ car.carType.car_maker }]&nbsp;${ car.carType.car_class }</a></h3>
-								<p class="articleDesc">
-								벤틀리의 SUV 벤테이가는 세상에서 가장 빠른 SUV를 목표로 만들어진 차량입니다. 
-								그리고 벤틀리의 명성답게 당연하게 이제까지 세상에 없던 초호화 SUV가..</p>
+									<!-- <p class="articleDesc"></p> -->
+									연비 : ${ car.car_fuel } L / KM<br>
+									가격 : 시간당 ${ car.car_price } POINT<br>
+									등록일 : ${ car.car_date }
 								<div class="articleMeta">
 									<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
 									<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
@@ -464,6 +465,7 @@
 						</div>
 					<c:if test="${ cnt == 4 }">
 					</div>
+					<br>
 					</c:if>
 				</c:forEach>
 				<!-- <br> -->
