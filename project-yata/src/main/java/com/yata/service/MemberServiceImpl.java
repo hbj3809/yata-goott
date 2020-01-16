@@ -139,5 +139,11 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberVO selectMemberByNumAndPasswd(MemberVO member) {
+		
+		return memberMapper.selectMemberByNumAndPasswd(member);
+	}
+
 
 }

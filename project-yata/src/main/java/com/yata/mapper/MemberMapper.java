@@ -24,4 +24,6 @@ public interface MemberMapper {
 
 	void deleteUser(MemberVO member);
 
+	MemberVO selectMemberByNumAndPasswd(MemberVO member);
+
 }

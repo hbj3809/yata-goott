@@ -61,6 +61,12 @@
 		WHERE m.user_active = '1'
 	</select>
 	
+	<select id="selectMemberByNumAndPasswd" parameterType="MemberVO" resultType="MemberVO">
+		SELECT user_num, user_photo, user_email, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_regDate
+		FROM tbl_user
+		WHERE user_num = #{ user_num } AND user_passwd = #{ user_passwd }
+	</select> 
+	
 	<update id="deleteUser" parameterType="MemberVO">
 		update tbl_user
 		set deleted = '1'

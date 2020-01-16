@@ -42,6 +42,7 @@
                     <p class="mb-4">탈퇴 전 비밀번호 입력이 필요합니다.</p>
                   </div>
                   <form class="user"action="/project-yata/delete-user-form" method="post" class="user" >
+                  <input type="hidden" value="${loginuser.user_num}" name="user_num">
                     <div class="form-group">
                       <input type="text" name="user_passwd" class="form-control form-control-user" placeholder="비밀번호를 입력하세요.">
                       <input type="submit" value="확인" class="btn btn-primary btn-user btn-block">

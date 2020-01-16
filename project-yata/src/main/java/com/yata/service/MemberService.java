@@ -26,6 +26,8 @@ public interface MemberService {
 
 	void deleteUser(MemberVO member);
 
+	MemberVO selectMemberByNumAndPasswd(MemberVO member);
+
 
 
 }

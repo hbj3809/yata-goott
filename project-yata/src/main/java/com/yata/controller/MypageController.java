@@ -78,9 +78,12 @@ public class MypageController {
 	//@RequestMapping : 요청과 메서드를 매핑
 		@PostMapping(path = { "/delete-user-form" })
 		public String deleteuser(MemberVO member,HttpSession session) {
-								
+			MemberVO member2 = memberService.selectMemberByNumAndPasswd(member);
+			if (member2 == null) {
+			} else {
 			memberService.deleteUser(member);
 			session.removeAttribute("loginuser");
+			}
 			return "redirect:/"; // viewname -> /WEB-INF/views/ + home + .jsp
 	}
 }
