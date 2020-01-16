@@ -50,7 +50,7 @@
 			role="button" data-toggle="dropdown" aria-haspopup="true"
 			aria-expanded="false"> <span
 				class="mr-2 d-none d-lg-inline text-white">${ sessionScope.loginuser.user_type }</span>
-				<img class="img-profile rounded-circle">
+				<img class="img-profile rounded-circle" src="https://cdnweb01.wikitree.co.kr/webdata/editor/201906/18/img_20190618112945_4980eb90.jpg.webp">
 		</a> <!-- Dropdown - User Information -->
 			<div
 				class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -119,9 +119,10 @@
 <script type="text/javascript">
 	$(function() {
 		var profile = `/project-yata/resources/file/user-profile-photo/${ loginuser.user_photo }`;
-		$('.img-profile').attr('src', profile);
+		if (${ loginuser } != null ) {
+			$('.img-profile').attr('src', profile);
+		}
 	});
 </script>
-
 
 <!-- End of Topbar -->
