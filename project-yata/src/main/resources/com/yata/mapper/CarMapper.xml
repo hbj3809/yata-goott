@@ -22,4 +22,26 @@
 		VALUES (#{car_num}, #{car_class}, #{car_maker})
 	</insert>
 	
+	<resultMap type="CarVO" id="CarMap">
+		<id column="car_num" property="car_num" />
+		<result column="car_fuel" property="car_fuel" />
+		<result column="car_manual" property="car_manual" />
+		<result column="car_content" property="car_content" />
+		<result column="car_price" property="car_price" />
+		<result column="car_date" property="car_date" />
+		<association property="carType" column="car_num" resultMap="carTypeMap" />
+	</resultMap>
+	<resultMap type="CarTypeVO" id="carTypeMap">
+		<id column="car_num" property="car_num"/>
+		<result column="car_maker" property="car_maker" />
+		<result column="car_class" property="car_class" />
+	</resultMap>
+	
+	
+	<select id="findCar" resultMap="CarMap" resultType="CarVO">
+		SELECT c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date 
+		FROM car c INNER JOIN car_type t 
+		ON c.car_num = t.car_num 
+	</select>
+	
 </mapper>

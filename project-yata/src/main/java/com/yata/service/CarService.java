@@ -10,4 +10,6 @@ public interface CarService {
 
 	void registerCar(CarVO car, List<CarPhotoVO> carPhotos, CarTypeVO carType);
 
+	List<CarVO> findCar(CarVO car);
+
 }

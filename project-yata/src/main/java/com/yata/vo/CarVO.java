@@ -1,5 +1,6 @@
 package com.yata.vo;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
@@ -12,7 +13,7 @@ public class CarVO {
 	private String car_manual;
 	private String car_content;
 	private int car_price;
-	private int car_quantity;
+	private Date car_date;
 	
 	private CarTypeVO carType;
 	private List<CarPhotoVO> carPhotos;

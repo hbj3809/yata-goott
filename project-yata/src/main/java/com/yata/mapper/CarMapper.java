@@ -1,5 +1,7 @@
 package com.yata.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.yata.vo.CarPhotoVO;
@@ -14,5 +16,7 @@ public interface CarMapper {
 	void insertCarPhoto(CarPhotoVO carPhoto);
 
 	void insertCarType(CarTypeVO carType);
+
+	List<CarVO> findCar(CarVO car);
 
 }

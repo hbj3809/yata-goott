@@ -30,4 +30,10 @@ public class CarServiceImpl implements CarService {
 		
 	}
 
+	@Override
+	public List<CarVO> findCar(CarVO car) {
+		
+		return carMapper.findCar(car);
+	}
+
 }
