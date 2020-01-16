@@ -88,7 +88,7 @@ public class AccountController {
 	@PostMapping(path = { "/login" })
 	public String login(MemberVO member, HttpSession session) {
 				
-		MemberVO member2 = memberService.findMemberByEmailAndPasswd(member);
+		MemberVO member2 = memberService.selectMemberByEmailAndPasswd(member);
 		
 		if (member2 == null) {
 			
@@ -112,7 +112,7 @@ public class AccountController {
 	public String modify(HttpSession session,MemberVO member) {
 		
 		memberService.modifyMember(member);
-		MemberVO member2 = memberService.findMemberByEmailAndPasswd(member);
+		MemberVO member2 = memberService.selectMemberByEmailAndPasswd(member);
 		
 		if (member2 == null) {
 		} else {
