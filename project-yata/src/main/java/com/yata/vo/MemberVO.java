@@ -23,7 +23,7 @@ public class MemberVO {
 	private String user_driveNum;
 	private boolean user_active;
 	private String user_key;
-	
+	private int deleted;
 	private PointVO point;
 	
 }
