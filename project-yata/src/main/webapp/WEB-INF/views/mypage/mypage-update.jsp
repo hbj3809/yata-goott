@@ -199,7 +199,7 @@
               </form>
               <hr>
               <div>
-              		<a href="/project-yata/delete-user" class="btn btn-danger btn-icon-split">
+              		<a href="/project-yata/delete-user" class="btn btn-danger btn-icon-split" style="width:100%;">
                     <span class="icon text-white-50">
                       <i class="fas fa-trash"></i>
                     </span>
