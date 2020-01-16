@@ -421,168 +421,55 @@
 				</div>
 			</div>
 			<div class="sectionContent">
-		<br><br>
-		
-		<!-- Brand
-	    ================================================== -->
-	    <section id="nino-brand">
-	    	<div class="container">
-	    		<div class="verticalCenter fw" layout="row">
-	    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-1.png" alt=""></a></div>
-	    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-2.png" alt=""></a></div>
-	    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-3.png" alt=""></a></div>
-	    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-4.png" alt=""></a></div>
-	    			
-	    			
-	    		</div>
-	    	</div>
-    	</section><!--/#nino-brand-->
-    			
-		<br><br>
-		<div class="row">
-					<div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="/project-yata/cardetail/cardetail.action"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
+				<br><br>
+				
+				<!-- Brand
+			    ================================================== -->
+			    <section id="nino-brand">
+			    	<div class="container">
+			    		<div class="verticalCenter fw" layout="row">
+			    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-1.png" alt=""></a></div>
+			    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-2.png" alt=""></a></div>
+			    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-3.png" alt=""></a></div>
+			    			<div class="col-md-3 col-sm-4 col-xs-6"><a href="#"><img src="/project-yata/resources/yata-index/images/brand/img-4.png" alt=""></a></div>
+			    			
+			    			
+			    		</div>
+			    	</div>
+		    	</section><!--/#nino-brand-->
+		    			
+				<br><br>
+				<c:forEach items="${ cars }" var="car" varStatus="status">
+				<c:if test="${ status.index eq 0 or status.index % 4 eq 0 }">
+					<c:set var="cnt" value="0" />
+					<div class="row">
+				</c:if>
+						<c:set var="cnt" value="${ cnt + 1 }" />
+						<div class="col-md-3 col-sm-3">
+							<article>
+								<div class="articleThumb">
+									<a href="/project-yata/cardetail/cardetail.action">
+									<img src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
+									</a>
 								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Bentley] Bentayga</a></h3>
-							<p class="articleDesc">벤틀리의 SUV 벤테이가는 세상에서 가장 빠른 SUV를 목표로 만들어진 차량입니다. 그리고 벤틀리의 명성답게 당연하게 이제까지 세상에 없던 초호화 SUV가..</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-    <div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
+								<h3 class="articleTitle"><a href="#">[${ car.carType.car_maker }]&nbsp;${ car.carType.car_class }</a></h3>
+								<p class="articleDesc">
+								벤틀리의 SUV 벤테이가는 세상에서 가장 빠른 SUV를 목표로 만들어진 차량입니다. 
+								그리고 벤틀리의 명성답게 당연하게 이제까지 세상에 없던 초호화 SUV가..</p>
+								<div class="articleMeta">
+									<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
+									<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
 								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Bentley] Bentayga</a></h3>
-							<p class="articleDesc">영국이 자랑하고 있는 고급차 벤틀리의 신형 SUV, Bentayga의 iPhone, Apple Watch용 앱이 공개되었다.Bentayga용으로 이것 외</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
+							</article>
+						</div>
+					<c:if test="${ cnt == 4 }">
 					</div>
-    <div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">	
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Ferrari] 488 Spider</a></h3>
-							<p class="articleDesc">시공 전 오늘 포스팅은 페라리 488spider 전면 유리에 솔라가드프리미엄의 Quantum... 완성된 모습의 페라리 488spider 모습입니다! 외관상 티가 거의</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-2.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">14</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Ferrari] 488 Spider</a></h3>
-							<p class="articleDesc">Ferrari 488 Spider Smart TOP 오픈모듈 스마트 탑 오픈 모듈은 실내에서 원터치로 탑을 작동하고 리모컨으로 편리하게 원터치로 탑을 열고 닫는 기능을 실현합니다</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-							</div>
-						</article>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Lamborghini] Aventador Roadster Svj</a></h3>
-							<p class="articleDesc">람보르기니 아벤타도르 SVJ / 슈퍼벨로체 요타 (Lamborghini Aventador SVJ) 거침없는 황소, 람보르기니 아벤타도르 SVJ...람보르기니</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-    <div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Lamborghini] Aventador Roadster Svj</a></h3>
-							<p class="articleDesc"> 람보르기니 아벤타도르 SVJ 로드스터 입니다. 아벤타도르의 하드코어 스페셜버젼인 SVJ의 오픈버젼이죠. 국내에 SVJ는 제법많이(?) 있지만</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-    <div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-1.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Rolls Royce] Cullinan</a></h3>
-							<p class="articleDesc"> 람보르기니 아벤타도르 SVJ 로드스터 입니다. 아벤타도르의 하드코어 스페셜버젼인 SVJ의 오픈버젼이죠. 국내에 SVJ는 제법많이(?) 있지만</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="/project-yata/resources/yata-index/images/our-blog/img-2.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">14</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">[Rolls Royce] Cullinan</a></h3>
-							<p class="articleDesc">영국이 자랑하고 있는 고급차 벤틀리의 신형 SUV, Bentayga의 iPhone, Apple Watch용 앱이 공개되었다.Bentayga용으로 이것 외</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-							</div>
-						</article>
-					</div>
-					
-				</div>
-			</div>
-    	</div>
+					</c:if>
+				</c:forEach>
+				<!-- <br> -->
+				
+		</div>
+    </div>
     </section>
 <!-- Testimonial
     ================================================== -->

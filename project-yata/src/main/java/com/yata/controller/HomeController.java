@@ -1,18 +1,29 @@
 package com.yata.controller;
 
+import java.util.List;
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.yata.service.CarService;
+import com.yata.vo.CarVO;
 
 @Controller // @Component + spring mvc 湲곕뒫 異붽�
 public class HomeController {
 	
-	//@RequestMapping : �슂泥�怨� 硫붿꽌�뱶瑜� 留ㅽ븨
-	@RequestMapping(path = { "/" }, method = RequestMethod.GET)
+	@Autowired
+	@Qualifier("carService")
+	private CarService carService;
+
+	@GetMapping(path = { "/" })
 	public String home(Locale locale, Model model) {
+		
+		List<CarVO> cars = carService.findCar();
+		model.addAttribute("cars", cars);
 		
 		return "home";
 	}
