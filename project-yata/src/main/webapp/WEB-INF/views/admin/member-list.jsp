@@ -77,6 +77,7 @@
 											<th>가입일자</th>
 											<th>유저타입</th>
 											<th>누적포인트</th>
+											<th>가용포인트</th>
 											<th>면허번호</th>
 										</tr>
 									</thead>
@@ -95,6 +96,7 @@
 											<td>${ member.user_regDate }</td>
 											<td>${ member.user_type }</td>
 											<td>${ member.point.total_point }</td>
+											<td>${ member.point.active_point }</td>
 											<td>${ member.user_driveNum }</td>
 										</tr>
 									</c:forEach>
