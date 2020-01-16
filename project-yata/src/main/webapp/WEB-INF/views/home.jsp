@@ -266,9 +266,7 @@
 		<div class="container">
 			<h2 class="nino-sectionHeading">
 				<span class="nino-subHeading">car gallery</span>차 갤러리</h2>
-			<p class="nino-sectionDesc">라페라리의 차체에 독특한 사운드를 내는 신형 엔진을 탑재해 테스트 하는 모습이 동영상으로 촬영되어 공개한 적이 있었고, 당시에는 많은 사람들이 F1 레이싱카에 탑재될 새로운 V6 터보엔진을 라페라리의 차체에 탑재하여 테스트 하는 것이라고 예상했습니다. 하지만 아무래도 당시 테스트 중이었던 엔진은 F1이 아닌 르망24시 LMP1 클래스 레이싱카용 엔진일 가능성이 높아 보이네요.
-
-이번에 촬영된 페라리 LMP1 레이싱카는 차량 전체를 위장막으로 감싸 정확한 형태를 알아보기는 어렵습니다. 그러나 차체의 모습을 보면 프런트 스플리터와 거대한 윙을 탑재하였고, 센터락 방식의 레이싱 휠이 적용되긴 했지만 마치 라페라리를 레이싱카로 개조한 것이 아닐까 생각될 정도로 많은 부분이 닮았다는 생각이 듭니다.</p>
+			<p class="nino-sectionDesc"> 야타의 차량 갤러리를 소개합니다. 클릭하시면 슬라이드 쇼로 확인하실 수 있습니다. </p>
 		</div>
 		
 <div class="sectionContent">
@@ -304,7 +302,7 @@
 							<div class="content" style="display: block; left: 0px; top: 100%; transition: all 300ms ease 0s;">
 								<i class="mdi mdi-desktop-mac nino-icon"></i>
 								<h4 class="title">yata.com</h4>
-								<span class="desc">Continental GT</span>
+								<span class="desc">LAFERARRI</span>
 							</div>
 						</div>
 					</a>
@@ -316,7 +314,7 @@
 							<div class="content" style="display: block; left: 0px; top: -100%; transition: all 300ms ease 0s;">
 								<i class="mdi mdi-flower nino-icon"></i>
 								<h4 class="title">yata.com</h4>
-								<span class="desc">Continental GT</span>
+								<span class="desc">488 SPIDER</span>
 							</div>
 						</div>
 					</a>
@@ -328,7 +326,7 @@
 							<div class="content" style="display: block; left: 100%; top: 0px; transition: all 300ms ease 0s;">
 								<i class="mdi mdi-gamepad-variant nino-icon"></i>
 								<h4 class="title">yata.com</h4>
-								<span class="desc">Continental GT</span>
+								<span class="desc">AVENTADOR SVJ</span>
 							</div>
 						</div>
 					</a>
@@ -340,7 +338,7 @@
 							<div class="content" style="display: block; left: 0px; top: 100%; transition: all 300ms ease 0s;">
 								<i class="mdi mdi-gnome nino-icon"></i>
 								<h4 class="title">yata.com</h4>
-								<span class="desc">Continental GT</span>
+								<span class="desc">AVENTADOR SVJ</span>
 							</div>
 						</div>
 					</a>
@@ -352,7 +350,7 @@
 							<div class="content" style="display: block; left: 0px; top: -100%; transition: all 300ms ease 0s;">
 								<i class="mdi mdi-guitar-electric nino-icon"></i>
 								<h4 class="title">yata.com</h4>
-								<span class="desc">Continental GT</span>
+								<span class="desc">CULLINAN</span>
 							</div>
 						</div>
 					</a>
