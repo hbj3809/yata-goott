@@ -1,4 +1,6 @@
-<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
+<%@ page language="java" 
+		 contentType="text/html; charset=utf-8"
+    	 pageEncoding="utf-8" %>
 
 <!-- Topbar -->
 <nav
@@ -117,7 +119,6 @@
 <script type="text/javascript">
 	$(function() {
 		var profile = `/project-yata/resources/file/user-profile-photo/${ loginuser.user_photo }`;
-		console.log(profile);
 		$('.img-profile').attr('src', profile);
 	});
 </script>

@@ -34,7 +34,7 @@
       <div id="content">
 
         <!-- Topbar -->
-		<jsp:include page="topbar.jsp" />
+				<jsp:include page="/WEB-INF/views/admin/modules/topbar.jsp" />
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -42,7 +42,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">1:1 상담</h1>
-          <p class="mb-4">■ 자신이 등록한 상담 내역 및 진행 상황, 답변을 확인할 수 있다.</p>
+          <p class="mb-4">■ 자신이 등록한 상담 내역 및 진행 상황, 답변을 확인할 수 있다.</p>    
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -59,63 +59,6 @@
                     <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
                   </tfoot>
                   <tbody>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                   <tr role="row" class="odd">
                       <td class="sorting_1">Airi Satou</td>
                       <td>Accountant</td>
@@ -212,6 +155,29 @@
     <!-- End of Content Wrapper -->
 
   </div>
+  <!-- End of Page Wrapper -->
+  
+  	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/project-yata/resources/yata-member-admin/vendor/jquery/jquery.min.js"></script>
+	<script src="/project-yata/resources/yata-member-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/project-yata/resources/yata-member-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/project-yata/resources/yata-member-admin/js/sb-admin-2.min.js"></script>
+
+	<!-- Page level plugins -->
+	<script src="/project-yata/resources/yata-member-admin/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/project-yata/resources/yata-member-admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="/project-yata/resources/yata-member-admin/js/demo/datatables-demo.js"></script>
   
 </body>
 

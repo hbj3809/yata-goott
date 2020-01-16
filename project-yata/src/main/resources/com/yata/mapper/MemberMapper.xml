@@ -18,7 +18,7 @@
 	</insert>
 	
 	<select id="selectMemberByEmailAndPasswd" parameterType="MemberVO" resultType="MemberVO">
-		SELECT user_num, user_email, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_regDate
+		SELECT user_num, user_photo, user_email, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_Type, user_active, user_regDate
 		FROM tbl_user
 		WHERE user_email = #{ user_email } AND user_passwd = #{ user_passwd }
 	</select> 
@@ -51,10 +51,11 @@
 	<resultMap type="PointVO" id="PointMap" >
 		<id column="user_num" property="user_num" />
 		<result column="total_point" property="total_point" />
+		<result column="active_point" property="active_point" />
 	</resultMap>
 			
 	<select id="findMember" resultMap="MemberMap" parameterType="MemberVO">
-		SELECT p.user_num, m.user_email, m.user_Name, m.user_birth, m.user_phone, m.user_regDate ,m.user_driveNum, m.user_type, p.total_point
+		SELECT p.user_num, m.user_email, m.user_Name, m.user_birth, m.user_phone, m.user_regDate ,m.user_driveNum, m.user_type, p.total_point, p.active_point
 		FROM tbl_user m INNER JOIN tbl_point p
 		ON m.user_num = p.user_num 
 		WHERE m.user_active = '1'
