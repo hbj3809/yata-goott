@@ -52,7 +52,7 @@ public class AccountController {
 	public String register(@RequestParam("myfile") MultipartFile user_photo, HttpServletRequest req, MemberVO member) throws Exception {
 		
 		ServletContext application = req.getServletContext();
-		String path = application.getRealPath("/user-profile-photo");
+		String path = application.getRealPath("resources/file/user-profile-photo");
 		String fileName = user_photo.getOriginalFilename();
 
 		try {				

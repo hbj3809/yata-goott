@@ -55,7 +55,7 @@ public class DashBoardController {
 		ArrayList<CarPhotoVO> carPhotos = new ArrayList<CarPhotoVO>();
 		
 		ServletContext application = req.getServletContext();
-		String path = application.getRealPath("/carPic");
+		String path = application.getRealPath("resources/file/carPic");
 		
 		for(MultipartFile pic : pics) {
 			CarPhotoVO carPhoto = new CarPhotoVO();
@@ -73,7 +73,7 @@ public class DashBoardController {
 			carPhotos.add(carPhoto);
 		}
 		
-		String path2 = application.getRealPath("/carManual");
+		String path2 = application.getRealPath("resources/file/carManual");
 		String fileName2 = manual.getOriginalFilename();
 
 		try {				

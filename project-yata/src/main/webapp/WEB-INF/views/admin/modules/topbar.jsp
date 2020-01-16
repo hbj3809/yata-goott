@@ -51,9 +51,8 @@
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
 			role="button" data-toggle="dropdown" aria-haspopup="true"
 			aria-expanded="false"> <span
-				class="mr-2 d-none d-lg-inline text-white">admin</span> <img
-				class="img-profile rounded-circle"
-				src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+				class="mr-2 d-none d-lg-inline text-white">${ sessionScope.loginuser.user_type }</span> <img
+				class="img-profile rounded-circle">
 		</a> <!-- Dropdown - User Information -->
 			<div
 				class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -68,4 +67,15 @@
 	</ul>
 
 </nav>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var profile = `/project-yata/resources/file/user-profile-photo/${ loginuser.user_photo }`;
+		console.log(profile);
+		$('.img-profile').attr('src', profile);
+	});
+</script>
+
+
 <!-- End of Topbar -->
