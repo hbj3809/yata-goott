@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.yata.vo.MemberVO;
+
 //public class AuthIntercepter implements HandlerInterceptor {
 public class AuthIntercepter extends HandlerInterceptorAdapter {
 	
@@ -18,10 +20,10 @@ public class AuthIntercepter extends HandlerInterceptorAdapter {
 		String uri = request.getRequestURI();
 		// System.out.println("in interceptor : " + request.getRequestURI());
 		HttpSession session = request.getSession();
-		
-		if(uri.contains("/board/") || uri.contains("/reply/")) {
+	
+		if(uri.contains("/admin/") || uri.contains("/mypage/")) {
 			if (session.getAttribute("loginuser") == null) {
-				response.sendRedirect("/spring-board-b/resources/login.html");
+				response.sendRedirect("/project-yata/account/login");
 				return false; // Controller 로 요청을 넘기지 마세요, 
 			}
 		}
