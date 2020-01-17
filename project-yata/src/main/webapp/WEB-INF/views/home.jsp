@@ -446,7 +446,8 @@
 						<div class="col-md-3 col-sm-3">
 							<article>
 								<div class="articleThumb">
-									<a href="/project-yata/cardetail/cardetail.action">
+									<a
+									href="javascript:void(window.open('/project-yata/cardetail','','left=675px,top=100px,width=580px,height=800px'))">
 									<img style="width: 263px;height: 163px" src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
 									</a>
 								</div>
