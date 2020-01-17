@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.ui.Model;
 
+import com.yata.common.Util;
 import com.yata.mapper.MemberMapper;
 import com.yata.vo.MemberVO;
 
@@ -22,6 +23,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void registerMember(MemberVO member) throws Exception {
 
+		// 비밀번호 암호화 추가
+		String plainPasswd = member.getUser_passwd();
+		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
+		member.setUser_passwd(hashedPasswd);
+		
 		member.setUser_key(create_key());
 		memberMapper.insertMember(member);
 		memberMapper.insertPoint(member.getUser_num());
@@ -116,6 +122,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void modifyMember(MemberVO member) {
 				
+		// 비밀번호 암호화 추가
+		String plainPasswd = member.getUser_passwd();
+		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
+		member.setUser_passwd(hashedPasswd);
+		
 		memberMapper.updateMember(member);
 		
 	}
@@ -134,6 +145,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO selectMemberByEmailAndPasswd(MemberVO member) {
+		
+		// 비밀번호 암호화 추가
+		String plainPasswd = member.getUser_passwd();
+		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
+		member.setUser_passwd(hashedPasswd);
 		
 		return memberMapper.selectMemberByEmailAndPasswd(member);
 	}
