@@ -85,7 +85,7 @@
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
 								</c:when>
 			            		<c:when test="${ loginuser.user_active eq 'true' }">
-					            	<a style="color: white;" href="/project-yata/mypage">${loginuser.user_Name}님</a>
+					            	<a style="color: white;" href="/project-yata/mypage/mypage-main">${loginuser.user_Name}님</a>
 					            	&nbsp;&nbsp;
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
 					            </c:when>
@@ -435,7 +435,7 @@
 			    		</div>
 			    	</div>
 		    	</section><!--/#nino-brand-->
-		    		<a href="/project-yata/board/review-list">후기게시판</a>
+		    			
 				<br><br>
 				<c:forEach items="${ cars }" var="car" varStatus="status">
 				<c:if test="${ status.index eq 0 or status.index % 4 eq 0 }">

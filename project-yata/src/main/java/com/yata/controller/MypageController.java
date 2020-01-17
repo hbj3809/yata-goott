@@ -19,6 +19,7 @@ import com.yata.vo.MemberVO;
 import com.yata.vo.ReserveVO;
 
 @Controller // @Component + spring mvc 기능 추가
+@RequestMapping(path = { "/mypage" })
 public class MypageController {
 	
 	@Autowired
@@ -29,64 +30,58 @@ public class MypageController {
 	@Qualifier("reserveService")
 	private ReserveService reserveService;
 	
-	//@RequestMapping : 요청과 메서드를 매핑
-	@RequestMapping(path = { "/mypage" }, method = RequestMethod.GET)
+	@GetMapping(path = { "mypage-main" })
 	public String mypage(Locale locale, Model model) {
 
 		return "mypage/mypage-main";
 	}
 	
-	//@RequestMapping : 요청과 메서드를 매핑
 	@GetMapping(path = { "/point" })
 	public String point(HttpSession session,MemberVO member) {
 		return "mypage/mypage-point";
 	}
 	
-	//@RequestMapping : 요청과 메서드를 매핑
-	@RequestMapping(path = { "/qna" }, method = RequestMethod.GET)
+	@GetMapping(path = { "/qna" })
 	public String qna(Locale locale, Model model) {
 
-		return "mypage/mypage-qna"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/mypage-qna";
 	}
-	//@RequestMapping : 요청과 메서드를 매핑
-		@RequestMapping(path = { "/reservationlist" }, method = RequestMethod.GET)
-		public String reservationlist(Model model,int user_num) {
-			ReserveVO reserve = reserveService.findReserveByUser_num(user_num);
-			if (reserve == null) {
-				return "redirect:/";
-			}
-			model.addAttribute("reserve", reserve);		
+	@GetMapping(path = { "/reservationlist" })
+	public String reservationlist(Model model,int user_num) {
+		ReserveVO reserve = reserveService.findReserveByUser_num(user_num);
+		if (reserve == null) {
+		return "redirect:/";
+	}
+		model.addAttribute("reserve", reserve);		
 			
-			return "mypage/mypage-reservationlist"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/mypage-reservationlist";
 	}
 		
-	//@RequestMapping : 요청과 메서드를 매핑
-		@RequestMapping(path = { "/reviewlist" }, method = RequestMethod.GET)
-		public String reviewlist(Locale locale, Model model) {
+	@GetMapping(path = { "/reviewlist" })
+	public String reviewlist(Locale locale, Model model) {
 
-			return "mypage/mypage-reviewlist"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/mypage-reviewlist";
 	}
-	//@RequestMapping : 요청과 메서드를 매핑
-		@RequestMapping(path = { "/update" }, method = RequestMethod.GET)
-		public String update(Locale locale, Model model) {
+	
+	@GetMapping(path = { "/update" })
+	public String update(Locale locale, Model model) {
 			
-			return "mypage/mypage-update"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/mypage-update";
 	}
 		
-	//@RequestMapping : 요청과 메서드를 매핑
-		@RequestMapping(path = { "/delete-user" }, method = RequestMethod.GET)
-		public String showdeleteuser(Locale locale, Model model) {
+	@GetMapping(path = { "/delete-user" })
+	public String showdeleteuser(Locale locale, Model model) {
 					
-			return "mypage/delete-user"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/delete-user";
 	}
-	//@RequestMapping : 요청과 메서드를 매핑
-		@GetMapping(path = { "/delete-user-form" })
-		public String showdeleteuserform(MemberVO member, Model model) {
+	
+	@GetMapping(path = { "/delete-user-form" })
+	public String showdeleteuserform(MemberVO member, Model model) {
 						
-			return "mypage/delete-user-form"; // viewname -> /WEB-INF/views/ + home + .jsp
+		return "mypage/delete-user-form";
 	}
-	//@RequestMapping : 요청과 메서드를 매핑
-		@PostMapping(path = { "/delete-user-form" })
+	
+	@PostMapping(path = { "/delete-user-form" })
 		public String deleteuser(MemberVO member,HttpSession session) {
 			MemberVO member2 = memberService.selectMemberByEmailAndPasswd(member);
 			if (member2 == null) {
@@ -94,6 +89,6 @@ public class MypageController {
 			memberService.deleteUser(member);
 			session.removeAttribute("loginuser");
 			}
-			return "redirect:/"; // viewname -> /WEB-INF/views/ + home + .jsp
+			return "redirect:/";
 	}
 }

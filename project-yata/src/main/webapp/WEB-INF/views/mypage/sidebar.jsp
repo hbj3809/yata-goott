@@ -36,7 +36,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active" active-tab="tab1">
-      <a class="nav-link" href="/project-yata/mypage">
+      <a class="nav-link" href="/project-yata/mypage/mypage-main">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>마이페이지</span></a>
     </li>
@@ -51,28 +51,28 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link" href="/project-yata/update">
+      <a class="nav-link" href="/project-yata/mypage/update">
         <i class="fas fa-fw fa-table"></i>
         <span>회원 정보 수정</span></a>
     </li>
 
 <li class="nav-item">
-      <a class="nav-link" href="/project-yata/reservationlist?user_num=${loginuser.user_num}">
+      <a class="nav-link" href="/project-yata/mypage/reservationlist?user_num=${loginuser.user_num}">
         <i class="fas fa-fw fa-table"></i>
         <span>내 예약 리스트</span></a>
 
     </li><li class="nav-item">
-      <a class="nav-link" href="/project-yata/qna">
+      <a class="nav-link" href="/project-yata/mypage/qna">
         <i class="fas fa-fw fa-table"></i>
         <span>1:1 상담</span></a>
     </li>
 <li class="nav-item">
-      <a class="nav-link" href="/project-yata/reviewlist">
+      <a class="nav-link" href="/project-yata/mypage/reviewlist">
         <i class="fas fa-fw fa-table"></i>
         <span>후기 리스트</span></a>
     </li>
 <li class="nav-item">
-      <a class="nav-link" href="/project-yata/point">
+      <a class="nav-link" href="/project-yata/mypage/point">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>내 포인트</span></a>
     </li>
