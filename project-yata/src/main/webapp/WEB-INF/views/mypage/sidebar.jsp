@@ -57,7 +57,7 @@
     </li>
 
 <li class="nav-item">
-      <a class="nav-link" href="/project-yata/reservationlist">
+      <a class="nav-link" href="/project-yata/reservationlist?user_num=${loginuser.user_num}">
         <i class="fas fa-fw fa-table"></i>
         <span>내 예약 리스트</span></a>
 

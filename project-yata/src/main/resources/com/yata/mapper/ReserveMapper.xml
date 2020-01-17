@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
+<mapper namespace="com.yata.mapper.ReserveMapper">
+
+<resultMap type="ReserveVO" id="ReserveMap">
+		<id column="res_num" property="res_num" />
+		<result column="user_num" property="user_num" />
+		<result column="car_num" property="car_num" />	
+		<result column="res_term" property="res_term" />
+		<result column="res_price" property="res_price" />
+		<result column="res_date" property="res_date" />
+		<result column="res_cancel" property="res_cancel" />
+		<association property="car" column="car_num" resultMap="CarMap" />
+		<association property="member" column="user_num" resultMap="memberMap" />
+	</resultMap>
+	<resultMap type="CarVO" id="CarMap">
+		<id column="car_num" property="car_num" />
+		<result column="car_fuel" property="car_fuel" />
+		<result column="car_manual" property="car_manual" />
+		<result column="car_content" property="car_content" />
+		<result column="car_price" property="car_price" />
+		<result column="car_date" property="car_date" />
+			</resultMap>
+	<resultMap type="MemberVO" id="memberMap" >
+		<id column="user_num" property="user_num" />
+		<result column="user_email" property="user_email" />
+		<result column="user_photo" property="user_photo" />	
+		<result column="user_Name" property="user_Name" />
+		<result column="user_passwd" property="user_passwd" />
+		<result column="user_postcode" property="user_postcode" />
+		<result column="user_addr" property="user_addr" />
+		<result column="user_detailAddr" property="user_detailAddr" />
+		<result column="user_refAddr" property="user_refAddr" />
+		<result column="user_birth" property="user_birth" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_regDate" property="user_regDate" />
+		<result column="user_driveNum" property="user_driveNum" />
+		<result column="user_key" property="user_key" />
+		<result column="user_driveNum" property="user_driveNum" />		
+		<result column="deleted" property="deleted" />		
+		<result column="user_active" property="user_active" />	
+	</resultMap>
+			
+	<select id="findReserveByUser_num" resultMap="ReserveMap" parameterType="int">
+		SELECT r.res_num , c.car_num , m.user_num , r.res_term , r.res_price , r.res_date , r.res_cancel
+		FROM reserve r 
+		INNER JOIN car c 
+		ON r.car_num = c.car_num		
+		INNER JOIN tbl_user m
+		ON r.user_num = m.user_num
+        where r.user_num = #{ user_num }
+	</select>
+
+</mapper>

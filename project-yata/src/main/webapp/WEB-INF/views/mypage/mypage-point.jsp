@@ -216,11 +216,6 @@
 									class="dataTables_wrapper dt-bootstrap4">
 									<div class="row">
 										<div class="col-sm-12">
-										<script type="text/javascript">
-	$(function(){
-		console.log("${loginuser}");
-	});
-	</script>
 											<table class="table table-bordered dataTable" id="dataTable"
 												width="100%" cellspacing="0" role="grid"
 												aria-describedby="dataTable_info" style="width: 100%;">
@@ -342,10 +337,5 @@
 		src="/project-yata/resources/yata-member-admin/js/demo/chart-pie-demo.js"></script>
 	<script
 		src="/project-yata/resources/yata-member-admin/js/demo/chart-bar-demo.js"></script>
-	<script type="text/javascript">
-	$(function(){
-		console.log("${loginuser.point.total_point}");
-	});
-	</script>
 </body>
 </html>

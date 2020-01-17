@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yata.service.MemberService;
+import com.yata.service.ReserveService;
 import com.yata.vo.MemberVO;
+import com.yata.vo.ReserveVO;
 
 @Controller // @Component + spring mvc 기능 추가
 public class MypageController {
@@ -22,6 +24,10 @@ public class MypageController {
 	@Autowired
 	@Qualifier("memberService")
 	private MemberService memberService;
+	
+	@Autowired
+	@Qualifier("reserveService")
+	private ReserveService reserveService;
 	
 	//@RequestMapping : 요청과 메서드를 매핑
 	@RequestMapping(path = { "/mypage" }, method = RequestMethod.GET)
@@ -33,8 +39,6 @@ public class MypageController {
 	//@RequestMapping : 요청과 메서드를 매핑
 	@GetMapping(path = { "/point" })
 	public String point(HttpSession session,MemberVO member) {
-//		memberService.selectMemberByNumAndPasswd(member);
-//		session.setAttribute("loginuser", member);
 		return "mypage/mypage-point";
 	}
 	
@@ -46,10 +50,16 @@ public class MypageController {
 	}
 	//@RequestMapping : 요청과 메서드를 매핑
 		@RequestMapping(path = { "/reservationlist" }, method = RequestMethod.GET)
-		public String reservationlist(Locale locale, Model model) {
-
+		public String reservationlist(Model model,int user_num) {
+			ReserveVO reserve = reserveService.findReserveByUser_num(user_num);
+			if (reserve == null) {
+				return "redirect:/";
+			}
+			model.addAttribute("reserve", reserve);		
+			
 			return "mypage/mypage-reservationlist"; // viewname -> /WEB-INF/views/ + home + .jsp
 	}
+		
 	//@RequestMapping : 요청과 메서드를 매핑
 		@RequestMapping(path = { "/reviewlist" }, method = RequestMethod.GET)
 		public String reviewlist(Locale locale, Model model) {
