@@ -435,7 +435,7 @@
 			    		</div>
 			    	</div>
 		    	</section><!--/#nino-brand-->
-		    			
+		    			<a href="/project-yata/board/review-list">후기게시판</a>
 				<br><br>
 				<c:forEach items="${ cars }" var="car" varStatus="status">
 				<c:if test="${ status.index eq 0 or status.index % 4 eq 0 }">
