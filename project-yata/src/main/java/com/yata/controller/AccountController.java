@@ -65,6 +65,7 @@ public class AccountController {
 		member.setUser_photo(fileName);
 		
 		memberService.registerMember(member);
+		memberService.updatePoint(member);
 		
 		return "redirect:/account/login";
 	}

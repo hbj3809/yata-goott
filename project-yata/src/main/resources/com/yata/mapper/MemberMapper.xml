@@ -6,21 +6,25 @@
 
 <!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
 <mapper namespace="com.yata.mapper.MemberMapper">
-	<!-- 1.13 수정 시작 -->
+
+	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="MemberVO" useGeneratedKeys="true" keyColumn="user_num" keyProperty="user_num">
 		INSERT INTO tbl_user (user_num, user_photo, user_email, user_passwd, user_Name, user_birth, user_phone, user_postcode, user_addr, user_detailAddr, user_refAddr, user_driveNum, user_key) 
 		VALUES (usernum_sequence.nextval, #{user_photo}, #{user_email}, #{user_passwd}, #{user_Name}, #{user_birth}, #{user_phone}, #{user_postcode}, #{user_addr}, #{user_detailAddr}, #{user_refAddr}, #{user_driveNum}, #{ user_key })	
 	</insert>
 	
-	<insert id="insertPoint" parameterType="int">
+	<!-- 회원가입 시 기본포인트(1,000,000점) 부여 -->
+	<insert id="insertPoint" parameterType="MemberVO">
 		INSERT INTO tbl_point (user_num, active_point, total_point)
 		VALUES (#{user_num}, 1000000, 1000000)
 	</insert>
-	<update id="loginPoint" parameterType="int">
-		INSERT INTO tbl_point (user_num, active_point, total_point)
-		VALUES (#{user_num}, 30000, #{active_point} + #{total_point})
+	
+	<!-- 회원 포인트 부여 후 등급 업데이트 -->
+	<update id="updatePoint" parameterType="MemberVO">
+		update tbl_point
+		set total_point = #{point.total_point}, active_point = #{point.active_point}, user_grade = #{point.user_grade}
+		where user_num = #{ user_num }
 	</update>
-	<!-- 1.13 수정 끝 -->
 	
 	<update id="approval_member" parameterType="MemberVO">
 		update tbl_user

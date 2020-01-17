@@ -7,11 +7,11 @@ import java.util.Random;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.mail.HtmlEmail;
-import org.springframework.ui.Model;
 
 import com.yata.common.Util;
 import com.yata.mapper.MemberMapper;
 import com.yata.vo.MemberVO;
+import com.yata.vo.PointVO;
 
 import lombok.Setter;
 
@@ -19,6 +19,8 @@ public class MemberServiceImpl implements MemberService {
 //	<!-- 1.13 수정  -->
 	@Setter
 	private MemberMapper memberMapper;
+	@Setter
+	private PointVO point;
 
 	@Override
 	public void registerMember(MemberVO member) throws Exception {
@@ -30,7 +32,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		member.setUser_key(create_key());
 		memberMapper.insertMember(member);
-		memberMapper.insertPoint(member.getUser_num());
+		// 회원가입시 포인트 1000000점 부여 (임시)
+		point.setActive_point(1000000);
+		point.setTotal_point(1000000);
+		member.setPoint(point);
+		memberMapper.insertPoint(member);
+		
 //		send_mail(member);
 
 	}
@@ -157,6 +164,14 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void findPoint(MemberVO member) {
 		memberMapper.findMember(member);
+		
+	}
+
+	@Override
+	public void updatePoint(MemberVO member) {
+		
+		
+		memberMapper.updatePoint(member);
 		
 	}
 
