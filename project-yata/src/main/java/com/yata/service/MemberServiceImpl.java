@@ -38,6 +38,20 @@ public class MemberServiceImpl implements MemberService {
 		member.setPoint(point);
 		memberMapper.insertPoint(member);
 		
+		if (member.getPoint().getTotal_point() < 100000) {
+			member.getPoint().setUser_grade("bronze");
+		} else if (member.getPoint().getTotal_point() >= 100000 && member.getPoint().getTotal_point() < 500000) {
+			member.getPoint().setUser_grade("silver");
+		} else if (member.getPoint().getTotal_point() >= 500000 && member.getPoint().getTotal_point() < 1000000) {
+			member.getPoint().setUser_grade("gold");
+		} else if (member.getPoint().getTotal_point() >= 1000000 && member.getPoint().getTotal_point() < 5000000) {
+			member.getPoint().setUser_grade("platinum");
+		} else {
+			member.getPoint().setUser_grade("diamond");
+		}
+		
+		memberMapper.updatePoint(member);
+		
 //		send_mail(member);
 
 	}
