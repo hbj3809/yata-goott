@@ -35,7 +35,10 @@
 		
 	<bean id="memberService" class="com.yata.service.MemberServiceImpl">
 		<property name="memberMapper" ref="memberMapper" />
+		<property name="point" ref="pointVO" />
 	</bean>
+	
+	<bean id="pointVO" class="com.yata.vo.PointVO" />
 	
 	<bean id="carService" class="com.yata.service.CarServiceImpl">
 		<property name="carMapper" ref="carMapper" />

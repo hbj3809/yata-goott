@@ -171,7 +171,7 @@ public class MemberServiceImpl implements MemberService {
 		String plainPasswd = member.getUser_passwd();
 		String hashedPasswd = Util.getHashedString(plainPasswd, "SHA-256");
 		member.setUser_passwd(hashedPasswd);
-		
+			
 		return memberMapper.selectMemberByEmailAndPasswd(member);
 	}
 

@@ -3,6 +3,7 @@ package com.yata.controller;
 import java.io.File;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -84,19 +85,51 @@ public class AccountController {
 		
 		return "account/login";
 	}
-	
-	
+
 	@PostMapping(path = { "/login" })
-	public String login(MemberVO member, HttpSession session) {
-				
-		MemberVO member2 = memberService.selectMemberByEmailAndPasswd(member);
-		
-		if (member2 == null) {
-			
+	public String login(MemberVO member, HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
+
+		Cookie[] getCookies = req.getCookies();
+
+		if (member == null) {
+
 			return "redirect:/account/login";
+
 		} else {
+			
+			MemberVO member2 = memberService.selectMemberByEmailAndPasswd(member);
+
+			if (getCookies != null) {
+				
+								
+				for (Cookie cookie : getCookies) {
+
+					if (cookie.getName().equals("loginPoint")) {
+
+						// 로그인 처리 -> session에 데이터 저장
+						session.setAttribute("loginuser", member2);
+
+						return "redirect:/";
+
+					}
+
+				}
+
+			}
+
+			Cookie cookie = new Cookie("loginPoint", "1");
+			
+			cookie.setMaxAge(60*60*24);
+			int tPoint = member2.getPoint().getTotal_point() + 1000;
+			int aPoint = member2.getPoint().getActive_point() + 1000;
+			member2.getPoint().setTotal_point(tPoint);
+			member2.getPoint().setActive_point(aPoint);
+			memberService.updatePoint(member2);
+
 			// 로그인 처리 -> session에 데이터 저장
 			session.setAttribute("loginuser", member2);
+			resp.addCookie(cookie);
+
 			return "redirect:/";
 		}
 	}
