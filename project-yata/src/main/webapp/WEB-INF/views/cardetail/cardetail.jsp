@@ -2,103 +2,125 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
-
-Name       : Sovereign 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20120902
-
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>상위 0.1%의 당신에게 제공합니다. YaTa</title>
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
-<link href="/project-yata/resources/yata-cardetail/css/carde.css" rel="stylesheet" type="text/css" media="screen" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>상위 0.1%의 당신에게 제공합니다.</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css"
+	href="/project-yata/resources/yata-cardetail/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/project-yata/resources/yata-cardetail/css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/project-yata/resources/yata-cardetail/css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/project-yata/resources/yata-cardetail/css/prettyPhoto.css" />
+<link rel="stylesheet" type="text/css"
+	href="/project-yata/resources/yata-cardetail/css/unslider.css" />
+<link rel="stylesheet" type="text/css"
+	href="/project-yata/resources/yata-cardetail/css/template.css" />
+
+<style>
+.carousel-inner>.carousel-item>img {
+	height: 320px;
+}
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+function linkToOpener(URL){
+if (window.opener && !window.opener.closed)
+window.opener.location = URL;
+window.close();
+}
+
+</script>
 </head>
 <body>
-<div id="wrapper">
-	<div id="header-wrapper">
-		<div id="header" class="container">
-			<div id="logo">
-				<h1><a href="/project-yata/">YaTa ! </a></h1>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	
+
+	<div class="container"></div>
+	<div id="demo" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<!-- 슬라이드 쇼 -->
+			<div class="carousel-item active">
+				<!--가로-->
+				<img class="d-block w-100"
+					src="#"
+					alt="First slide">
 			</div>
-			
-		</div>
-		<div class="container"><img src="/project-yata/resources/yata-cardetail/images/img03.png" width="1000" height="40" alt="" /></div>
-		<div id="banner">
-			<div class="content"><img src="/project-yata/resources/yata-cardetail/images/img08.jpg" width="1040" height="350" alt="" /></div>
-			<div><img src="/project-yata/resources/yata-cardetail/images/img03.png" width="1000" height="40" alt="" /></div>
-		</div>
-	</div>
-	<!-- end #header -->
-	<div id="page">
-		<div id="three-columns">
-			<div id="column1">
-				<h2>전면</h2>
-				<p><img src="/project-yata/resources/yata-cardetail/images/img04.jpg" width="300" height="150" alt="" /></p>
-				<p>이쁩니다.</p>
+			<div class="carousel-item">
+				<img class="d-block w-100"
+					src="#"
+					alt="Second slide">
 			</div>
-			<div id="column2">
-				<h2>후면</h2>
-				<p><img src="/project-yata/resources/yata-cardetail/images/img05.jpg" width="300" height="150" alt="" /></p>
-				<p>이쁘구요.</p>
+			<div class="carousel-item">
+				<img class="d-block w-100"
+					src="#"
+					alt="Third slide">
 			</div>
-			<div id="column3">
-				<h2>내부</h2>
-				<p><img src="/project-yata/resources/yata-cardetail/images/img06.jpg" width="300" height="150" alt="" /></p>
-				<p>깔끔합니다.</p>
-			</div>
-		</div>
-		<div id="content">
-			<div class="post">
-				<h2 class="title"><a href="#">차량 상세 정보</a></h2>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>이 <strong>벤 테이가</strong>는 비쌉니다.<p><img src="/project-yata/resources/yata-cardetail/images/img09.jpg" width="680" height="250" alt="" /></p>
-					<p>아시겠어요?</p>
-					<p class="links"><a href="#" class="more">렌트 예약하기</a><a href="#" title="b0x" class="comments">1:1 상담전화</a></p>
-				</div>
-			</div>
-		</div>
-		<!-- end #content -->
-		<div id="sidebar">
-			<ul>
-				<li>
-					<h2>렌트 정보</h2>
-					<ul>
-						<li><a href="#">시간당 가격은?</a></li>
-						<li><a href="#">예약가능 시간은?</a></li>
-						<li><a href="#">보험가입시 보험료는?</a></li>
-						<li><a href="#">오늘 저녁 메뉴 추천?</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>여기에 뭐를 쓸지..</h2>
-					<ul>
-						<li><a href="#">고민입니다.</a></li>
-					</ul>
-				</li>
+			<!-- / 슬라이드 쇼 끝 -->
+			<!-- 왼쪽 오른쪽 화살표 버튼 -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<!-- <span>Previous</span> -->
+			</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<!-- <span>Next</span> -->
+			</a>
+			<!-- / 화살표 버튼 끝 -->
+			<!-- 인디케이터 -->
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<!--0번부터시작-->
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
 			</ul>
+			<!-- 인디케이터 끝 -->
 		</div>
-		<!-- end #sidebar -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<div class="container"><img src="/project-yata/resources/yata-cardetail/images/img03.png" width="1000" height="40" alt="" /></div>
-	<!-- end #page --> 
-</div>
-<div id="footer-content"></div>
-<div id="footer">
-	<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
-</div>
-<!-- end #footer -->
+		</div>
+
+
+
+		<div class="car-content">
+			<h2 class="nino-sectionHeading">
+				<span class="text">차량 정보 </span>
+			</h2>
+			<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
+			</h3>
+			연비 : ${ car.car_fuel } L / KM<br> 가격 : 시간당 ${ car.car_price }
+			POINT<br> 등록일 : ${ car.car_date }
+		</div>
+
+		<div class="calculator">
+			<h2 class="nino-sectionHeading">
+				<span class="text">금액 계산기</span>
+			</h2>
+		</div>
+		
+		<div class="reserve-button">
+		<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">예약하러 가기</a>
+		<a href="javascript:linkToOpener('/project-yata/');" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기보기</a>
+		<a href="javascript:void(window.close())" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">취 소</a>
+		</div>
+		
 </body>
 </html>
