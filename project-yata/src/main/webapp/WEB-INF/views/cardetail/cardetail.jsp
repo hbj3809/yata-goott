@@ -63,23 +63,23 @@
 			<div class="carousel-item active">
 				<!--가로-->
 				<img class="d-block w-100"
-					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[0].car_picture }"
+					src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }"
 					alt="First slide">
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[1].car_picture }"
+					src="/project-yata/resources/file/carPic/${ car.carPhotos[1].car_picture }"
 					alt="Second slide">
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[2].car_picture }"
+					src="/project-yata/resources/file/carPic/${ car.carPhotos[2].car_picture }"
 					alt="Third slide">
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[3].car_picture }"
-					alt="Third slide">
+					src="/project-yata/resources/file/carPic/${ car.carPhotos[3].car_picture }"
+					alt="Fourth slide">
 			</div>
 			<br>
 			<!-- / 슬라이드 쇼 끝 -->
