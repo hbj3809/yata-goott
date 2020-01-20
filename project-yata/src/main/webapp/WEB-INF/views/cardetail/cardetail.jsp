@@ -115,11 +115,7 @@
 내용 : ${ car.car_content }
 	</div>
 
-	<div class="calculator">
-		<h2 class="nino-sectionHeading">
-			<span class="text">금액 계산기</span>
-		</h2>
-	</div>
+	<jsp:include page="/WEB-INF/views/cardetail/calculator.jsp" />
 
 	<div class="reserve-button">
 		<a href="#" class="btn btn-primary btn-lg active" role="button"
