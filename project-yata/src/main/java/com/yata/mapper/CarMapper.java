@@ -21,4 +21,6 @@ public interface CarMapper {
 
 	void deleteCar(int car_num);
 
+	CarVO findCarNum(int car_num);
+	
 }

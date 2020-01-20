@@ -1,8 +1,5 @@
 package com.yata.controller;
 
-import java.util.List;
-import java.util.Locale;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,10 +12,18 @@ import com.yata.vo.CarVO;
 @Controller // @Component + spring mvc 湲곕뒫 異붽�
 public class CardetailController {
 	
-	@GetMapping(path = { "/cardetail" })
-	public String carDetail(Model model) {
+	@Autowired
+	@Qualifier("carService")
+	private CarService carService;
 	
+	@GetMapping(path = { "/cardetail" })
+	public String carDetail(Model model, int car_num) {
 		
+		CarVO car = carService.findCarNum(car_num);
+		//System.out.println(car.getCar_num());
+		//System.out.println(car.getCarType().getCar_maker());
+		model.addAttribute("car", car);
+//		System.out.println(car.getCar_num());		
 		return "cardetail/cardetail";
 	}
 	

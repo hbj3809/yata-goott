@@ -43,4 +43,11 @@ public class CarServiceImpl implements CarService {
 		
 	}
 
+	@Override
+	public CarVO findCarNum(int car_num) {
+		
+		return carMapper.findCarNum(car_num);
+	}
+
+
 }
