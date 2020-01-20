@@ -442,6 +442,8 @@
 		    			<a href="/project-yata/board/review-list">후기게시판</a>
 				<br><br>
 				<c:forEach items="${ cars }" var="car" varStatus="status">
+				<form id="${ car.car_num }form" action="cardetail.action" method="get">
+				<input type="hidden" id="${ car.car_num }" name="${ car.car_num }">
 				<c:if test="${ status.index eq 0 or status.index % 4 eq 0 }">
 					<c:set var="cnt" value="0" />
 					<div class="row">
@@ -451,11 +453,11 @@
 							<article>
 								<div class="articleThumb">
 									<a
-									href="javascript:void(window.open('/project-yata/cardetail','','left=675px,top=100px,width=580px,height=800px'))">
+									href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=675px,top=100px,width=580px,height=800px')">
 									<img style="width: 263px;height: 163px" src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
 									</a>
 								</div>
-								<h3 class="articleTitle"><a href="#">[${ car.carType.car_maker }]&nbsp;${ car.carType.car_class }</a></h3>
+								<h3 class="articleTitle"><a href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=675px,top=100px,width=580px,height=800px')">[${ car.carType.car_maker }]&nbsp;${ car.carType.car_class }</a></h3>
 									<!-- <p class="articleDesc"></p> -->
 									연비 : ${ car.car_fuel } L / KM<br>
 									가격 : 시간당 ${ car.car_price } POINT<br>
@@ -470,6 +472,7 @@
 					</div>
 					<br>
 					</c:if>
+					</form>
 				</c:forEach>
 				<!-- <br> -->
 				
