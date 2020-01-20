@@ -1,6 +1,8 @@
 package com.yata.service;
 
 
+import java.util.List;
+
 import com.yata.mapper.ReserveMapper;
 import com.yata.vo.ReserveVO;
 
@@ -17,5 +19,9 @@ public class ReserveServiceImpl implements ReserveService {
 		return reserveMapper.findReserveByUser_num(user_num);
 	}
 
+	@Override
+	public List<ReserveVO> findReserves() {
+		return reserveMapper.findReserves();
+	}
 
 }

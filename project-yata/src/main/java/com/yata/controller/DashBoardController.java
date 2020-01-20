@@ -19,11 +19,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.yata.service.CarService;
 import com.yata.service.MemberService;
+import com.yata.service.ReserveService;
 import com.yata.vo.CarPhotoVO;
 import com.yata.vo.CarTypeVO;
 import com.yata.vo.CarVO;
 import com.yata.vo.MemberVO;
 import com.yata.vo.PointVO;
+import com.yata.vo.ReserveVO;
 
 @Controller
 @RequestMapping(path = { "/admin" })
@@ -36,6 +38,10 @@ public class DashBoardController {
 	@Autowired
 	@Qualifier("carService")
 	private CarService carService;
+	
+	@Autowired
+	@Qualifier("reserveService")
+	private ReserveService reserveService;	
 
 	@GetMapping(path = { "/dashboard" })
 	public String adminPage() {
@@ -47,6 +53,13 @@ public class DashBoardController {
 	public String regCarPage() {
 		
 		return "admin/reg-car";
+	}
+	
+	@GetMapping(path = { "/reservationlist" })
+	public String reservationlist(Model model) {
+		List<ReserveVO> reserves = reserveService.findReserves();
+		model.addAttribute("reserves",reserves);
+		return "admin/reservationlist";
 	}
 	
 	@PostMapping(path = { "/reg-car" })
@@ -104,7 +117,7 @@ public class DashBoardController {
 	}
 	
 	@GetMapping(path = { "/member-list" })
-	public String memberList(MemberVO member,PointVO point,Model model) {
+	public String memberList(MemberVO member,Model model) {
 		List<MemberVO> members = memberService.findMember(member);
 		model.addAttribute("members", members);
 		return "admin/member-list";

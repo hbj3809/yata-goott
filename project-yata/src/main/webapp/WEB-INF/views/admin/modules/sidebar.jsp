@@ -60,7 +60,12 @@
 	<li class="nav-item"><a class="nav-link" href="#"> <i
 			class="fas fa-fw fa-table"></i> <span class="text-white">1:1
 				문의</span></a></li>
-
+				
+	<!-- Nav Item - Charts -->
+	<li id="reservationList" class="nav-item"><a class="nav-link"
+		href="/project-yata/admin/reservationlist"> <i
+			class="fas fa-fw fa-chart-area"></i> <span class="text-white">예약 리스트</span></a></li>
+				
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
 

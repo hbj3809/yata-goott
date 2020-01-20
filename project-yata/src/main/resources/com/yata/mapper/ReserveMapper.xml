@@ -56,4 +56,13 @@
         where r.user_num = #{ user_num }
 	</select>
 
+	<select id="findReserves" resultMap="ReserveMap" parameterType="ReserveVO">
+		SELECT r.res_num , c.car_num , m.user_num , r.res_term , r.res_price , r.res_date , r.res_cancel
+		FROM reserve r 
+		INNER JOIN car c 
+		ON r.car_num = c.car_num		
+		INNER JOIN tbl_user m
+		ON r.user_num = m.user_num
+	</select>
+	
 </mapper>
