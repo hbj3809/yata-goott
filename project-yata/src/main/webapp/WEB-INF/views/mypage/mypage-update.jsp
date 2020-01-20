@@ -71,10 +71,10 @@
                 </div>
                 <div class="form-group row">
                 	<div class="col-sm-6 mb-3 mb-sm-0">
-                    	<input type="password" name="user_passwd" class="form-control form-control-user" id="passwd" value="${loginuser.user_passwd}">
+                    	<input type="password" name="user_passwd" class="form-control form-control-user" id="passwd" value="">
                   	</div>
                   	<div class="col-sm-6">
-                    	<input type="password" name="user_passwd_check" class="form-control form-control-user" id="passwdChk" value="${loginuser.user_passwd}">
+                    	<input type="password" name="user_passwd_check" class="form-control form-control-user" id="passwdChk" value="">
                   	</div>
                 </div>
                 <div class="form-group row">
