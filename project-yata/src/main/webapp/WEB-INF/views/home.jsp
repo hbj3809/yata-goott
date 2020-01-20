@@ -440,7 +440,7 @@
 			    	</div>
 		    	</section><!--/#nino-brand-->
 		    			<a href="/project-yata/board/review-list">후기게시판</a>
-				<br><br>
+				<br>
 				<c:forEach items="${ cars }" var="car" varStatus="status">
 				<form id="${ car.car_num }form" action="cardetail.action" method="get">
 				<input type="hidden" id="${ car.car_num }" name="${ car.car_num }">

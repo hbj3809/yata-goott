@@ -34,12 +34,11 @@
 </style>
 
 <script language="JavaScript" type="text/JavaScript">
-function linkToOpener(URL){
-if (window.opener && !window.opener.closed)
-window.opener.location = URL;
-window.close();
-}
-
+	function linkToOpener(URL) {
+		if (window.opener && !window.opener.closed)
+			window.opener.location = URL;
+		window.close();
+	}
 </script>
 </head>
 <body>
@@ -55,7 +54,7 @@ window.close();
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 
-	
+
 
 	<div class="container"></div>
 	<div id="demo" class="carousel slide" data-ride="carousel">
@@ -64,19 +63,25 @@ window.close();
 			<div class="carousel-item active">
 				<!--가로-->
 				<img class="d-block w-100"
-					src="#"
+					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[0].car_picture }"
 					alt="First slide">
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="#"
+					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[1].car_picture }"
 					alt="Second slide">
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="#"
+					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[2].car_picture }"
 					alt="Third slide">
 			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100"
+					src="/project-yata/resources/yata-index/images/CarPicture/${ car.carPhotos[3].car_picture }"
+					alt="Third slide">
+			</div>
+			<br>
 			<!-- / 슬라이드 쇼 끝 -->
 			<!-- 왼쪽 오른쪽 화살표 버튼 -->
 			<a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -89,38 +94,43 @@ window.close();
 			<!-- / 화살표 버튼 끝 -->
 			<!-- 인디케이터 -->
 			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<li data-target="#demo" data-slide-to="0" class="active"></li>&nbsp;
 				<!--0번부터시작-->
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
+				<li data-target="#demo" data-slide-to="1"></li>&nbsp;
+				<li data-target="#demo" data-slide-to="2"></li>&nbsp;
+				<li data-target="#demo" data-slide-to="3"></li>
 			</ul>
 			<!-- 인디케이터 끝 -->
 		</div>
-		</div>
+	</div>
+	<div class="car-content">
+		<h2 class="nino-sectionHeading">
+			<span class="text">차량 정보</span>
+		</h2>
+		<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
+		</h3>
+		연비 : ${ car.car_fuel } L / KM<br> 
+		가격 : 시간당 ${ car.car_price }POINT<br> 
+		등록일 : ${ car.car_date }<br>
+내용 : ${ car.car_content }
+	</div>
 
+	<div class="calculator">
+		<h2 class="nino-sectionHeading">
+			<span class="text">금액 계산기</span>
+		</h2>
+	</div>
 
+	<div class="reserve-button">
+		<a href="#" class="btn btn-primary btn-lg active" role="button"
+			aria-pressed="true">예약하러 가기</a> <a
+			href="javascript:linkToOpener('/project-yata/board/review-list');"
+			class="btn btn-primary btn-lg active" role="button"
+			aria-pressed="true">후기보기</a> <a
+			href="javascript:void(window.close())"
+			class="btn btn-secondary btn-sm" role="button" aria-pressed="true">취
+			소</a>
+	</div>
 
-		<div class="car-content">
-			<h2 class="nino-sectionHeading">
-				<span class="text">차량 정보 </span>
-			</h2>
-			<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
-			</h3>
-			연비 : ${ car.car_fuel } L / KM<br> 가격 : 시간당 ${ car.car_price }
-			POINT<br> 등록일 : ${ car.car_date }
-		</div>
-
-		<div class="calculator">
-			<h2 class="nino-sectionHeading">
-				<span class="text">금액 계산기</span>
-			</h2>
-		</div>
-		
-		<div class="reserve-button">
-		<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">예약하러 가기</a>
-		<a href="javascript:linkToOpener('/project-yata/board/review-list');" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기보기</a>
-		<a href="javascript:void(window.close())" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">취 소</a>
-		</div>
-		
 </body>
 </html>
