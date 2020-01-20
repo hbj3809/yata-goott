@@ -7,21 +7,28 @@
 <!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
 <mapper namespace="com.yata.mapper.CarMapper">
 	<!-- 1.13 수정 시작 -->
-	<insert id="insertCar" parameterType="CarVO" useGeneratedKeys="true" keyColumn="car_num" keyProperty="car_num">
-		INSERT INTO car (car_num, car_fuel, car_content, car_price, car_manual) 
-		VALUES (carnum_sequence.nextval, #{car_fuel}, #{car_content}, #{car_price}, #{car_manual})	
+	<insert id="insertCar" parameterType="CarVO"
+		useGeneratedKeys="true" keyColumn="car_num" keyProperty="car_num">
+		INSERT INTO
+		car (car_num, car_fuel, car_content, car_price, car_manual)
+		VALUES (carnum_sequence.nextval, #{car_fuel}, #{car_content}, #{car_price},
+		#{car_manual})
 	</insert>
-	
+
 	<insert id="insertCarPhoto" parameterType="CarPhotoVO">
-		INSERT INTO car_photo (car_photonum, car_num, car_picture)
-		VALUES (carphotonum_sequence.nextval, #{car_num}, #{car_picture})
+		INSERT INTO car_photo
+		(car_photonum, car_num, car_picture)
+		VALUES
+		(carphotonum_sequence.nextval, #{car_num}, #{car_picture})
 	</insert>
-	
+
 	<insert id="insertCarType" parameterType="CarTypeVO">
-		INSERT INTO car_type (car_num, car_class, car_maker)
-		VALUES (#{car_num}, #{car_class}, #{car_maker})
+		INSERT INTO car_type
+		(car_num, car_class, car_maker)
+		VALUES (#{car_num}, #{car_class},
+		#{car_maker})
 	</insert>
-	
+
 	<resultMap type="CarVO" id="CarMap">
 		<id column="car_num" property="car_num" />
 		<result column="car_fuel" property="car_fuel" />
@@ -29,32 +36,52 @@
 		<result column="car_content" property="car_content" />
 		<result column="car_price" property="car_price" />
 		<result column="car_date" property="car_date" />
-		<association property="carType" column="car_num" resultMap="carTypeMap" />
-		<association property="carPhotos" column="car_num" resultMap="carPhotoMap" />
+		<association property="carType" column="car_num"
+			resultMap="carTypeMap" />
+		<collection property="carPhotos" column="car_num"
+			resultMap="carPhotoMap" />
 	</resultMap>
 	<resultMap type="CarTypeVO" id="carTypeMap">
-		<id column="car_num" property="car_num"/>
+		<id column="car_num" property="car_num" />
 		<result column="car_maker" property="car_maker" />
 		<result column="car_class" property="car_class" />
 	</resultMap>
 	<resultMap type="CarPhotoVO" id="carPhotoMap">
-		<id column="car_num" property="car_num"/>
-		<result column="car_photoNum" property="car_photoNum" />
+		<id column="car_photoNum" property="car_photoNum" />
+		<result column="car_num" property="car_num" />
 		<result column="car_picture" property="car_picture" />
 	</resultMap>
-	
+
 	<select id="findCar" resultMap="CarMap" resultType="CarVO">
-		SELECT c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date, p.car_num, p.car_photonum, p.car_picture
-		FROM car c 
-		INNER JOIN car_type t 
+		SELECT
+		c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual,
+		c.car_content, c.car_price, c.car_date, p.car_num, p.car_photonum,
+		p.car_picture
+		FROM car c
+		INNER JOIN car_type t
 		ON c.car_num = t.car_num
 		LEFT OUTER JOIN car_photo p
-		ON c.car_num = p.car_num
+		ON c.car_num =
+		p.car_num
 	</select>
-	
+
 	<delete id="deleteCar" parameterType="int">
 		DELETE FROM car
-		WHERE car_num = #{car_num}
+		WHERE
+		car_num = #{car_num}
 	</delete>
-	
+	<select id="findCarNum" resultMap="CarMap" parameterType="int">
+		SELECT
+		c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual,
+		c.car_content, c.car_price, c.car_date, p.car_num, p.car_photonum,
+		p.car_picture
+		FROM car c
+		LEFT OUTER JOIN car_type t
+		ON c.car_num = t.car_num
+		LEFT OUTER JOIN car_photo p
+		ON c.car_num =
+		p.car_num
+		where c.car_num = #{car_num}
+	</select>
+
 </mapper>
