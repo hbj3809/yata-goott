@@ -25,6 +25,10 @@
 	<link rel="stylesheet" type="text/css" href="/project-yata/resources/yata-index/css/prettyPhoto.css" />
 	<link rel="stylesheet" type="text/css" href="/project-yata/resources/yata-index/css/unslider.css" />
 	<link rel="stylesheet" type="text/css" href="/project-yata/resources/yata-index/css/template.css" />
+	<link rel="stylesheet" type="text/css" href="/project-yata/resources/yata-res/css/mobiscroll.jquery.min.css" />
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="/project-yata/resources/yata-res/js/mobiscroll.jquery.min.js"></script>
 	
 	<style>
 	    .screen_out {display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
@@ -115,21 +119,92 @@
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Reservation</span>예약페이지<br></h2>
+						<a href="#" class="nino-btn">서비스 이용하기!</a>
+					</div>
+					<div class="item">
+						<h2 class="nino-sectionHeading"><span class="nino-subHeading">YATA! 예약서비스 - 1</span>예약 및 반납일 선택<br></h2>
+						<!-- 예약 및 반납 날짜 Bar -->
+					    <div class="mbsc-grid mbsc-form-grid">
+					        <div class="mbsc-form-group">
+					            <div class="mbsc-row">
+					                <div class="mbsc-col-sm-12 mbsc-col-md-6">
+					                    <label>
+					                        시작일자
+					                        <input mbsc-input data-input-style="box" id="demo-app-date" placeholder="Please Select..." />
+					                    </label>
+					                </div>
+					                <div class="mbsc-col-sm-12 mbsc-col-md-6">
+					                    <label>
+					                        시작시간
+					                        <input mbsc-input data-input-style="box" id="demo-app-time" placeholder="Please Select..." />
+					                    </label>
+					                </div>
+					                <div class="mbsc-col-sm-12 mbsc-col-md-6">
+					                    <label>
+					                        반납일자
+					                        <input mbsc-input data-input-style="box" id="demo-app-date2" placeholder="Please Select..." />
+					                    </label>
+					                </div>
+					                <div class="mbsc-col-sm-12 mbsc-col-md-6">
+					                    <label>
+					                        반납시간
+					                        <input mbsc-input data-input-style="box" id="demo-app-time2" placeholder="Please Select..." />
+					                    </label>
+					                </div>
+					                <br>
+					            </div>
+					            <a id="time" class="nino-btn" style="margin: 0 auto;">예약 가능한 차량 조회</a>
+					        </div>
+					    </div>
+						<script>
+							mobiscroll.settings = {
+						        lang: 'en',                           // Specify language like: lang: 'pl' or omit setting to use default
+						        theme: 'ios',                         // Specify theme like: theme: 'ios' or omit setting to use default
+						            themeVariant: 'light',            // More info about themeVariant: https://docs.mobiscroll.com/4-10-1/datetime#opt-themeVariant
+						        display: 'bubble'                     // Specify display mode like: display: 'bottom' or omit setting to use default
+						    };
+						    
+						    $(function () {
+						    
+						        // Mobiscroll Date & Time initialization
+						        $('#demo-app-date').mobiscroll().date();
+						        
+						        // Mobiscroll Date & Time initialization
+						        $('#demo-app-time').mobiscroll().time();
+						        
+						     	// Mobiscroll Date & Time initialization
+						        $('#demo-app-date2').mobiscroll().date();
+						        
+						        // Mobiscroll Date & Time initialization
+						        $('#demo-app-time2').mobiscroll().time();
+						        						        
+								$('#time').on('click', function(event) {
+									alert($('#demo-app-date').val());
+									alert($('#demo-app-time').val());
+									alert($('#demo-app-time2').val());
+									alert($('#demo-app-time2').val());
+
+									//var diff = (( new Date($('#demo-app-date2').val() + $('#demo-app-time2').val()) - new Date($('#demo-app-date2').val() + $('#demo-app-time').val()) )) / 1000 / 60 / 60;
+									//alert(diff);
+									
+									
+									//alert($('#demo-app-date2').val());
+									//alert($('#demo-app-time2').val());
+								});
+						        
+							});
+						</script>
+						
+						<!-- 예약 및 반납 날짜 Bar end -->
+					</div>
+					<div class="item">
+						<h2 class="nino-sectionHeading">
+							<span class="nino-subHeading">YATA! 예약서비스 - 2</span>차량 선택<br></h2>
 						<a href="#" class="nino-btn">더보러가기</a>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">Reservation</span>예약페이지<br></h2>
-						<a href="#" class="nino-btn">더보러가기</a>
-					</div>
-					<div class="item">
-						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">Reservation</span>예약페이지<br></h2>
-						<a href="#" class="nino-btn">더보러가기</a>
-					</div>
-					<div class="item">
-						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">Reservation</span>예약페이지<br></h2>
+							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br></h2>
 						<a href="#" class="nino-btn">더보러가기</a>
 					</div>
 				</div>
@@ -138,19 +213,19 @@
 				<ol class="carousel-indicators clearfix">
 					<li data-target="#nino-slider" data-slide-to="0" class="active">
 						<div class="inner">
-							<span class="number">01</span>예약</div>
+							<span class="number">01</span>&nbsp;예약 - 1</div>
 					</li>
 					<li data-target="#nino-slider" data-slide-to="1" class="">
 						<div class="inner">
-							<span class="number">02</span>예약</div>
+							<span class="number">02</span>&nbsp;예약 - 2</div>
 					</li>
 					<li data-target="#nino-slider" data-slide-to="2" class="">
 						<div class="inner">
-							<span class="number">03</span>예약</div>
+							<span class="number">03</span>&nbsp;예약 - 3</div>
 					</li>
 					<li data-target="#nino-slider" data-slide-to="3" class="">
 						<div class="inner">
-							<span class="number">04</span>예약</div>
+							<span class="number">04</span>&nbsp;예약 - 4</div>
 					</li>
 				</ol>
 			</section>
@@ -851,6 +926,7 @@
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/unslider-min.js"></script>
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/template.js"></script>
+	<script type="text/javascript" src="/project-yata/resources/yata-res/js/mobiscroll.jquery.min.js"></script>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
