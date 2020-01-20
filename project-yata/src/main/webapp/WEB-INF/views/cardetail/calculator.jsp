@@ -17,30 +17,54 @@
   <!-- Custom styles for this template-->
   <link href="/project-yata/resources/yata-member-admin/css/sb-admin-2.min.css" rel="stylesheet" type="text/css" />
   <script src="/project-yata/resources/yata-member-admin/vendor/fontawesome-free/js/all.min.js"></script>
+  <style type="text/css">
+  table>td {
+text-align:center;
+line-height:40px;
+}
+table>td>input
+{border:0px;
+
+}
+table {width:400px}
+table>tbody {width:100%}
+table>tbody>tr { width:100%}
+</style>
 </head>
 
 <body>
 
-<div class="calculator" style="height: 310px;">
+<div class="calculator" style="height: 260px;">
 		<h2 class="nino-sectionHeading">
 			<span class="text">금액 계산기</span>
-		</h2>   
-		
-		<input id="km" type="text" class="form-control form-control-user"  placeholder="주행거리(km)" 
-		style="width: 50%; padding: 10px; font-size: 15px; margin: 10px auto; text-align: center; line-height: 15px;"> </input>
-		<input id="fuel" type="text" class="form-control form-control-user"  placeholder="${ car.car_fuel }" value="${ car.car_fuel }"
-		style="width: 50%; padding: 10px; font-size: 15px; margin: 10px auto; text-align: center; line-height: 15px;" readonly="readonly" ></input>
-		<input id="gasoline" type="text" class="form-control form-control-user"  placeholder="1750" value="1750"
-		style="width: 50%; padding: 10px; font-size: 15px; margin: 10px auto; text-align: center; line-height: 15px;" readonly="readonly"></input>
-		<a href="#" class="btn btn-success btn-icon-split"
-		style="width: 50%; padding: 10px; font-size: 15px; margin: 10px auto; text-align: center; line-height: 15px; display: block;">
+			<a href="#" class="btn btn-success btn-icon-split"
+		style="font-size: 15px; text-align: center; display: block; width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;">
                     <span class="icon text-white-50">
                       <i class="fas fa-check"></i>
                     </span>
                     <span class="text" id="resultbtn">계산하기</span>                    
                   </a>
-        <input id="result" type="text" class="form-control form-control-user"  placeholder="result"
-		style="width: 50%; padding: 10px; font-size: 15px; margin: 20px auto; text-align: center; line-height: 15px;" readonly="readonly"></input>
+		</h2>   
+		<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 250px; font-size: 14px; margin:0 auto;">
+<tbody>
+          <tr role="row">
+              <td class="sorting_asc" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 201px; font-size: 14px;">
+			주행거리(km)
+              </td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">복합연비(km/리터)</td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">휘발유, 경유 가격(원/리터)</td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">결과</td>
+            </tr>        
+        <tr role="row" class="odd">
+            <td style="border:0px"><input id="km" type="text" style="border:0; text-align:center;"> </input></td>
+            <td style="border:0px"><input id="fuel" type="text" value="${ car.car_fuel }" readonly="readonly" style="border:0; text-align:center;"> </input></td>
+            <td style="border:0px"><input id="gasoline" type="text" value="1750" readonly="readonly" style="border:0; text-align:center;"> </input></td>            
+            <td style="border:0px"><input id="result" type="text" value="1750" readonly="readonly" style="border:0; text-align:center;"> </input></td>
+          </tr>
+        </tbody>
+      </table>      
 	</div>
 	<script type="text/javascript">
 	// 계산하기 버튼 누르면 작동
@@ -58,7 +82,7 @@
         var gasoline = $('#gasoline').val();
 
         // 숫자 소수점 버리기
-        var result = Math.ceil((km * fuel) * gasoline);
+        var result = Math.ceil((km / fuel) * gasoline);
         console.log(km);
         console.log(fuel);
         console.log(gasoline);

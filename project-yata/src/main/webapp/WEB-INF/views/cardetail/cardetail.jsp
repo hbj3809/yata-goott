@@ -109,10 +109,11 @@
 		</h2>
 		<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
 		</h3>
+		<p style="font-size: 14px;">
 		연비 : ${ car.car_fuel } L / KM<br> 
 		가격 : 시간당 ${ car.car_price }POINT<br> 
 		등록일 : ${ car.car_date }<br>
-내용 : ${ car.car_content }
+내용 : ${ car.car_content }</p>
 	</div>
 
 	<jsp:include page="/WEB-INF/views/cardetail/calculator.jsp" />
