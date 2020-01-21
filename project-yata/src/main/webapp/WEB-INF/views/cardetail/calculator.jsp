@@ -34,7 +34,7 @@ table>tbody>tr { width:100%}
 
 <body>
 
-<div class="calculator" style="height: 260px;">
+<div class="calculator" style="height: 235px;">
 		<h2 class="nino-sectionHeading">
 			<span class="text">금액 계산기</span>
 			<a href="#" class="btn btn-success btn-icon-split"

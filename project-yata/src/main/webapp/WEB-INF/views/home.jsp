@@ -530,7 +530,7 @@
 							<article>
 								<div class="articleThumb">
 									<a
-									href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=675px,top=100px,width=727px,height=833px')">
+									href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=615px,top=25px,width=727px,height=940px')">
 									<img style="width: 263px;height: 163px" src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
 									</a>
 								</div>

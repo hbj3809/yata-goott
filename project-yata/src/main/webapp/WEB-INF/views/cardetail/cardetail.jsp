@@ -32,6 +32,8 @@
 .carousel-inner>.carousel-item>img {
 	height: 320px;
 }
+.car-content {height:325px;}
+
 </style>
 
 <script language="JavaScript" type="text/JavaScript">
