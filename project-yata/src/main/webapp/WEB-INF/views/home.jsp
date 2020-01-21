@@ -187,8 +187,8 @@
 
 
 					<div class="item">
-						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br>
+						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
+							<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 3</span><span style="font-size: 20px">결제 및 이용내역 확인</span><br>
 						</h2>
 
 						<div>
@@ -248,7 +248,7 @@
 						</form>
 						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
 							<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 3</span><span style="font-size: 20px">결제 및 이용내역 확인</span><br></h2>
-						<a href="#" data-idx="3" class="nino-btn">예약 내역으로 이동</a>
+						<a data-idx="3" class="nino-btn">예약 내역으로 이동</a>
 					</div>
 				</div>
 

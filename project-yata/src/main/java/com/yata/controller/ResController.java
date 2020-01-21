@@ -3,6 +3,7 @@ package com.yata.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,8 +22,8 @@ public class ResController {
 	public String addReserve(ReserveVO res) {
 		
 		resService.addReserve(res);
-		
-		return "mypage/reservationlist";
+				
+		return String.format("redirect:mypage/reservationlist?user_num=%d",res.getUser_num());
 	}
 	
 }
