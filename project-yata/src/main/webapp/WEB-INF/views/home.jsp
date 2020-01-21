@@ -163,7 +163,6 @@
 					            <a id="time" data-idx="1"  class="nino-btn" style="margin: 0 auto; height: 30px">예약 가능한 차량 조회</a>
 					        </div>
 					    </div>
-	
 						<!-- 예약 및 반납 날짜 Bar end -->
 					</div>
 					<div class="item">
@@ -246,7 +245,7 @@
     <section id="nino-whatWeDo">
     	<div class="container">
     		<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">F&amp;Q</span>기업소개 및 F&amp;Q</h2>
+				<span class="nino-subHeading">FAQ</span>기업소개 및 FAQ</h2>
 			<p class="nino-sectionDesc">스마트한 이동 방법을 제시합니다.
 야타는 어느 지점에서 다른 지점으로 이동하려는 모든 사람들을 위해 합리적이고 스마트한 이동 방식을 제시 하고자 합니다.
 종합 모빌리티 플랫폼으로서 이동에 대한 선택이 보다 합리적이고, 스마트하고, 자유로운 세상을 꿈 꿉니다.
@@ -485,7 +484,6 @@
 			    		</div>
 			    	</div>
 		    	</section><!--/#nino-brand-->
-		    			<a href="/project-yata/board/review-list">후기게시판</a>
 				<br>
 				<c:forEach items="${ cars }" var="car" varStatus="status">
 				<form id="${ car.car_num }form" action="cardetail.action" method="get">
@@ -533,7 +531,7 @@
     ================================================== -->
     <section id="nino-happyClient">
     	<div class="container">
-    		<h2 class="nino-sectionHeading">
+    		<h2 class="nino-sectionHeading"><a href="/project-yata/board/review-list"/>
 				<span class="nino-subHeading">Happy Clients</span>이용자 후기</h2>
 			<div class="sectionContent">
 				<div class="row">
@@ -984,25 +982,6 @@
 	  
    });
    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
