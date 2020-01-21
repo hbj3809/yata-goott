@@ -119,14 +119,7 @@
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Reservation</span>예약페이지<br></h2>
-							<c:choose>
-	            				<c:when test="${ empty sessionScope.loginuser }">
-	            					<a href="/project-yata/account/login" class="nino-btn">로그인 후 이용하기!</a>
-	            				</c:when>
-	            				<c:otherwise>
-	            					<a href="#" class="nino-btn">서비스 이용하기!</a>		
-	            				</c:otherwise>
-							</c:choose>
+						<a href="#" class="nino-btn">서비스 이용하기!</a>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading"><span class="nino-subHeading">YATA! 예약서비스 - 1</span>예약 및 반납일 선택<br></h2>
@@ -186,14 +179,17 @@
 						        $('#demo-app-time2').mobiscroll().time();
 						        						        
 								$('#time').on('click', function(event) {
-									
-									var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val()) )) / 1000 / 60 / 60;
-									var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n 다음단계로 진행할까요?");
+									alert($('#demo-app-date').val());
+									alert($('#demo-app-time').val());
+									alert($('#demo-app-time2').val());
+									alert($('#demo-app-time2').val());
 
-									if (result) {
-										location.href="#";
-									}
+									//var diff = (( new Date($('#demo-app-date2').val() + $('#demo-app-time2').val()) - new Date($('#demo-app-date2').val() + $('#demo-app-time').val()) )) / 1000 / 60 / 60;
+									//alert(diff);
 									
+									
+									//alert($('#demo-app-date2').val());
+									//alert($('#demo-app-time2').val());
 								});
 						        
 							});
@@ -279,7 +275,7 @@
     <section id="nino-whatWeDo">
     	<div class="container">
     		<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">F&amp;Q</span>기업소개 및 F&amp;Q</h2>
+				<span class="nino-subHeading">FAQ</span>기업소개 및 FAQ</h2>
 			<p class="nino-sectionDesc">스마트한 이동 방법을 제시합니다.
 야타는 어느 지점에서 다른 지점으로 이동하려는 모든 사람들을 위해 합리적이고 스마트한 이동 방식을 제시 하고자 합니다.
 종합 모빌리티 플랫폼으로서 이동에 대한 선택이 보다 합리적이고, 스마트하고, 자유로운 세상을 꿈 꿉니다.
@@ -518,7 +514,6 @@
 			    		</div>
 			    	</div>
 		    	</section><!--/#nino-brand-->
-		    			<a href="/project-yata/board/review-list">후기게시판</a>
 				<br>
 				<c:forEach items="${ cars }" var="car" varStatus="status">
 				<form id="${ car.car_num }form" action="cardetail.action" method="get">
@@ -566,7 +561,7 @@
     ================================================== -->
     <section id="nino-happyClient">
     	<div class="container">
-    		<h2 class="nino-sectionHeading">
+    		<h2 class="nino-sectionHeading"><a href="/project-yata/board/review-list"/>
 				<span class="nino-subHeading">Happy Clients</span>이용자 후기</h2>
 			<div class="sectionContent">
 				<div class="row">
@@ -949,13 +944,7 @@
 	<![endif]-->
 
 
-	<script type="text/javascript">
-      $(function() {
-         $('.carousel').carousel({
-              interval: false
-            });
-      });
-   </script>
+
 
 
 

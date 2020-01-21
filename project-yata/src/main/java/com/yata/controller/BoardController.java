@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-//import com.yata.service.BoardService;
+import com.yata.vo.BoardVO;
 //import com.yata.service.BoardServiceImpl;
 import com.yata.ui.ThePager;
 import com.yata.ui.ThePager2;
@@ -32,7 +32,7 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	
 	@GetMapping(path = { "/review-list" })
-	public String list(
+	public String reviewlist(
 			@RequestParam(defaultValue = "1") int pageNo,
 			//RequestParam(required=false) : 요청 데이터가 없으면 null로 설정
 			@RequestParam(required = false) String searchType,
@@ -107,6 +107,27 @@ public class BoardController {
 //		//3. View로 이동
 //		return "board/detail";
 //	}
+
+	@GetMapping(path = { "/free-list" })
+	public String freelist(
+			@RequestParam(defaultValue = "1") int pageNo,
+			//RequestParam(required=false) : 요청 데이터가 없으면 null로 설정
+			@RequestParam(required = false) String searchType,
+			@RequestParam(required = false) String searchKey,
+			HttpServletRequest req,
+			Model model) { // 목록보기
+		
+
+		return "board/free-list"; // /WEB-INF/views/ + board/list + .jsp
+	}
+	
+
+	@GetMapping(path = { "/write.action" })
+	public String showWriteForm() { // 글쓰기 화면 보기
+
+		return "board/write";
+	}
+	
 
 }
 
