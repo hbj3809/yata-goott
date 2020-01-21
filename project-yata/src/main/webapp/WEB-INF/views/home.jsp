@@ -229,9 +229,9 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td scope="row">${ loginuser.point.active_point }</td>
-										<td>#</td>
-										<td>#</td>
+										<td scope="row" id="activePoint">${ loginuser.point.active_point }</td>
+										<td id="usePoint">#</td>
+										<td id="remainPoint">#</td>
 									</tr>
 								</tbody>
 							</table>
@@ -240,8 +240,8 @@
 							<input type="hidden" name="res_date" id="resDate" value="">
 							<input type="hidden" name="res_term" id="resTerm" value="">
 							<input type="hidden" name="car_num" id="carNum" value="">
-							<input type="hidden" name="car_class" id="carClass" value="">
-							<input type="hidden" name="car_price" id="carPrice" value="">
+							<input type="hidden" name="user_num" id="userNum" value="${ loginuser.user_num }">
+							<input type="hidden" name="res_price" id="resPrice" value="">
 							
 							<input type="submit" class="nino-btn"
 								style="background-color: transparent;" value="결제">
@@ -1169,6 +1169,16 @@
 			$('#car_price').text("차량 가격 : " + real_price);
 
 			$('#carModal').modal('hide');
+
+			$('#td-carClass').text(car_maker);
+			var totalPrice = (real_price * $('#resTerm').val());
+			console.log(totalPrice);
+			$('#td-totalPrice').text(totalPrice);
+			$('#usePoint').text(totalPrice);
+			var remainPrice = ($('#activePoint').text() - totalPrice);
+			$('#remainPoint').text(remainPrice);
+
+			$('#res_price').val(totalPrice);
 			
 		});
 				  

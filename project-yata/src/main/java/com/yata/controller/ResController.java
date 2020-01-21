@@ -17,8 +17,8 @@ public class ResController {
 	@Qualifier("reserveService")
 	private ReserveService resService;
 
-	@PostMapping(path = { "/" })
-	public String home(ReserveVO res) {
+	@PostMapping(path = { "" })
+	public String addReserve(ReserveVO res) {
 		
 		resService.addReserve(res);
 		
