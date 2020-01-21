@@ -12,5 +12,7 @@ public interface ReserveMapper {
 	ReserveVO findReserveByUser_num(int user_num);
 
 	List<ReserveVO> findReserves();
+	
+	void insertReserve(ReserveVO res);
 
 }

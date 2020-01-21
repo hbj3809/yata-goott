@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yata.service.MemberService;
 import com.yata.service.ReserveService;
@@ -47,13 +46,12 @@ public class MypageController {
 		return "mypage/mypage-qna";
 	}
 	@GetMapping(path = { "/reservationlist" })
-	public String reservationlist(Model model,int user_num) {
+	public String reservationlist(Model model, int user_num) {
 		ReserveVO reserve = reserveService.findReserveByUser_num(user_num);
 		if (reserve == null) {
-		return "redirect:/";
+		return "mypage/mypage-reservationlist";
 	}
-		model.addAttribute("reserve", reserve);		
-			
+		model.addAttribute("reserve", reserve);			
 		return "mypage/mypage-reservationlist";
 	}
 		

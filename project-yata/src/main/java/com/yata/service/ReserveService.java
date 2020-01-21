@@ -9,5 +9,7 @@ public interface ReserveService {
 	ReserveVO findReserveByUser_num(int user_num);
 
 	List<ReserveVO> findReserves();
+	
+	void addReserve(ReserveVO res);
 
 }

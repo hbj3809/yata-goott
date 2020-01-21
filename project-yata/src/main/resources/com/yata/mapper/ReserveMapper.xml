@@ -45,10 +45,16 @@
 		<result column="deleted" property="deleted" />		
 		<result column="user_active" property="user_active" />	
 	</resultMap>
+	
+	<insert id="insertReserve" parameterType="ReserveVO" useGeneratedKeys="true" keyColumn="res_num" keyProperty="res_num">
+		INSERT INTO
+		reserve (res_num, user_num, car_num, res_date, res_term, res_price)
+		VALUES (RESNUM_SEQUENCE.NEXTVAL, #{user_num}, #{car_num}, #{res_date}, #{res_term}, #{res_price})
+	</insert>
 			
 	<select id="findReserveByUser_num" resultMap="ReserveMap" parameterType="int">
-		SELECT r.res_num , c.car_num , m.user_num , r.res_term , r.res_price , r.res_date , r.res_cancel
-		FROM reserve r 
+		SELECT r.res_num, c.car_num, m.user_num, r.res_term, r.res_price, r.res_date, r.res_cancel
+		FROM reserve r
 		INNER JOIN car c 
 		ON r.car_num = c.car_num		
 		INNER JOIN tbl_user m
@@ -57,7 +63,9 @@
 	</select>
 
 	<select id="findReserves" resultMap="ReserveMap" parameterType="ReserveVO">
-		SELECT r.res_num , c.car_num , m.user_num , r.res_term , r.res_price , r.res_date , r.res_cancel
+		SELECT r.res_num, c.car_num, m.user_num, r.res_date, r.res_term, r.res_price, r.res_cancel,
+			c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date,
+			m.user_photo, m.user_email, m.user_name, m.user_birth, m.user_phone, m.user_postcode, m.user_addr, m.user_detailaddr, m.user_refaddr, m.user_regdate, m.user_drivenum
 		FROM reserve r 
 		INNER JOIN car c 
 		ON r.car_num = c.car_num		

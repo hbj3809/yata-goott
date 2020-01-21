@@ -58,7 +58,7 @@ public class DashBoardController {
 	@GetMapping(path = { "/reservationlist" })
 	public String reservationlist(Model model) {
 		List<ReserveVO> reserves = reserveService.findReserves();
-		model.addAttribute("reserves",reserves);
+		model.addAttribute("reserves", reserves);
 		return "admin/reservationlist";
 	}
 	

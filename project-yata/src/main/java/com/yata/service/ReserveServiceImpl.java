@@ -24,4 +24,11 @@ public class ReserveServiceImpl implements ReserveService {
 		return reserveMapper.findReserves();
 	}
 
+	@Override
+	public void addReserve(ReserveVO res) {
+		
+		reserveMapper.insertReserve(res);
+		
+	}
+
 }

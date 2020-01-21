@@ -160,16 +160,22 @@
 					                </div>
 					                <br>
 					            </div>
-					            <a id="time" data-idx="1"  class="nino-btn" style="margin: 0 auto; height: 30px">예약 가능한 차량 조회</a>
+					            <a id="time" data-idx="1" class="nino-btn" style="margin: 0 auto; height: 30px"  data-toggle="modal" data-target="#carModal">
+					            	예약 가능한 차량 조회
+					            </a>
 					        </div>
 					    </div>
 						<!-- 예약 및 반납 날짜 Bar end -->
 					</div>
+
+					
+
 					<div class="item">
 						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">YATA! 예약서비스 - 2</span>차량 선택<br></h2>
-						
-						
+							<span class="nino-subHeading">YATA! 예약서비스 - 2</span>차량 선택<br>
+						</h2>
+
+
 						<a href="#" data-idx="2" class="nino-btn">예약확인 및 결제</a>
 					</div>
 					<div class="item">
@@ -891,6 +897,30 @@
     <!-- Scroll to top
     ================================================== -->
 	<a href="#" id="nino-scrollToTop" style="display: none;">Go to Top</a>
+	
+	
+	
+	<!-- 차량 선택 Modal -->
+
+					<div class="modal fade" id="carModal" tabindex="-1"
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">...</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">완료</button>
+								</div>
+							</div>
+						</div>
+					</div>
 	
 	<!-- javascript -->
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/jquery.min.js"></script>	
