@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,17 +104,21 @@
 			<!-- 인디케이터 끝 -->
 		</div>
 	</div>
+<c:set var='lb' value="
+" /> 
 	<div class="car-content">
 		<h2 class="nino-sectionHeading">
 			<span class="text">차량 정보</span>
 		</h2>
 		<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
 		</h3>
-		<p style="font-size: 14px;">
+		
 		연비 : ${ car.car_fuel } L / KM<br> 
 		가격 : 시간당 ${ car.car_price }POINT<br> 
 		등록일 : ${ car.car_date }<br>
-내용 : ${ car.car_content }</p>
+내용 : 
+${ fn:replace( car.car_content, lb, "<br>") }
+	
 	</div>
 
 	<jsp:include page="/WEB-INF/views/cardetail/calculator.jsp" />

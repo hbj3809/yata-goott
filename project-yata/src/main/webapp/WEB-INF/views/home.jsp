@@ -950,10 +950,8 @@
 
 			var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
 			var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
-
-			alert(new Date($('#demo-app-date').val() + ' ' + diff));
-			
-			var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n 다음단계로 진행할까요?");
+					
+			alert("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동합니다.");
 
 			startdate = start;
 			total = diff;
@@ -965,11 +963,7 @@
 					//표시
 				}
 			});  */
-			
-			if (!result) {
-				return;
-			} 
-			
+				
 		});
 
 		var firedFromBtn = false;
