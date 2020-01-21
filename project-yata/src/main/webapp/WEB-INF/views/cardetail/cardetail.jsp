@@ -15,7 +15,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" type="text/css"
+<!-- <link rel="stylesheet" type="text/css"
 	href="/project-yata/resources/yata-cardetail/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="/project-yata/resources/yata-cardetail/css/materialdesignicons.min.css" />
@@ -26,13 +26,16 @@
 <link rel="stylesheet" type="text/css"
 	href="/project-yata/resources/yata-cardetail/css/unslider.css" />
 <link rel="stylesheet" type="text/css"
-	href="/project-yata/resources/yata-cardetail/css/template.css" />
+	href="/project-yata/resources/yata-cardetail/css/template.css" /> -->
 
 <style>
 .carousel-inner>.carousel-item>img {
-	height: 320px;
+	height: 360px;
 }
-.car-content {height:325px;}
+.car-content {height:200px;}
+.car-content h2, h2>span, h3 ,p  {text-align:center;}
+.car-content p {height: 345px; line-height: 11px;}
+
 
 </style>
 
@@ -110,17 +113,16 @@
 " /> 
 	<div class="car-content">
 		<h2 class="nino-sectionHeading">
-			<span class="text">차량 정보</span>
 		</h2>
 		<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
 		</h3>
-		
-		연비 : ${ car.car_fuel } L / KM<br> 
-		가격 : 시간당 ${ car.car_price }POINT<br> 
-		등록일 : ${ car.car_date }<br>
+		<p>
+		연비 : ${ car.car_fuel } L / KM<br> <br>
+		가격 : 시간당 ${ car.car_price }POINT<br> <br>
+		등록일 : ${ car.car_date }<br><br>
 내용 : 
 ${ fn:replace( car.car_content, lb, "<br>") }
-	
+	</p>
 	</div>
 
 	<jsp:include page="/WEB-INF/views/cardetail/calculator.jsp" />

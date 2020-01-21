@@ -18,6 +18,9 @@
   <link href="/project-yata/resources/yata-member-admin/css/sb-admin-2.min.css" rel="stylesheet" type="text/css" />
   <script src="/project-yata/resources/yata-member-admin/vendor/fontawesome-free/js/all.min.js"></script>
   <style type="text/css">
+  div.calculator {    text-align: center;
+    padding-top: 54px;
+}}
   table>td {
 text-align:center;
 line-height:40px;
@@ -26,6 +29,9 @@ table>td>input
 {border:0px;
 
 }
+div.reserve-button{    width: 335px;
+    margin: 0 auto;
+    padding-top: 64px;}
 table {width:400px}
 table>tbody {width:100%}
 table>tbody>tr { width:100%}
@@ -53,8 +59,8 @@ table>tbody>tr { width:100%}
               <td class="sorting_asc" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 201px; font-size: 14px;">
 			주행거리(km)
               </td>
-              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">복합연비(km/L)</td>
-              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">휘발유, 경유 가격(km/ℓ)</td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">복합연비(km/ℓ)</td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">휘발유, 경유 가격(원/ℓ)</td>
               <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">결과</td>
             </tr>        
         <tr role="row" class="odd">
