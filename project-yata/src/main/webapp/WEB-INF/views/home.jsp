@@ -949,7 +949,13 @@
 	<![endif]-->
 
 
-
+	<script type="text/javascript">
+      $(function() {
+         $('.carousel').carousel({
+              interval: false
+            });
+      });
+   </script>
 
 
 
