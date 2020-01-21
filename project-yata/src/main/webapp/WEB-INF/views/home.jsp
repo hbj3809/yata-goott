@@ -946,13 +946,17 @@
         						        
 		$('#time').on('click', function(event) {
 
-			var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
+			/* var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
 			var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
 					
-			alert("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동합니다.");
+			var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동합니다.");
 
+			if(!result) { 
+				return;
+			}
+			
 			startdate = start;
-			total = diff;
+			total = diff; */
 
 			/* $.ajax({
 				"url": "url",
@@ -966,9 +970,25 @@
 
 		var firedFromBtn = false;
 		$('#nino-slider .item a').on('click', function(event) {
-			var idx = $(this).attr("data-idx");
-			firedFromBtn = true;	
-			$('ol#carousel-indicators li[data-slide-to=' + (parseInt(idx)+1) + '] .inner').trigger('click');
+			var idx = parseInt($(this).attr("data-idx"));
+
+			if(idx == 1) {
+
+				var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
+				var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
+						
+				var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동할까요?");
+	
+				if(!result) { 
+					return;
+				}
+			
+			}
+						
+			if (idx < $("ol#carousel-indicators li").length - 1) {
+				firedFromBtn = true;	
+				$('ol#carousel-indicators li[data-slide-to=' + (idx+1) + '] .inner').trigger('click');
+			}
 			
 		});
 
