@@ -83,5 +83,41 @@
 		p.car_num
 		where c.car_num = #{car_num}
 	</select>
+	
+	<select id="showModifyCar" resultMap="CarMap" resultType="CarVO">
+		SELECT c.car_num, t.car_maker, t.car_class, c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date, p.car_num, p.car_photonum, p.car_picture 
+		FROM car c 
+		INNER JOIN car_type t 
+		ON c.car_num = t.car_num 
+		LEFT OUTER JOIN car_photo p 
+		ON c.car_num = p.car_num 
+		WHERE c.car_num = #{car_num}
+	</select>
+	
+	
+	<update id="updateCar" parameterType="CarVO">
+		UPDATE car 
+		SET car_content = #{car_content}, car_fuel = #{car_fuel}, car_price = #{car_price}, car_manual = #{car_manual} 
+		WHERE car_num = #{car_num}
+	</update>
+	
+	<update id="updateCarType" parameterType="CarTypeVO">
+		UPDATE car_type 
+		SET car_class = #{car_class}, car_maker = #{car_maker} 
+		WHERE car_num = #{car_num}
+	</update>
+	
+	<insert id="updateCarPhoto" parameterType="CarPhotoVO">
+		INSERT INTO car_photo
+		(car_photonum, car_num, car_picture)
+		VALUES
+		(carphotonum_sequence.nextval, #{car_num}, #{car_picture})
+	</insert>
+	
+	<delete id="deletePhoto" parameterType="int">
+	DELETE FROM car_photo 
+	WHERE car_num = #{car_num}
+	</delete>
+	
 
 </mapper>

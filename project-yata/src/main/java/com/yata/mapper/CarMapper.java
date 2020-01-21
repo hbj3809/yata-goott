@@ -23,6 +23,14 @@ public interface CarMapper {
 
 	CarVO findCarNum(int car_num);
 	
-	
+	CarVO showModifyCar(int car_num);
+
+	void updateCarPhoto(CarPhotoVO carPhoto);
+
+	void updateCar(CarVO car);
+
+	void updateCarType(CarTypeVO carType);
+
+	void deletePhoto(int car_num);
 	
 }

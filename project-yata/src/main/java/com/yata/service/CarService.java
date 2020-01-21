@@ -1,5 +1,6 @@
 package com.yata.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.yata.vo.CarPhotoVO;
@@ -16,6 +17,8 @@ public interface CarService {
 
 	CarVO findCarNum(int car_num);
 
-	
+	CarVO showModifyCar(int car_num);
+
+	void modifyCar(CarVO car, List<CarPhotoVO> carPhotos, CarTypeVO carType, int car_num);
 	
 }

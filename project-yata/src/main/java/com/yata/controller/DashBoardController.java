@@ -131,4 +131,63 @@ public class DashBoardController {
 		return "redirect:/admin/car-list";
 	}
 	
+
+	@GetMapping(path= {"/modify-car"})
+	public String showModifyCar(@RequestParam("carNum") int car_num, Model model) {
+		
+		CarVO car = carService.showModifyCar(car_num);
+		  
+		if (car == null){ return"redirect:/admin/car-list"; } 
+		 
+		model.addAttribute("car", car);
+		
+		return "admin/modify-car";
+	}
+	
+	@PostMapping(path= {"/modifyCar"})
+	public String modifyCar(@RequestParam("car_picture") MultipartFile[] pics, @RequestParam("car_manualx") MultipartFile manual, HttpServletRequest req, CarVO car, CarTypeVO carType, int car_num, Model model) {
+		
+		ArrayList<CarPhotoVO> carPhotos = new ArrayList<CarPhotoVO>();
+		
+		ServletContext application = req.getServletContext();
+		String path = application.getRealPath("resources/file/carPic");
+		
+				
+		for(MultipartFile pic : pics) {
+			CarPhotoVO carPhoto = new CarPhotoVO();
+			
+			String fileName = pic.getOriginalFilename();
+			System.out.println("사진: " + fileName);
+			
+			try {					
+				File f = new File(path, fileName);
+				pic.transferTo( f ); //파일 저장
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			carPhoto.setCar_picture(fileName);
+			carPhotos.add(carPhoto);
+		}
+		
+		String path2 = application.getRealPath("resources/file/carManual");
+		String fileName2 = manual.getOriginalFilename();
+
+		try {				
+			File f2 = new File(path2, fileName2);
+			manual.transferTo( f2 ); //파일 저장
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		System.out.println("매뉴얼: " + fileName2);
+		car.setCar_manual(fileName2);
+		
+		carService.modifyCar(car, carPhotos, carType, car_num);
+		
+		
+		
+		
+		
+		return "redirect:car-list";
+	}
+	
 }

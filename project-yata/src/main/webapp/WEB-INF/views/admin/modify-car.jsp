@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>차량등록</title>
+<title>차량수정</title>
 
 <!-- Custom fonts for this template-->
 <link
@@ -61,69 +61,80 @@
 									<div class="col-lg-7">
 										<div class="p-5">
 											<div class="text-center">
-												<h1 class="h4 text-gray-900 mb-4">차량 등록</h1>
+												<h1 class="h4 text-gray-900 mb-4">차량 수정</h1>
 											</div>
-											<form id="modify-form" action="/project-yata/admin/reg-car" method="post" enctype="multipart/form-data">
+											<form action="/project-yata/admin/modifyCar" method="post" enctype="multipart/form-data" id="modify-form">
+											<input type="hidden" name="car_num" value="${car.car_num }">
+											
+											
 												<div class="form-group">
 													<select class="form-control form-control-user"
-														name="car_maker">
+														name="car_maker" >
 														<option>벤틀리</option>
 														<option>페라리</option>
 														<option>람보르기니</option>
 														<option>롤스로이스</option>
+														<option selected="selected">${ car.carType.car_maker }</option>
 													</select>
 												</div>
 
 												<div class="form-group">
-													<select class="form-control form-control-user" name="car_class">
+													<select class="form-control form-control-user" name="car_class" >
 														<option>Bentayga</option>
 														<option>Continental GT</option>
 														<option>488 Spider</option>
 														<option>Laferrari</option>
 														<option>Aventador Roadster Svj</option>
-														<option>Urus</option>
+														<option>Urus</option>	
 														<option>Cullinan</option>
 														<option>Ghost Black Badge</option>
+														<option selected="selected">${ car.carType.car_class }</option>
 													</select>
 												</div>
 
 												<div class="form-group">
 													<textarea class="form-control form-control-user" name="car_content"
-														id="car-content" rows="8" placeholder="차량 상세"></textarea>
+														id="car-content" rows="8" >${ car.car_content }</textarea>
 												</div>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
 														<input type="text" class="form-control form-control-user" name="car_fuel"
-															id="car-fuel" placeholder="연비">
+															id="car-fuel" value="${ car.car_fuel }">
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
 														<input type="text" class="form-control form-control-user" name="car_price"
-															id="car-price" placeholder="시간당 가격">
+															id="car-price" value="${ car.car_price }">
 													</div>
 												</div>
 												<span>차량 사진</span>
+												<br>
+														
+																																
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input id="photo1" type="file" name="car_picture" data-idx="1" class="form-control">
+														<input id="photo1" type="file" name="car_picture" data-idx="1" class="form-control" >${car.carPhotos[0].car_picture}
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input id="photo2" type="file" name="car_picture" data-idx="2" class="form-control">
+														<input id="photo2" type="file" name="car_picture" data-idx="2" class="form-control" >${car.carPhotos[1].car_picture}
 													</div>
 												</div>
 												<div class="form-group row">
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input id="photo3" type="file" name="car_picture" data-idx="3" class="form-control">
+														<input id="photo3" type="file" name="car_picture" data-idx="3" class="form-control" >${car.carPhotos[2].car_picture}
 													</div>
 													<div class="col-sm-6 mb-3 mb-sm-0">
-														<input id="photo4" type="file" name="car_picture" data-idx="4" class="form-control">
+														<input id="photo4" type="file" name="car_picture" data-idx="4" class="form-control" >${car.carPhotos[3].car_picture}
 													</div>
 												</div>
 												<span>차량 매뉴얼</span>
 												<div class="form-group">
-													<input id="manual" type="file" name="car_manualx" class="form-control">
+													<input id="manual" type="file" name="car_manualx" class="form-control" >
+													<c:forEach var="file" items="${car.car_manual}">${car.car_manual }
+													</c:forEach>
 												</div>
 												<hr>
-												<input type="submit" value="등록" class="btn btn-primary btn-user btn-block">
+												<input type="submit" value="수정" class="btn btn-primary btn-user btn-block">
+												<input id="cancel" type="button" value="취소" class="btn btn-primary btn-user btn-block">
 											</form>
 											<hr>
 										</div>
@@ -160,23 +171,17 @@
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fas fa-angle-up"></i>
 	</a>
-
-	<!-- Bootstrap core JavaScript-->
-	<script
-		src="/project-yata/resources/yata-member-admin/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="/project-yata/resources/yata-member-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-	<!-- Core plugin JavaScript-->
-	<script
-		src="/project-yata/resources/yata-member-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script
-		src="/project-yata/resources/yata-member-admin/js/sb-admin-2.min.js"></script>
-	
 	<script type="text/javascript">
-		
+		$(function() {
+			$('#cancel').on('click', function() {
+				var choice = confirm("차량리스트로 되돌아 가시겠습니까?");
+				if (!choice) {
+					return;
+				}
+				location.href = "/project-yata/admin/car-list";
+			});
+		});
+
 	
 	    $('#modify-form').on('submit', function () {
 
@@ -214,6 +219,21 @@
 	    });
 		
 	</script>
+	
+	
+	<!-- Bootstrap core JavaScript-->
+	<script
+		src="/project-yata/resources/yata-member-admin/vendor/jquery/jquery.min.js"></script>
+	<script
+		src="/project-yata/resources/yata-member-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script
+		src="/project-yata/resources/yata-member-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script
+		src="/project-yata/resources/yata-member-admin/js/sb-admin-2.min.js"></script>
 
 </body>
 

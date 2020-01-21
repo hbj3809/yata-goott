@@ -1,5 +1,7 @@
 package com.yata.service;
 
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.yata.mapper.CarMapper;
@@ -49,7 +51,33 @@ public class CarServiceImpl implements CarService {
 		return carMapper.findCarNum(car_num);
 	}
 
+	@Override
+	public  CarVO showModifyCar(int car_num) {
+		
+		return carMapper.showModifyCar(car_num);
+	}
+
+	@Override
+	public void modifyCar(CarVO car, List<CarPhotoVO> carPhotos, CarTypeVO carType, int car_num) {
+		
+		carMapper.updateCar(car);
+		
+		System.out.println(carPhotos);
 	
+			
+		carMapper.deletePhoto(car_num);
+		
+		int newNum = car.getCar_num();
+		
+		for (CarPhotoVO carPhoto : carPhotos) {
+			carPhoto.setCar_num(newNum);
+			carMapper.insertCarPhoto(carPhoto);
+		}
+	
+		
+		carMapper.updateCarType(carType);
+		
+	}
 	
 
 }
