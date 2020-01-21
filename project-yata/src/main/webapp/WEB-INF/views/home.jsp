@@ -124,12 +124,13 @@
 	            					<a href="/project-yata/account/login" class="nino-btn">로그인 후 이용하기!</a>
 	            				</c:when>
 	            				<c:otherwise>
-	            					<a href="#" data-idx="0" class="nino-btn">서비스 이용하기!</a>		
+	            					<a data-idx="0" class="nino-btn">서비스 이용하기!</a>		
 	            				</c:otherwise>
 							</c:choose>
 					</div>
 					<div class="item">
-						<h2 class="nino-sectionHeading"><span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 1</span>예약 및 반납일 선택<br></h2>
+						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
+						<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 1</span><span style="font-size: 20px">예약 및 반납일 선택</span><br></h2>
 						<!-- 예약 및 반납 날짜 Bar -->
 					    <div class="mbsc-grid mbsc-form-grid">
 					        <div class="mbsc-form-group">
@@ -160,7 +161,7 @@
 					                </div>
 					                <br>
 					            </div>
-					            <a id="time" data-idx="1" class="nino-btn" style="margin: 0 auto; height: 30px"  data-toggle="modal" data-target="#carModal">
+					            <a id="time" data-idx="1" class="nino-btn" style="margin: 0 auto;"  data-toggle="modal" data-target="#carModal">
 					            	예약 가능한 차량 조회
 					            </a>
 					        </div>
@@ -171,16 +172,21 @@
 					
 
 					<div class="item">
-						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">YATA! 예약서비스 - 2</span>차량 선택<br>
+						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
+							<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 2</span><span style="font-size: 20px">차량 선택</span><br>
 						</h2>
-
-
-						<a href="#" data-idx="2" class="nino-btn">예약확인 및 결제</a>
+						<div>
+							<h4 style="text-align: center; color: white;">선택한 차량의 정보입니다.</h4>
+							<span id = "car_name"></span>
+							<br>
+							<span id = "car_price"></span>
+							<br><br>
+							<a data-idx="2" class="nino-btn">예약확인 및 결제</a>
+						</div>
 					</div>
 					<div class="item">
-						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br></h2>
+						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
+							<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 3</span><span style="font-size: 20px">결제 및 이용내역 확인</span><br></h2>
 						<a href="#" data-idx="3" class="nino-btn">예약 내역으로 이동</a>
 					</div>
 				</div>
@@ -908,20 +914,43 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+									<h2 style="text-align: center;" class="modal-title" id="exampleModalLabel">차량 선택</h2>
 									<button type="button" class="close" data-dismiss="modal"
 										aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								<div class="modal-body">...</div>
+								<div class="modal-body">
+								
+								<table id="dataTable" width="100%">
+				                  <thead>
+				                    <tr>
+				                      <th style = "text-align: center;">제조사</th>
+				                      <th style = "text-align: center;">이&nbsp;&nbsp;름</th>
+				                      <th style = "text-align: center;">시간당 가격</th>
+				                    </tr>
+				                  </thead>                  
+				                  <tbody>
+				                  	<c:forEach items="${ cars }" var="car">
+				                  	<tr>
+				                  	  <td style = "text-align: center;">${ car.carType.car_maker }
+				                  	  <input class="car-num" type="hidden" value="${ car.car_num }">
+				                  	  </td>
+				                      <td style = "text-align: center;"><a style="cursor: pointer;" class="res-car">${ car.carType.car_class }</a></td>
+				                      <td class="price" style = "text-align: center;">${ car.car_price }</td>
+				                    </tr>
+				                    </c:forEach>  
+				                  </tbody>
+				                  
+				                 </table>
+								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">완료</button>
+									<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">완료</button> -->
 								</div>
 							</div>
 						</div>
 					</div>
-	
+	<!-- Modal End -->
 	<!-- javascript -->
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/jquery.min.js"></script>	
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/isotope.pkgd.min.js"></script>
@@ -945,70 +974,72 @@
 	
 	<script src="/project-yata/resources/yata-res/js/mobiscroll.jquery.min.js"></script>
 	<script type="text/javascript">
-    $(function() {
-         $('.carousel').carousel({
-              interval: false
-         });
+	$(function() {
+    	$('.carousel').carousel({
+        	interval: false
+       	});
 
 
 		var current_position = 0;
 		var startdate = null;
 		var total = null; 
-		
+
 		mobiscroll.settings = {
-	        lang: 'en',                           // Specify language like: lang: 'pl' or omit setting to use default
-	        theme: 'ios',                         // Specify theme like: theme: 'ios' or omit setting to use default
-	            themeVariant: 'light',            // More info about themeVariant: https://docs.mobiscroll.com/4-10-1/datetime#opt-themeVariant
-	        display: 'bubble'                     // Specify display mode like: display: 'bottom' or omit setting to use default
-	    };
-	    
-        // Mobiscroll Date & Time initialization
-        $('#demo-app-date').mobiscroll().date();
-        
-        // Mobiscroll Date & Time initialization
-        $('#demo-app-time').mobiscroll().time();
-        
-     	// Mobiscroll Date & Time initialization
-        $('#demo-app-date2').mobiscroll().date();
-        
-        // Mobiscroll Date & Time initialization
-        $('#demo-app-time2').mobiscroll().time();
-        						        
+       		lang: 'en',                           // Specify language like: lang: 'pl' or omit setting to use default
+       		theme: 'ios',                         // Specify theme like: theme: 'ios' or omit setting to use default
+           	themeVariant: 'light',            // More info about themeVariant: https://docs.mobiscroll.com/4-10-1/datetime#opt-themeVariant
+       		display: 'bubble'                     // Specify display mode like: display: 'bottom' or omit setting to use default
+   		};
+   
+      	// Mobiscroll Date & Time initialization
+      	$('#demo-app-date').mobiscroll().date();
+      
+      	// Mobiscroll Date & Time initialization
+      	$('#demo-app-time').mobiscroll().time();
+      
+   		// Mobiscroll Date & Time initialization
+      	$('#demo-app-date2').mobiscroll().date();
+      
+      	// Mobiscroll Date & Time initialization
+      	$('#demo-app-time2').mobiscroll().time();
+      						        
 		$('#time').on('click', function(event) {
 
 			/* var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
 			var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
-					
+				
 			var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동합니다.");
-
+	
 			if(!result) { 
 				return;
 			}
-			
+		
 			startdate = start;
 			total = diff; */
-
+	
 			/* $.ajax({
 				"url": "url",
-				"data": { "start": , "diff": difff },
+				"data": { "start": , "diff": diff },
 				"success": function(d, status, xhr) {
-					//표시
+				//표시
 				}
 			});  */
-				
+		
 		});
 
+		// ol li 클릭 통제 및 다음단계 버튼 클릭시 화면 전환
+		
 		var firedFromBtn = false;
 		$('#nino-slider .item a').on('click', function(event) {
 			var idx = parseInt($(this).attr("data-idx"));
-
+		
 			if(idx == 1) {
-
+		
 				var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
 				var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
 						
 				var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동할까요?");
-	
+		
 				if(!result) { 
 					return;
 				}
@@ -1021,7 +1052,7 @@
 			}
 			
 		});
-
+		
 		$('#carousel-indicators li').on('click', function(event) {
 			if (!firedFromBtn) {
 				event.preventDefault();
@@ -1029,7 +1060,28 @@
 			}
 			firedFromBtn = false;
 		});
-	  
+		// ol li 클릭 통제 및 다음단계 버튼 클릭시 화면 전환 끝
+
+		// 차량 선택 Modal에서 차량 값 가져오기
+		$('.res-car').on('click', function(event) {
+
+			var car_num = $(this).parent().parent().find('.car-num').val();
+			var car_maker = $(this).parent().parent().find('.res-car').text();
+			var car_price = $(this).parent().parent().find('.price').text();
+			var real_price = parseInt(car_price); // int된 차량가
+
+			var car_name = "차량 이름 : " + car_maker;
+			var car_pri = "차량 가격 : " + real_price;
+
+			//console.log(car_name,car_pri);
+			
+			$('#car_name').text("차량 이름 : " + car_maker);
+			$('#car_price').text("차량 가격 : " + real_price);
+
+			$('#carModal').modal('hide');
+			
+		});
+				  
    });
    </script>
 
