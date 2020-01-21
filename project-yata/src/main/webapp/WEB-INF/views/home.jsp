@@ -119,7 +119,14 @@
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Reservation</span>예약페이지<br></h2>
-						<a href="#" class="nino-btn">서비스 이용하기!</a>
+							<c:choose>
+	            				<c:when test="${ empty sessionScope.loginuser }">
+	            					<a href="/project-yata/account/login" class="nino-btn">로그인 후 이용하기!</a>
+	            				</c:when>
+	            				<c:otherwise>
+	            					<a href="#" class="nino-btn">서비스 이용하기!</a>		
+	            				</c:otherwise>
+							</c:choose>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading"><span class="nino-subHeading">YATA! 예약서비스 - 1</span>예약 및 반납일 선택<br></h2>
@@ -179,17 +186,14 @@
 						        $('#demo-app-time2').mobiscroll().time();
 						        						        
 								$('#time').on('click', function(event) {
-									alert($('#demo-app-date').val());
-									alert($('#demo-app-time').val());
-									alert($('#demo-app-time2').val());
-									alert($('#demo-app-time2').val());
+									
+									var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val()) )) / 1000 / 60 / 60;
+									var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n 다음단계로 진행할까요?");
 
-									//var diff = (( new Date($('#demo-app-date2').val() + $('#demo-app-time2').val()) - new Date($('#demo-app-date2').val() + $('#demo-app-time').val()) )) / 1000 / 60 / 60;
-									//alert(diff);
+									if (result) {
+										location.href="#";
+									}
 									
-									
-									//alert($('#demo-app-date2').val());
-									//alert($('#demo-app-time2').val());
 								});
 						        
 							});
