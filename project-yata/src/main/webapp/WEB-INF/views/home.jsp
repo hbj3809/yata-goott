@@ -528,14 +528,14 @@
 							<article>
 								<div class="articleThumb">
 									<a
-									href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=675px,top=100px,width=580px,height=800px')">
+									href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=675px,top=100px,width=727px,height=833px')">
 									<img style="width: 263px;height: 163px" src="/project-yata/resources/file/carPic/${ car.carPhotos[0].car_picture }">
 									</a>
 								</div>
 								<h3 class="articleTitle"><a href="javascript:window.open('/project-yata/cardetail?car_num=${ car.car_num }','','left=675px,top=100px,width=580px,height=800px')">[${ car.carType.car_maker }]&nbsp;${ car.carType.car_class }</a></h3>
 									<!-- <p class="articleDesc"></p> -->
 									연비 : ${ car.car_fuel } L / KM<br>
-									가격 : 시간당 ${ car.car_price } POINT<br>
+									가격 : 시간당 ${ car.car_price } POINT<br>	
 									등록일 : ${ car.car_date }
 								<div class="articleMeta">
 									<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>

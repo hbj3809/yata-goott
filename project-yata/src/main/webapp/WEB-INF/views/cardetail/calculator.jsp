@@ -53,8 +53,8 @@ table>tbody>tr { width:100%}
               <td class="sorting_asc" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 201px; font-size: 14px;">
 			주행거리(km)
               </td>
-              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">복합연비(km/리터)</td>
-              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">휘발유, 경유 가격(원/리터)</td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">복합연비(km/L)</td>
+              <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">휘발유, 경유 가격(L당)</td>
               <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">결과</td>
             </tr>        
         <tr role="row" class="odd">
