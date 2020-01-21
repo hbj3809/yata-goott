@@ -1178,7 +1178,9 @@
 			var remainPrice = ($('#activePoint').text() - totalPrice);
 			$('#remainPoint').text(remainPrice);
 
-			$('#res_price').val(totalPrice);
+			$('#resPrice').val(totalPrice);
+			$('#carNum').val(car_num);
+			
 			
 		});
 				  
