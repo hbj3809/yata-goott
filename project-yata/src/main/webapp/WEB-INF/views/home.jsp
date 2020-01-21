@@ -124,12 +124,12 @@
 	            					<a href="/project-yata/account/login" class="nino-btn">로그인 후 이용하기!</a>
 	            				</c:when>
 	            				<c:otherwise>
-	            					<a href="#" class="nino-btn">서비스 이용하기!</a>		
+	            					<a href="#" data-idx="0" class="nino-btn">서비스 이용하기!</a>		
 	            				</c:otherwise>
 							</c:choose>
 					</div>
 					<div class="item">
-						<h2 class="nino-sectionHeading"><span class="nino-subHeading">YATA! 예약서비스 - 1</span>예약 및 반납일 선택<br></h2>
+						<h2 class="nino-sectionHeading"><span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 1</span>예약 및 반납일 선택<br></h2>
 						<!-- 예약 및 반납 날짜 Bar -->
 					    <div class="mbsc-grid mbsc-form-grid">
 					        <div class="mbsc-form-group">
@@ -160,61 +160,28 @@
 					                </div>
 					                <br>
 					            </div>
-					            <a id="time" class="nino-btn" style="margin: 0 auto;">예약 가능한 차량 조회</a>
+					            <a id="time" data-idx="1"  class="nino-btn" style="margin: 0 auto; height: 30px">예약 가능한 차량 조회</a>
 					        </div>
 					    </div>
-						<script>
-							mobiscroll.settings = {
-						        lang: 'en',                           // Specify language like: lang: 'pl' or omit setting to use default
-						        theme: 'ios',                         // Specify theme like: theme: 'ios' or omit setting to use default
-						            themeVariant: 'light',            // More info about themeVariant: https://docs.mobiscroll.com/4-10-1/datetime#opt-themeVariant
-						        display: 'bubble'                     // Specify display mode like: display: 'bottom' or omit setting to use default
-						    };
-						    
-						    $(function () {
-						    
-						        // Mobiscroll Date & Time initialization
-						        $('#demo-app-date').mobiscroll().date();
-						        
-						        // Mobiscroll Date & Time initialization
-						        $('#demo-app-time').mobiscroll().time();
-						        
-						     	// Mobiscroll Date & Time initialization
-						        $('#demo-app-date2').mobiscroll().date();
-						        
-						        // Mobiscroll Date & Time initialization
-						        $('#demo-app-time2').mobiscroll().time();
-						        						        
-								$('#time').on('click', function(event) {
-									
-									var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val()) )) / 1000 / 60 / 60;
-									var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n 다음단계로 진행할까요?");
-
-									if (result) {
-										location.href="#";
-									}
-									
-								});
-						        
-							});
-						</script>
-						
+	
 						<!-- 예약 및 반납 날짜 Bar end -->
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">YATA! 예약서비스 - 2</span>차량 선택<br></h2>
-						<a href="#" class="nino-btn">더보러가기</a>
+						
+						
+						<a href="#" data-idx="2" class="nino-btn">예약확인 및 결제</a>
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br></h2>
-						<a href="#" class="nino-btn">더보러가기</a>
+						<a href="#" data-idx="3" class="nino-btn">예약 내역으로 이동</a>
 					</div>
 				</div>
 
 				<!-- Indicators -->
-				<ol class="carousel-indicators clearfix">
+				<ol id="carousel-indicators" class="carousel-indicators clearfix">
 					<li data-target="#nino-slider" data-slide-to="0" class="active">
 						<div class="inner">
 							<span class="number">01</span>&nbsp;예약 - 1</div>
@@ -938,7 +905,7 @@
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/unslider-min.js"></script>
 	<script type="text/javascript" src="/project-yata/resources/yata-index/js/template.js"></script>
 	<script type="text/javascript" src="/project-yata/resources/yata-res/js/mobiscroll.jquery.min.js"></script>
-
+	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -947,14 +914,81 @@
 	<!--[if lt IE 9]>
 	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
-
-
+	
+	<script src="/project-yata/resources/yata-res/js/mobiscroll.jquery.min.js"></script>
 	<script type="text/javascript">
-      $(function() {
+    $(function() {
          $('.carousel').carousel({
               interval: false
-            });
-      });
+         });
+
+
+		var current_position = 0;
+		var startdate = null;
+		var total = null; 
+		
+		mobiscroll.settings = {
+	        lang: 'en',                           // Specify language like: lang: 'pl' or omit setting to use default
+	        theme: 'ios',                         // Specify theme like: theme: 'ios' or omit setting to use default
+	            themeVariant: 'light',            // More info about themeVariant: https://docs.mobiscroll.com/4-10-1/datetime#opt-themeVariant
+	        display: 'bubble'                     // Specify display mode like: display: 'bottom' or omit setting to use default
+	    };
+	    
+        // Mobiscroll Date & Time initialization
+        $('#demo-app-date').mobiscroll().date();
+        
+        // Mobiscroll Date & Time initialization
+        $('#demo-app-time').mobiscroll().time();
+        
+     	// Mobiscroll Date & Time initialization
+        $('#demo-app-date2').mobiscroll().date();
+        
+        // Mobiscroll Date & Time initialization
+        $('#demo-app-time2').mobiscroll().time();
+        						        
+		$('#time').on('click', function(event) {
+
+			var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
+			var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
+
+			alert(new Date($('#demo-app-date').val() + ' ' + diff));
+			
+			var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n 다음단계로 진행할까요?");
+
+			startdate = start;
+			total = diff;
+
+			/* $.ajax({
+				"url": "url",
+				"data": { "start": , "diff": difff },
+				"success": function(d, status, xhr) {
+					//표시
+				}
+			});  */
+			
+			if (!result) {
+				return;
+			} 
+			
+		});
+
+		var firedFromBtn = false;
+		$('#nino-slider .item a').on('click', function(event) {
+			var idx = $(this).attr("data-idx");
+			firedFromBtn = true;	
+			$('ol#carousel-indicators li[data-slide-to=' + (parseInt(idx)+1) + '] .inner').trigger('click');
+			
+		});
+
+		$('#carousel-indicators li').on('click', function(event) {
+			if (!firedFromBtn) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+			firedFromBtn = false;
+		});
+	  
+   });
    </script>
 
 
