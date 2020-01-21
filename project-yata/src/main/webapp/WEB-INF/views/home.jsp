@@ -178,10 +178,37 @@
 
 						<a href="#" data-idx="2" class="nino-btn">예약확인 및 결제</a>
 					</div>
+					
+					
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br></h2>
-						<a href="#" data-idx="3" class="nino-btn">예약 내역으로 이동</a>
+
+						<div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">예약시간</th>
+										<th scope="col">반납시간</th>
+										<th scope="col">예약차량</th>
+										<th scope="col">가격</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td scope="row">
+											
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+						<a href="#" data-idx="3" class="nino-btn">결제</a>
 					</div>
 				</div>
 
