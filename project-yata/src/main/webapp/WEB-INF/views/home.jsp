@@ -77,18 +77,18 @@
 								<li class=""><a href="#nino-map">야타 지도</a></li>
 							</ul>
 							
-							<c:choose>	
+							<c:choose>
 	            				<c:when test="${ empty sessionScope.loginuser }">
 									<a style="color: white;" href="/project-yata/account/login">로그인</a>
 									&nbsp;&nbsp;
 									<a style="color: white;" href="/project-yata/account/regAccpt">회원가입</a>
-								</c:when>
+								</c:when>	
 								<c:when test="${ loginuser.user_type eq 'admin' }">
 									<a style="color: white;" href="/project-yata/admin/dashboard">관리자페이지</a>
 					            	&nbsp;&nbsp;
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>
-								</c:when>
-			            		<c:when test="${ loginuser.user_active eq 'true' }">
+								</c:when>							
+			            		<c:when test="${ loginuser.user_active eq 'true' and loginuser.user_type eq 'user' }">
 					            	<a style="color: white;" href="/project-yata/mypage/mypage-main">${loginuser.user_Name}님</a>
 					            	&nbsp;&nbsp;
 					            	<a style="color: white;" href="/project-yata/account/logout">로그아웃</a>

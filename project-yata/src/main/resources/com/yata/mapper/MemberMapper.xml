@@ -56,7 +56,8 @@
 		<result column="user_key" property="user_key" />
 		<result column="user_driveNum" property="user_driveNum" />		
 		<result column="deleted" property="deleted" />		
-		<result column="user_active" property="user_active" />		
+		<result column="user_active" property="user_active" />
+		<result column="user_type" property="user_type" />	
 		<association property="point" column="user_num" resultMap="pointMap" />
 	</resultMap>
 	<resultMap type="PointVO" id="pointMap" >
@@ -75,7 +76,7 @@
 	</select>
 	
 	<select id="selectMemberByEmailAndPasswd" parameterType="MemberVO" resultMap="MemberMap" resultType="MemberVO">
-		SELECT p.user_num, m.user_photo, m.user_email, m.user_passwd, m.user_Name, m.user_birth, m.user_phone, m.user_postcode, m.user_addr, m.user_detailAddr, m.user_refAddr, m.user_driveNum, m.user_Type, m.user_active, m.user_regDate, p.total_point, p.active_point, p.point_date , p.user_grade
+		SELECT p.user_num, m.user_photo, m.user_email, m.user_passwd, m.user_Name, m.user_birth, m.user_phone, m.user_postcode, m.user_addr, m.user_detailAddr, m.user_refAddr, m.user_driveNum, m.user_type, m.user_active, m.user_regDate, p.total_point, p.active_point, p.point_date , p.user_grade
 		FROM tbl_user m
 		INNER JOIN tbl_point p
 		ON m.user_num = p.user_num 
