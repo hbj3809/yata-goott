@@ -178,11 +178,12 @@
 
 						<a href="#" data-idx="2" class="nino-btn">예약확인 및 결제</a>
 					</div>
-					
-					
+
+
 					<div class="item">
 						<h2 class="nino-sectionHeading">
-							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br></h2>
+							<span class="nino-subHeading">YATA! 예약서비스 - 3</span>결제 및 이용내역 확인<br>
+						</h2>
 
 						<div>
 							<table class="table">
@@ -197,18 +198,48 @@
 								<tbody>
 									<tr>
 										<td scope="row">
-											
+											<p id="td-resDate"></p>
 										</td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>
+											<p id="td-resRetDate"></p>
+										</td>
+										<td>
+											<p id="td-carClass"></p>
+										</td>
+										<td>
+											<p id="td-totalPrice"></p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<hr>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">가용포인트</th>
+										<th scope="col">사용포인트</th>
+										<th scope="col">잔여포인트</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td scope="row">${ loginuser.point.active_point }</td>
+										<td>#</td>
+										<td>#</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
-
-
-						<a href="#" data-idx="3" class="nino-btn">결제</a>
+						<form id="res-form" action="/project-yata/res" method="post">
+							<input type="hidden" name="res_date" id="resDate" value="">
+							<input type="hidden" name="res_term" id="resTerm" value="">
+							<input type="hidden" name="car_num" id="carNum" value="">
+							<input type="hidden" name="car_class" id="carClass" value="">
+							<input type="hidden" name="car_price" id="carPrice" value="">
+							
+							<input type="submit" class="nino-btn"
+								style="background-color: transparent;" value="결제">
+						</form>
 					</div>
 				</div>
 
@@ -1025,20 +1056,48 @@
 				
 		});
 
+
+		function getFormatDate(date) {
+		    var year = date.getFullYear();              //yyyy
+		    var month = (1 + date.getMonth());          //M
+		    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+		    var day = date.getDate();                   //d
+		    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+		    return  year + "년 " + month + "월 " + day + "일";
+		}
+		
+
 		var firedFromBtn = false;
 		$('#nino-slider .item a').on('click', function(event) {
 			var idx = parseInt($(this).attr("data-idx"));
 
 			if(idx == 1) {
 
-				var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val())
-				var diff = (( new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val()) - start )) / 1000 / 60 / 60;
+				var start = new Date($('#demo-app-date').val() + " " + $('#demo-app-time').val());
+				var end = new Date($('#demo-app-date2').val() + " " + $('#demo-app-time2').val());
+				var diff = (( end - start )) / 1000 / 60 / 60;
 						
 				var result = confirm("고객님의 총 대여시간은 " + diff + "시간입니다.\n다음단계로 이동할까요?");
 	
 				if(!result) { 
 					return;
 				}
+				
+				var start2 = getFormatDate(start);
+				var end2 = getFormatDate(end);
+
+				var start3 = $('#demo-app-time').val();
+				var end3 = $('#demo-app-time2').val();
+
+				var start4 = start2 + " " + start3;
+				var end4 = end2 + " " + end3;
+
+				$('#td-resDate').text(start4);
+				$('#td-resRetDate').text(end4);
+
+				$('#resDate').val(start);
+				$('#resTerm').val(diff);
+				
 			
 			}
 						
