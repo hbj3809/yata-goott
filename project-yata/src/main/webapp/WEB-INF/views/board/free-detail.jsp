@@ -1,152 +1,166 @@
-<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <title>야타(YATA!) 게시판</title>
+<title>야타(YATA!) 게시판</title>
 
-  <!-- Custom fonts for this template-->
-  <link href="/project-yata/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link
+	href="/project-yata/resources/vendor/fontawesome-free/css/all.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link href="/project-yata/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="/project-yata/resources/css/sb-admin-2.min.css"
+	rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
 
-    <jsp:include page="/WEB-INF/views/board/modules/sidebar.jsp" />
+		<jsp:include page="/WEB-INF/views/board/modules/sidebar.jsp" />
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+			<!-- Main Content -->
+			<div id="content">
 
-        <jsp:include page="/WEB-INF/views/board/modules/topbar.jsp" />
-        
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+				<jsp:include page="/WEB-INF/views/board/modules/topbar.jsp" />
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">자유 게시판</h1>
-          <br>
-          
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <span class="m-0 font-weight-bold text-primary">글 상세 보기</span>
-            </div>
-            <div class="card-body">
-               
-               	  <div class="form-group">
-		            <label>글번호</label> 
-		            <input class="form-control" id='brd_num' name='brd_num' value='${ board.brd_num }'>
-		          </div>
-		          
-		          <div class="form-group">
-		            <label>제목</label> 
-		            <input class="form-control" id='brd_title' name='brd_title' value='${ board.brd_title }'>
-		          </div>
-		
-		          <div class="form-group">
-		            <label>내용</label>
-		            <textarea class="form-control" rows="3" id='brd_content' name='brd_content'>${ board.brd_content }</textarea>
-		          </div>
-		
-		          <div class="form-group">
-		            <label>작성자</label> 
-		            <input class="form-control" id='brd_writer' name='brd_writer' value='${ board.brd_writer }'>
-		          </div>
-		          
-		          <div class="form-group">
-		            <label>작성일자</label> 
-		            <input class="form-control" id='regDate' value='${ board.brd_regDate }'>
-		          </div>
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
 
-		          <c:if test="${ loginuser.user_num == board.brd_writer }">
-		          <button id="edit-button" type="button" class="btn btn-success">수정</button>
-		          <button id="delete-button" type="button" class="btn btn-success">삭제</button>
-		          </c:if>
-		          <button id="tolist-button" type="button" class="btn btn-success">목록</button>
-		       
-            </div>
-          </div>
-
-			
-		<div class='rowx'>
-
-			<div class="col-lg-12">
-
-				<div class="panel panel-default">
-
-					<div class="panel-heading">
-						<i class="fa fa-comments fa-fw"></i>
-						<h2 class="d-inline">Reply</h2>
-						<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right float-right'>New Reply</button>
-					</div>
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">자유 게시판</h1>
 					<br>
-					<div id="reply-list-container" class="panel-body">
 
-						<%-- <jsp:include page="reply-list.jsp" /> --%>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<span class="m-0 font-weight-bold text-primary">글 상세 보기</span>
+						</div>
+						<div class="card-body">
+
+							<div class="form-group">
+								<label>글번호</label> <input class="form-control" id='brd_num'
+									name='brd_num' value='${ board.brd_num }'>
+							</div>
+
+							<div class="form-group">
+								<label>제목</label> <input class="form-control" id='brd_title'
+									name='brd_title' value='${ board.brd_title }'>
+							</div>
+
+							<div class="form-group">
+								<label>내용</label>
+								<textarea class="form-control" rows="3" id='brd_content'
+									name='brd_content'>${ board.brd_content }</textarea>
+							</div>
+
+							<div class="form-group">
+								<label>작성자</label> <input class="form-control" id='brd_writer'
+									name='brd_writer' value='${ board.brd_writer }'>
+							</div>
+
+							<div class="form-group">
+								<label>작성일자</label> <input class="form-control" id='regDate'
+									value='${ board.brd_regDate }'>
+							</div>
+
+					<%-- 		<c:if test="${ loginuser.user_num == board.user_num }">
+								<button id="edit-button" type="button" class="btn btn-success">수정</button>
+								<button id="delete-button" type="button" class="btn btn-success">삭제</button>
+							</c:if> --%>
+
+							<button id="edit-button" type="button" class="btn btn-success">수정</button>
+							<button id="delete-button" type="button" class="btn btn-success">삭제</button>
+							<button id="tolist-button" type="button" class="btn btn-success">목록</button>
+
+						</div>
+					</div>
+
+
+					<div class='rowx'>
+
+						<div class="col-lg-12">
+
+							<div class="panel panel-default">
+
+								<div class="panel-heading">
+									<i class="fa fa-comments fa-fw"></i>
+									<h2 class="d-inline">Reply</h2>
+									<button id='addReplyBtn'
+										class='btn btn-primary btn-xs pull-right float-right'>New
+										Reply</button>
+								</div>
+								<br>
+								<div id="reply-list-container" class="panel-body">
+
+									<%-- <jsp:include page="reply-list.jsp" /> --%>
+
+								</div>
+
+								<div class="panel-footer"></div>
+
+							</div>
+						</div>
 
 					</div>
 
-					<div class="panel-footer">
-					</div>
+					<br> <br> <br> <br> <br>
 
 				</div>
+				<!-- /.container-fluid -->
 			</div>
-
+			<!-- End of Main Content -->
 		</div>
-		
-		<br><br><br><br><br>
+		<!-- End of Content Wrapper -->
+	</div>
+	<!-- End of Page Wrapper -->
 
-        </div>
-        <!-- /.container-fluid -->
-      </div>
-      <!-- End of Main Content -->
-    </div>
-    <!-- End of Content Wrapper -->
-  </div>
-  <!-- End of Page Wrapper -->
-  
-  	<!-- Modal -->
-	<div class="modal fade" id="reply-modal" tabindex="-1" role="dialog" aria-labelledby="reply-modal-label" aria-hidden="true">
+	<!-- Modal -->
+	<div class="modal fade" id="reply-modal" tabindex="-1" role="dialog"
+		aria-labelledby="reply-modal-label" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="reply-modal-label">댓글 쓰기</h5>
-					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            			<span aria-hidden="true">×</span>
-          			</button>					
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
 				</div>
 				<div class="modal-body">
-				<form id="reply-form">
-					<div class="form-group">
-						<label>Reply</label>
-						<input class="form-control" name='reply' id='modal-reply' value=''>
-					</div>
-					<div class="form-group">
-						<label>Replyer</label>
-						<input class="form-control" name='replyer' id='modal-replyer' value=''>
-					</div>
-					<input type="hidden" name='brd_num' value='${ board.brd_num }'>
-					<input type="hidden" name='rno'>
-					<input type="hidden" name='action'><!-- 댓글 or 댓글의 댓글 -->
-				</form>
+					<form id="reply-form">
+						<div class="form-group">
+							<label>Reply</label> <input class="form-control" name='reply'
+								id='modal-reply' value=''>
+						</div>
+						<div class="form-group">
+							<label>Replyer</label> <input class="form-control" name='replyer'
+								id='modal-replyer' value=''>
+						</div>
+						<input type="hidden" name='brd_num' value='${ board.brd_num }'>
+						<input type="hidden" name='rno'> <input type="hidden"
+							name='action'>
+						<!-- 댓글 or 댓글의 댓글 -->
+					</form>
 				</div>
 				<div class="modal-footer">
 					<button id='modalModBtn' type="button" class="btn btn-success">Modify</button>
@@ -161,15 +175,15 @@
 	</div>
 	<!-- /.modal -->
 
- <%--  <%@include file="/WEB-INF/views/modules/common-js.jsp" %> --%>
-  
-  <script type="text/javascript">
+	<%@include file="/WEB-INF/views/board/modules/common-js.jsp"%>
+
+	<script type="text/javascript">
 	$(function() {
 		
 		$('input, textarea').attr({'readonly': 'readonly'})
 		
 		$('#tolist-button').on('click', function(event) {
-			location.href = "list.action?pageNo=${ param.pageNo }&searchType=${ param.searchType }&searchKey=${ param.searchKey }";
+			location.href = "free-list.action";
 		});
 
 		$('#delete-button').on('click', function(event) {
@@ -181,7 +195,7 @@
 			
 			//location.href = 'delete.action?brd_num=${ board.brd_num }&pageNo=${ param.pageNo }';
 			var form =
-				makeForm('delete.action', ${ board.brd_num }, ${ param.pageNo }, '${ param.searchType }', '${ param.searchKey }');
+				makeForm('delete.action', ${ board.brd_num } );
 			form.submit();
 		});
 
@@ -189,11 +203,11 @@
 			//location.href = "update.action?brd_num=${ board.brd_num }";
 			//location.href = "update.action?<c:out value='${ board.brd_num }' />";
 			var form =
-				makeForm('update.action', ${ board.brd_num }, ${ param.pageNo }, '${ param.searchType }', '${ param.searchKey }');
+				makeForm('update.action', ${ board.brd_num } );
 			form.submit();
 		});
 
-		function makeForm(action, brd_num, pageNo, searchType, searchKey, method="get") {
+		function makeForm(action, brd_num, method="get") {
 			var form = $('<form></form>');
 			form.attr({
 				'action': action,
@@ -204,22 +218,7 @@
 				"name": "brd_num",
 				"value" : brd_num })
 			);
-			form.append($('<input>').attr({
-				"type": "hidden",
-				"name": "pageNo",
-				"value" : pageNo })
-			);
-			form.append($('<input>').attr({
-				"type": "hidden",
-				"name": "searchType",
-				"value" : searchType })
-			);
-			form.append($('<input>').attr({
-				"type": "hidden",
-				"name": "searchKey",
-				"value" : searchKey })
-			);
-			
+
 			form.appendTo("body");
 			
 			return form;
@@ -381,7 +380,7 @@
 		
 	});
   </script>
-  
+
 </body>
 
 </html>
