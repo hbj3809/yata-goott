@@ -43,6 +43,13 @@
 	<bean id="carService" class="com.yata.service.CarServiceImpl">
 		<property name="carMapper" ref="carMapper" />
 	</bean>	
+	
+	<bean id="BoardVO" class="com.yata.vo.BoardVO">
+	</bean>
+	
+	<bean id="boardService" class="com.yata.service.BoardServiceImpl">
+		<property name="boardMapper" ref="boardMapper" />
+	</bean>	
 		
 	<bean id="carPhotoVO" class="com.yata.vo.CarPhotoVO">
 	</bean>

@@ -8,13 +8,14 @@ import lombok.Data;
 @Data
 public class BoardVO {
 
-	private int bno;
-	private String title;
-	private String writer;
-	private String content;
-	private Date regDate;
-	private Date updateDate;
-	private boolean deleted;
+	private int brd_num;
+	private String brd_title;
+	private String brd_writer;
+	private String brd_content;
+	private Date brd_regDate;
+	private int brd_readCount;
+	private boolean brd_del;
+	private int user_num;
 
 
 	
