@@ -60,23 +60,7 @@
             <div class="card-body">
               <div class="table-responsive-x">
                 
-                <div class="row">
-					<div class="col-sm-12 col-md-12">
-						<div class="dataTables_length" id="dataTable_length" style="margin-bottom:15px">
-							<form action="#" method="get">
-							<select name="searchType" aria-controls="dataTable" class="form-control-sm">
-								<option value="T" ${ param.searchType == 'T' ? 'selected' : '' }>제목</option>
-								<option value="C" ${ param.searchType == 'C' ? 'selected' : '' }>내용</option>
-								<option value="TC" ${ param.searchType == 'TC' ? 'selected' : '' }>제목+내용</option>
-								<option value="W" ${ param.searchType == 'W' ? 'selected' : '' }>작성자</option>
-							</select>
-							<input type="search" name="searchKey" class="form-control-sm" placeholder="" aria-controls="dataTable"
-								   value="${ param.searchKey }">
-							<input type="submit" class="btn btn-success btn-sm" value="검색">
-				            </form>
-						</div>
-					</div>					
-				</div>
+    
                 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -91,33 +75,23 @@
                   	
                   	
                   	
-                  	<c:forEach items="${ boards }" var="board">
+                  	<c:forEach items="${ board }" var="board">
                   	<tr>
-                      <td>${ board.bno }</td>
+                      <td>${ board.brd_num }</td>
                       <td>
-                      	<a href="detail.action?bno=${ board.bno }&pageNo=${ pager.pageNo }&searchType=${ empty param.searchType ? '' : param.searchType }&searchKey=${ empty param.searchKey ? '' : param.searchKey }">
-                      		${ board.title }
-                      	</a>
+                      	<a href="detail?brd_num=${ board.brd_num }">
+                      		${ board.brd_title }
+                      	</a>	
                       	<br>
-                      	<a class="to-detail" href="javascript:" data-bno="${ board.bno }">
-                      		${ board.title }
-                      	</a>
                       </td>
-                      <td>${ board.writer }</td>
-                      <td>${ board.regDate }</td>
-                      <td>${ board.updateDate }</td>
-                      <td>${ board.readCount }</td>
+                      <td>${ board.brd_writer }</td>
+                      <td>${ board.brd_regDate }</td>
                     </tr>
                     </c:forEach>
                     
                     
                     
                   </tbody>
-                  <tfoot>
-                  	<tr>
-                  	  <td colspan="6" style="text-align:center">${ pager }</td>                  	  
-                  	</tr>
-                  </tfoot>
                  </table>
               </div>
             </div>
@@ -153,18 +127,18 @@
     </div>
   </div>
   
-  <form id="detail-form" action="detail.action" method="get">
+<%--   <form id="detail-form" action="detail.action" method="get">
   	<input type="hidden" id="bno" name="bno">
   	<input type="hidden" id="pageNo" name="pageNo" value="${ pager.pageNo }">
   	<input type="hidden" id="searchType" name="searchType" value="${ param.searchType }">
   	<input type="hidden" id="searchKey" name="searchKey" value="${ param.searchKey }">
-  </form>
+  </form> --%>
 
   <%@include file="/WEB-INF/views/board/modules/common-js.jsp" %>
   
   <script type="text/javascript">
 	$(function() {
-		// var newBno = ${ param.newBno };		
+		/* // var newBno = ${ param.newBno };		
 		// alert(history.state);
 		var newBno = '${ newBno }'; 
 		if (newBno && !history.state) {
@@ -180,7 +154,7 @@
 			$('#detail-form #bno').val(bno);
 
 			$('#detail-form').submit();
-		});
+		}); */
 	});
   </script>
 </body>

@@ -12,5 +12,19 @@
 		VALUES
 		(brd_sequence.nextval, #{brd_title}, #{user_num}, #{brd_writer}, #{brd_content})
 	</insert>
+	
+	<select id="showList" resultType="BoardVO">
+		SELECT brd_num, brd_title, brd_writer, brd_regDate
+		FROM board
+		WHERE brd_del = '0'
+		ORDER BY brd_num DESC
+	</select>
+	
+	<select id="selectBoardByBrd_num" parameterType="int" resultType="BoardVO">
+		SELECT brd_num, brd_title, brd_writer, brd_content, brd_regdate
+		FROM board
+		WHERE brd_num = #{ brd_num } AND brd_del = '0'
+	</select>
+
 
 </mapper>

@@ -13,9 +13,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndViewDefiningException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.yata.vo.BoardVO;
@@ -32,20 +34,17 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping(path = { "/board" })
 @Log4j // lombok이 log 변수를 자동으로 생성
 public class BoardController {
-	
+
 	@Autowired
 	@Qualifier("boardService")
 	private BoardService boardService;
-	
+
 	@GetMapping(path = { "/review-list" })
-	public String reviewlist(
-			@RequestParam(defaultValue = "1") int pageNo,
-			//RequestParam(required=false) : 요청 데이터가 없으면 null로 설정
-			@RequestParam(required = false) String searchType,
-			@RequestParam(required = false) String searchKey,
-			HttpServletRequest req,
-			Model model) { // 목록보기
-		
+	public String reviewlist(@RequestParam(defaultValue = "1") int pageNo,
+			// RequestParam(required=false) : 요청 데이터가 없으면 null로 설정
+			@RequestParam(required = false) String searchType, @RequestParam(required = false) String searchKey,
+			HttpServletRequest req, Model model) { // 목록보기
+
 //		int pageSize = 3;
 //		int pagerSize = 3;
 //		HashMap<String, Object> params = new HashMap<>();
@@ -58,7 +57,7 @@ public class BoardController {
 //		//데이터 조회 (서비스에 요청)
 //		List<BoardVO> boards = boardService.findBoardWithPaging(params);
 //		int boardCount = boardService.findBoardCount(params);//전체 글 개수
-		
+
 //		ThePager pager = 
 //			new ThePager(boardCount, pageNo, pageSize, pagerSize, 
 //						 "list.action");
@@ -72,10 +71,10 @@ public class BoardController {
 //		//(실제로는 Request 객체에 데이터 저장)
 //		model.addAttribute("boards", boards);
 //		model.addAttribute("pager", pager);
-		
+
 		return "board/review-list"; // /WEB-INF/views/ + board/list + .jsp
 	}
-	
+
 //	@GetMapping(path = { "/detail.action" })
 //	public String showDetail(
 //			int bno, @RequestParam(defaultValue = "1")int pageNo, 
@@ -115,25 +114,20 @@ public class BoardController {
 //	}
 
 	@GetMapping(path = { "/free-list" })
-	public String freelist(
-			@RequestParam(defaultValue = "1") int pageNo,
-			//RequestParam(required=false) : 요청 데이터가 없으면 null로 설정
-			@RequestParam(required = false) String searchType,
-			@RequestParam(required = false) String searchKey,
-			HttpServletRequest req,
-			Model model) { // 목록보기
-		
+	public String freelist(Model model) { // 목록보기
+
+		List<BoardVO> board = boardService.showList();
+		model.addAttribute("board", board);
 
 		return "board/free-list"; // /WEB-INF/views/ + board/list + .jsp
 	}
-	
 
 	@GetMapping(path = { "/write.action" })
 	public String showWriteForm() { // 글쓰기 화면 보기
 
 		return "board/write";
 	}
-	
+
 	@PostMapping(path = { "/write.action" })
 	public String write(BoardVO board, RedirectAttributes attr) { // 글쓰기 처리
 
@@ -143,35 +137,29 @@ public class BoardController {
 		attr.addFlashAttribute("newbrd_num", newBoardNo); // session에 저장
 		return "redirect:free-list.action";
 	}
-	
+
+	@GetMapping(path = { "/detail" })
+	public String showDetail(int brd_num, Model model, HttpServletRequest req, HttpServletResponse resp) {
+		// 1-1. brd_num를 사용해서 게시물 조회
+		BoardVO board = boardService.findBoardByBrd_num(brd_num);
+		if (board == null) {
+			return "redirect:free-list";
+		}
+
+		// 1-2. 기존에 읽은 글번호 목록을 Cookie에서 읽기
+		String bnoRead = "";
+		Cookie[] cookies = req.getCookies();
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("brd_num_read")) {
+				bnoRead = cookie.getValue();
+			}
+		}
+
+		// 2. 조회된 데이터를 View에서 사용할 수 있도록 저장
+		model.addAttribute("board", board);
+
+		// 3. View로 이동
+		return "board/free-detail";
+	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
