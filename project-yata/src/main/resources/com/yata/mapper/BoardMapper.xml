@@ -25,6 +25,11 @@
 		FROM board
 		WHERE brd_num = #{ brd_num } AND brd_del = '0'
 	</select>
+	
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM board 
+		WHERE brd_num = #{ brd_num }
+	</delete>
 
 
 </mapper>

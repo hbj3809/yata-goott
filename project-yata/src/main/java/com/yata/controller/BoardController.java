@@ -161,5 +161,14 @@ public class BoardController {
 		// 3. View로 이동
 		return "board/free-detail";
 	}
+	
+	@GetMapping(path = { "/delete.action" })
+	public String delete(int brd_num) {
+		
+		boardService.deleteBoard(brd_num);
+		
+		return "redirect:free-list.action";
+	}
+	
 
 }

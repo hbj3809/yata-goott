@@ -13,5 +13,6 @@ public interface BoardService {
 
 	BoardVO findBoardByBrd_num(int brd_num);
 
+	void deleteBoard(int brd_num);
 
 }

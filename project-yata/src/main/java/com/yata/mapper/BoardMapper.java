@@ -16,5 +16,7 @@ public interface BoardMapper {
 
 	BoardVO selectBoardByBrd_num(int brd_num);
 
+	void deleteBoard(int brd_num);
+
 	
 }
