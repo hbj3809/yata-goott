@@ -30,6 +30,12 @@
 		DELETE FROM board 
 		WHERE brd_num = #{ brd_num }
 	</delete>
+	
+	<update id="updateBoard" parameterType="BoardVO">
+		UPDATE board
+		SET brd_title = #{ brd_title }, brd_content = #{ brd_content } 
+		WHERE brd_num = #{ brd_num }
+	</update>
 
 
 </mapper>

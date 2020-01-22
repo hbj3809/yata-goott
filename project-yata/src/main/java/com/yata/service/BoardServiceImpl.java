@@ -42,7 +42,13 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Override
+	public void updateBoard(BoardVO board) {
 
+
+		boardMapper.updateBoard(board);
+		
+	}
 		
 
 

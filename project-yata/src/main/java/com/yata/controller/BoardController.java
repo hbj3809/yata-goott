@@ -170,5 +170,29 @@ public class BoardController {
 		return "redirect:free-list.action";
 	}
 	
+	@GetMapping(path = { "/update.action" })
+	public String showUpdateForm(int brd_num, Model model) {
+		
+		//1. bno를 사용해서 게시물 조회
+		BoardVO board = boardService.findBoardByBrd_num(brd_num);
+		if (board == null) {
+			return "redirect:free-list.action";
+		}
+		
+		//2. 조회된 데이터를 View에서 사용할 수 있도록 저장
+		model.addAttribute("board", board);
+		
+		return "board/free-update";
+	}
+	
+	@PostMapping(path = { "/update.action" })
+	public String update(BoardVO board) {
+			
+		boardService.updateBoard(board);
+		
+		
+		return "redirect:free-list.action";
+	}
+	
 
 }

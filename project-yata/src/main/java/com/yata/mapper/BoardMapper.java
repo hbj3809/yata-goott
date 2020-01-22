@@ -18,5 +18,7 @@ public interface BoardMapper {
 
 	void deleteBoard(int brd_num);
 
+	void updateBoard(BoardVO board);
+
 	
 }
