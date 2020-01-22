@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
+<mapper namespace="com.yata.mapper.BoardMapper">
+	
+	<insert id="insertBoard" parameterType="BoardVO">
+		INSERT INTO board (brd_num, brd_title, user_num, brd_writer, brd_content)
+		VALUES
+		(brd_sequence.nextval, #{brd_title}, #{user_num}, #{brd_writer}, #{brd_content})
+	</insert>
+
+</mapper>

@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.yata.vo.BoardVO;
+import com.yata.service.BoardService;
+import com.yata.service.CarService;
 //import com.yata.service.BoardServiceImpl;
 import com.yata.ui.ThePager;
 import com.yata.ui.ThePager2;
@@ -30,6 +32,10 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping(path = { "/board" })
 @Log4j // lombok이 log 변수를 자동으로 생성
 public class BoardController {
+	
+	@Autowired
+	@Qualifier("boardService")
+	private BoardService boardService;
 	
 	@GetMapping(path = { "/review-list" })
 	public String reviewlist(
@@ -126,6 +132,16 @@ public class BoardController {
 	public String showWriteForm() { // 글쓰기 화면 보기
 
 		return "board/write";
+	}
+	
+	@PostMapping(path = { "/write.action" })
+	public String write(BoardVO board, RedirectAttributes attr) { // 글쓰기 처리
+
+		int newBoardNo = boardService.writeBoard(board);
+
+		// 2. 스프링의 기능을 사용해서 데이터 전달
+		attr.addFlashAttribute("newbrd_num", newBoardNo); // session에 저장
+		return "redirect:free-list.action";
 	}
 	
 

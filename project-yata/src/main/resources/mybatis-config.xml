@@ -12,5 +12,6 @@
 		<typeAlias type="com.yata.vo.CarTypeVO" alias="CarTypeVO" />
 		<typeAlias type="com.yata.vo.CarPhotoVO" alias="CarPhotoVO" />
 		<typeAlias type="com.yata.vo.ReserveVO" alias="ReserveVO" />
+		<typeAlias type="com.yata.vo.BoardVO" alias="BoardVO" />
 	</typeAliases>
 </configuration>
