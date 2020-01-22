@@ -187,7 +187,7 @@
 
 
 					<div class="item">
-						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
+						<h2 class="nino-sectionHeading" style="font-size: 3px">
 							<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 3</span><span style="font-size: 20px">결제 및 이용내역 확인</span><br>
 						</h2>
 
@@ -195,10 +195,10 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th scope="col">예약시간</th>
-										<th scope="col">반납시간</th>
-										<th scope="col">예약차량</th>
-										<th scope="col">가격</th>
+										<th scope="col" style="text-align: center;">예약시간</th>
+										<th scope="col" style="text-align: center;">반납시간</th>
+										<th scope="col" style="text-align: center;">예약차량</th>
+										<th scope="col" style="text-align: center;">가격</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -222,9 +222,9 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th scope="col">가용포인트</th>
-										<th scope="col">사용포인트</th>
-										<th scope="col">잔여포인트</th>
+										<th scope="col" style="text-align: center;">가용포인트</th>
+										<th scope="col" style="text-align: center;">사용포인트</th>
+										<th scope="col" style="text-align: center;">잔여포인트</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -245,10 +245,7 @@
 							
 							<input type="submit" class="nino-btn"
 								style="background-color: transparent;" value="결제">
-						</form>
-						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
-							<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 3</span><span style="font-size: 20px">결제 및 이용내역 확인</span><br></h2>
-						<a data-idx="3" class="nino-btn">예약 내역으로 이동</a>
+						</form>						
 					</div>
 				</div>
 
