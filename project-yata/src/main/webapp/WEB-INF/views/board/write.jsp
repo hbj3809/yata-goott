@@ -71,10 +71,10 @@
 										name='brd_content'></textarea>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" disabled="disabled">
 									<label>작성자</label> 
 									<input class="form-control" id='brd_writer' name='brd_writer' value="${ loginuser.user_email }">
-									<input name='user_num' type="hidden" value="${ loginuser.user_num }">
+									<input  name='user_num' type="hidden" value="${ loginuser.user_num }">
 								</div>
 								
 

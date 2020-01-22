@@ -33,11 +33,6 @@
 		and user_key = #{ user_key }
 	</update>
 	
-	<update id="updateMember" parameterType="MemberVO">
-		update tbl_user
-		set user_email = #{ user_email }, user_passwd = #{ user_passwd }, user_Name = #{ user_Name }, user_birth = #{ user_birth }, user_phone = #{ user_phone }, user_postcode = #{ user_postcode }, user_addr = #{ user_addr }, user_detailAddr = #{ user_detailAddr }, user_refAddr = #{ user_refAddr }, user_driveNum = #{ user_driveNum }
-		where user_num = #{ user_num }
-	</update>
 	
 	<resultMap type="MemberVO" id="MemberMap">
 		<id column="user_num" property="user_num" />
@@ -88,5 +83,23 @@
 		set deleted = '1'
 		where user_passwd = #{ user_passwd }
 	</update>
+
+	<select id="findEmail" parameterType="MemberVO" resultType="MemberVO">
+		SELECT user_email, user_phone
+		FROM tbl_user
+		WHERE user_email = #{ user_email }
+	</select>
 	
+	<select id="findPhone" parameterType="MemberVO" resultType="MemberVO">
+		SELECT user_email, user_phone
+		FROM tbl_user
+		WHERE user_phone = #{ user_phone }
+	</select>
+	
+	<update id="updatePasswd" parameterType="MemberVO">
+		UPDATE tbl_user
+		SET user_passwd = #{ user_passwd }
+		WHERE user_email = #{ user_email } AND user_phone = #{ user_phone }
+	</update>
+		
 </mapper>

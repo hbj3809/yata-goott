@@ -26,4 +26,11 @@ public interface MemberMapper {
 	void deleteUser(MemberVO member);
 	
 	MemberVO findPoint(MemberVO member);
+
+	MemberVO findEmail(MemberVO member);
+
+	MemberVO findPhone(MemberVO member);
+
+	void updatePasswd(MemberVO member);
+
 }

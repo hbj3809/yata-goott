@@ -28,4 +28,10 @@ public interface MemberService {
 	
 	void updatePoint(MemberVO member);
 
+	MemberVO findEmail(MemberVO member);
+
+	MemberVO findPhone(MemberVO member);
+
+	void updatePasswd(MemberVO member);
+
 }

@@ -1,5 +1,8 @@
 package com.yata.service;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.yata.mapper.BoardMapper;
 import com.yata.vo.BoardVO;
 
@@ -17,5 +20,20 @@ public class BoardServiceImpl implements BoardService {
 		return board.getBrd_num();
 		
 	}
+
+	@Override
+	public List<BoardVO> showList() {
+		
+		return boardMapper.showList();
+		
+	}
+
+	@Override
+	public BoardVO findBoardByBrd_num(int brd_num) {
+
+
+		return boardMapper.selectBoardByBrd_num(brd_num);
+	}
+
 
 }

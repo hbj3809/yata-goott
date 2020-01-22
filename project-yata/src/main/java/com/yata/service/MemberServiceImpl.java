@@ -189,5 +189,20 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberVO findEmail(MemberVO member) {
+		return memberMapper.findEmail(member);
+	}
+
+	@Override
+	public MemberVO findPhone(MemberVO member) {
+		return memberMapper.findPhone(member);
+	}
+
+	@Override
+	public void updatePasswd(MemberVO member) {
+		member.setUser_passwd(Util.getHashedString(member.getUser_passwd(), "SHA-256"));
+		memberMapper.updatePasswd(member);	
+	}
 
 }

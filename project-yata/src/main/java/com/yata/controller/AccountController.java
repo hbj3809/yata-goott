@@ -11,11 +11,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yata.service.MemberService;
@@ -36,7 +38,45 @@ public class AccountController {
 	
 	@GetMapping(path = { "/forgot-password"})
 	public String showFindPasswordForm() {
+		
 		return "account/forgot-password";
+	}
+	
+	//@PostMapping(path = { "/forgot-password"})
+	@PostMapping(path = { "/email-confirm"})
+	@ResponseBody
+	public String confirmEmail(Model model, MemberVO member) {
+		
+		MemberVO member1 = memberService.findEmail(member);
+		if (member1 == null) {	
+			return "not available";
+		}	
+		else {
+			return "available";	
+		}
+	}
+	
+	//@PostMapping(path = { "/forgot-password2"})
+	@PostMapping(path = { "/phone-confirm"})
+	@ResponseBody
+	public String findPhone(Model model, MemberVO member) {
+		
+		MemberVO member2 = memberService.findPhone(member);
+		if (member2 == null) {
+			return "not available";
+		} else {
+			return "available";
+		}
+	}
+	
+	//@PostMapping(path = { "/forgot-password3"})
+	@PostMapping(path = { "/change-passwd"})
+	@ResponseBody
+	public String updatePasswd(Model model, MemberVO member) {
+				
+		memberService.updatePasswd(member);		
+		
+		return "success";
 	}
 	
 	@GetMapping(path = { "/register"})
