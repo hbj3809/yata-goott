@@ -17,6 +17,7 @@
 		<result column="res_cancel" property="res_cancel" />
 		<association property="car" column="car_num" resultMap="CarMap" />
 		<association property="member" column="user_num" resultMap="memberMap" />
+		<!-- <association property="returnmap" column="res_num" resultMap="returnMap" /> -->
 	</resultMap>
 	<resultMap type="CarVO" id="CarMap">
 		<id column="car_num" property="car_num" />
@@ -25,7 +26,7 @@
 		<result column="car_content" property="car_content" />
 		<result column="car_price" property="car_price" />
 		<result column="car_date" property="car_date" />
-			</resultMap>
+	</resultMap>
 	<resultMap type="MemberVO" id="memberMap" >
 		<id column="user_num" property="user_num" />
 		<result column="user_email" property="user_email" />
@@ -45,6 +46,16 @@
 		<result column="deleted" property="deleted" />		
 		<result column="user_active" property="user_active" />	
 	</resultMap>
+	<resultMap type="ReturnVO" id="returnMap">
+		<id column="res_num" property="res_num" />
+		<result column="res_cancel" property="res_cancel" />
+		<result column="realtime" property="realtime" />
+		<result column="accept" property="accept" />
+		<result column="revaccept" property="revaccept" />
+		<result column="inner" property="inner" />
+		<result column="outer" property="outer" />
+	</resultMap>
+	
 	
 	<insert id="insertReserve" parameterType="ReserveVO" useGeneratedKeys="true" keyColumn="res_num" keyProperty="res_num">
 		INSERT INTO
@@ -72,5 +83,13 @@
 		INNER JOIN tbl_user m
 		ON r.user_num = m.user_num
 	</select>
+	
+	<insert id="returnCar" parameterType="ReturnVO">
+		INSERT INTO 
+		return (res_num ) 
+		VALUES (#{res_num} )
+	</insert>
+	
+	
 	
 </mapper>

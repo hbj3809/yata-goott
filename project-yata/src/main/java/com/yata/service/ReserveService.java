@@ -12,4 +12,8 @@ public interface ReserveService {
 	
 	void addReserve(ReserveVO res);
 
+	void returnCar(int res_num);
+
+	
+
 }

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yata.service.MemberService;
 import com.yata.service.ReserveService;
@@ -86,7 +87,17 @@ public class MypageController {
 			} else {
 			memberService.deleteUser(member);
 			session.removeAttribute("loginuser");
-			}
+			}	
 			return "redirect:/";
 	}
+	
+	@GetMapping(path = {"/return_car"})
+		public String returnCar(@RequestParam("resNum") int res_num, @RequestParam("userNum") int user_num) {
+		
+		reserveService.returnCar(res_num);
+		
+		return "redirect:/mypage/reservationlist?user_num="+user_num;
+	}
+		
+	
 }

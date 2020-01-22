@@ -31,4 +31,10 @@ public class ReserveServiceImpl implements ReserveService {
 		
 	}
 
+	@Override
+	public void returnCar(int res_num) {
+		reserveMapper.returnCar(res_num);
+		
+	}
+
 }

@@ -15,4 +15,6 @@ public interface ReserveMapper {
 	
 	void insertReserve(ReserveVO res);
 
+	void returnCar(int res_num);
+
 }
