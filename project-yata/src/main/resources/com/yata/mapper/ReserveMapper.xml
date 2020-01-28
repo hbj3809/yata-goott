@@ -16,8 +16,7 @@
 		<result column="res_date" property="res_date" />
 		<result column="res_cancel" property="res_cancel" />
 		<association property="car" column="car_num" resultMap="CarMap" />
-		<association property="member" column="user_num" resultMap="memberMap" />
-		<!-- <association property="returnmap" column="res_num" resultMap="returnMap" /> -->
+		<association property="member" column="user_num" resultMap="memberMap" />	
 	</resultMap>
 	<resultMap type="CarVO" id="CarMap">
 		<id column="car_num" property="car_num" />
@@ -69,7 +68,7 @@
 		INNER JOIN car c 
 		ON r.car_num = c.car_num		
 		INNER JOIN tbl_user m
-		ON r.user_num = m.user_num
+		ON r.user_num = m.user_num	
         where r.user_num = #{ user_num }
 	</select>
 
@@ -86,8 +85,8 @@
 	
 	<insert id="returnCar" parameterType="ReturnVO">
 		INSERT INTO 
-		return (res_num ) 
-		VALUES (#{res_num} )
+		return (res_num , res_cancel ) 
+		VALUES (#{res_num} , '1' )
 	</insert>
 	
 	<select id="selectNotReturnHistory" parameterType="int" resultType="int">
@@ -97,5 +96,11 @@
 		AND
 		res_num NOT IN (SELECT res_num FROM RETURN WHERE user_num = #{ user_num })
 	</select>
+
+	<update id="returnCar2" parameterType="int">
+		UPDATE reserve 
+		SET res_cancel = '1' 
+		WHERE res_num = #{ res_num }
+	</update>
 	
 </mapper>

@@ -19,4 +19,6 @@ public interface ReserveMapper {
 
 	int selectNotReturnHistory(int user_num);
 
+	void returnCar2(int res_num);
+
 }
