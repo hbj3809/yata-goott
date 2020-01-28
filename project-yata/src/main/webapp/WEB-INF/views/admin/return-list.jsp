@@ -61,7 +61,7 @@
 							<h6 class="m-0 font-weight-bold text-primary">반납 내역</h6>
 						</div>
 						<div class="card-body">
-							<div class="table-responsive">
+							<div class="table-responsive" id="returnTable">
 								<table class="table table-bordered" id="dataTable" width="100%"	cellspacing="0">
 									<thead>
 										<tr>
@@ -79,9 +79,9 @@
 												<td>${ returnx.revaccept }</td>	
 												<td>
 													<c:choose>
-														<c:when test="${not returnx.accept}">
-															<a class="dropdown-item" href="#" data-toggle="modal" data-target="#returnCar">
-											               		<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>반납승인
+														<c:when test="${ not returnx.accept }">
+															<a class="dropdown-item" href="#" data-toggle="modal" data-target="#returnRes" data-res="${ returnx.res_num }">
+											               		<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>${ returnx.res_num }번 반납승인
 											               	</a>
 														</c:when>
 														<c:otherwise>
@@ -90,27 +90,23 @@
 													</c:choose>
 												</td>
 											</tr>
-												<div class="modal fade" id="returnCar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 style="text-align: center;" class="modal-title" id="exampleModalLabel">반납을 승인하시겠습니까?</h5>
-																<button class="close" type="button" data-dismiss="modal"
-																	aria-label="Close">
-																	
-																</button>
-															</div>
-															
-															<div class="modal-footer">
-																<a class="btn btn-primary" href="/project-yata/admin/returnaccept?resNum=${ returnx.res_num }">승인</a>
-																<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-															</div>
+										</c:forEach>
+											<!-- first modal -->
+											<div class="modal fade" id="returnRes" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 style="text-align: center;" class="modal-title" id="exampleModalLabel">
+																예약번호 <span id="resNumber"></span>번의 반납을 승인하시겠습니까?
+															</h5>
+														</div>
+														<div class="modal-footer">
+															<button id="returnAccept" class="btn btn-primary">승인</button>
+															<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
 														</div>
 													</div>
 												</div>
-										</c:forEach>
-										<!-- first modal -->
-										
+											</div>
 									</tbody>
 								</table>
 							</div>
@@ -183,7 +179,21 @@
 
 	<!-- Page level custom scripts -->
 	<script src="/project-yata/resources/yata-member-admin/js/demo/datatables-demo.js"></script>
+	
+	<script type="text/javascript">
+		$('#returnTable').on('click', '.dropdown-item', function() {
+			var res_num = parseInt($(this).attr('data-res'));
+			console.log(res_num);
+			$('#resNumber').text(res_num);
+			//$('#returnRes input[name=res_no]').val(res_num);
 
+			$('#returnAccept').on('click', function() {
+				location.href="/project-yata/admin/returnaccept?res_num=" + res_num;
+				alert('반납승인이 완료되었습니다.');
+			});
+			
+		});
+	</script>
 
 </body>
 

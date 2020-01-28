@@ -115,7 +115,7 @@ public class DashBoardController {
 	public String returnAccept(int res_num) {
 		System.out.println(res_num);
 		reserveService.setReturnAccept(res_num);
-		return "admin/return-list";
+		return "redirect:/admin/return-list";
 	}
 		
 	@GetMapping(path = { "/car-list" })
