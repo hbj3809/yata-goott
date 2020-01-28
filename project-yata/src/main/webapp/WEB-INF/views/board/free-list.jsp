@@ -44,17 +44,23 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">자유 게시판</h1>
+          <h1 class="h3 mb-2 text-gray-800">공지사항</h1>
           <br>
           
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <span class="m-0 font-weight-bold text-primary">글 목록</span>
-              <a href="write.action" 
+              
+              <c:choose>
+              <c:when test="${ loginuser.user_type == 'admin' }">
+         
+              <a href="write.action"  
               	 class="btn btn-success btn-sm" style="float:right"> 
               	<span class="text">글 쓰기</span>
               </a> 
+               </c:when>
+               </c:choose>
 
             </div>
             <div class="card-body">
@@ -68,7 +74,7 @@
                       <th>글번호</th>
                       <th>제목</th>
                       <th>작성자</th>
-                      <th>작성일자</th>
+                      <th>작성일자</th>	
                     </tr>
                   </thead>                  
                   <tbody>

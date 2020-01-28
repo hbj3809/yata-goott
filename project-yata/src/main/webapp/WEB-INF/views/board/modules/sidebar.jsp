@@ -34,7 +34,7 @@
 	<li id="free-board" class="nav-item">
 		<a class="nav-link" href="/project-yata/board/free-list"> 
 			<i class="fas fa-fw fa-table"></i> 
-			<span class="text-white">자유 게시판</span>
+			<span class="text-white">공지사항</span>
 		</a>
 	</li>
 

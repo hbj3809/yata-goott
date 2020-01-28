@@ -15,18 +15,12 @@
 
 <title>야타(YATA!) 게시판</title>
 
-<!-- Custom fonts for this template-->
-<link
-	href="/project-yata/resources/vendor/fontawesome-free/css/all.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="/project-yata/resources/yata-member-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-<!-- Custom styles for this template-->
-<link href="/project-yata/resources/css/sb-admin-2.min.css"
-	rel="stylesheet">
-
+  <!-- Custom styles for this template-->
+  <link href="/project-yata/resources/yata-member-admin/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -48,7 +42,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">자유 게시판</h1>
+					<h1 class="h3 mb-2 text-gray-800">공지사항</h1>
 					<br>
 
 					<div class="card shadow mb-4">
@@ -83,43 +77,17 @@
 									value='${ board.brd_regDate }'>
 							</div>
 
-					<%-- 		<c:if test="${ loginuser.user_num == board.user_num }">
-								<button id="edit-button" type="button" class="btn btn-success">수정</button>
-								<button id="delete-button" type="button" class="btn btn-success">삭제</button>
-							</c:if> --%>
-
+							<c:if test="${ loginuser.user_email == board.brd_writer }">
 							<button id="edit-button" type="button" class="btn btn-success">수정</button>
 							<button id="delete-button" type="button" class="btn btn-success">삭제</button>
+							</c:if> 
 							<button id="tolist-button" type="button" class="btn btn-success">목록</button>
 
 						</div>
 					</div>
 
 
-					<div class='rowx'>
-
-						<div class="col-lg-12">
-
-							<div class="panel panel-default">
-
-								<div class="panel-heading">
-									<i class="fa fa-comments fa-fw"></i>
-									<h2 class="d-inline">Reply</h2>
-									<button id='addReplyBtn'
-										class='btn btn-primary btn-xs pull-right float-right'>New
-										Reply</button>
-								</div>
-								<br>
-								<div id="reply-list-container" class="panel-body">
-
-									<%-- <jsp:include page="reply-list.jsp" /> --%>
-
-								</div>
-
-								<div class="panel-footer"></div>
-
-							</div>
-						</div>
+					
 
 					</div>
 
@@ -134,46 +102,7 @@
 	</div>
 	<!-- End of Page Wrapper -->
 
-	<!-- Modal -->
-	<div class="modal fade" id="reply-modal" tabindex="-1" role="dialog"
-		aria-labelledby="reply-modal-label" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="reply-modal-label">댓글 쓰기</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="reply-form">
-						<div class="form-group">
-							<label>Reply</label> <input class="form-control" name='reply'
-								id='modal-reply' value=''>
-						</div>
-						<div class="form-group">
-							<label>Replyer</label> <input class="form-control" name='replyer'
-								id='modal-replyer' value=''>
-						</div>
-						<input type="hidden" name='brd_num' value='${ board.brd_num }'>
-						<input type="hidden" name='rno'> <input type="hidden"
-							name='action'>
-						<!-- 댓글 or 댓글의 댓글 -->
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button id='modalModBtn' type="button" class="btn btn-success">Modify</button>
-					<button id='modalRemoveBtn' type="button" class="btn btn-success">Remove</button>
-					<button id='modalRegisterBtn' type="button" class="btn btn-success">Register</button>
-					<button id='modalCloseBtn' type="button" class="btn btn-success">Close</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
+
 
 	<%@include file="/WEB-INF/views/board/modules/common-js.jsp"%>
 
