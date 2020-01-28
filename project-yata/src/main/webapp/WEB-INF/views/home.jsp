@@ -124,10 +124,12 @@
 	            					<a href="/project-yata/account/login" class="nino-btn">로그인 후 이용하기!</a>
 	            				</c:when>
 	            				<c:otherwise>
-	            					<a data-idx="0" class="nino-btn">서비스 이용하기!</a>		
+	            					<a id="startRes" data-idx="0" class="nino-btn">서비스 이용하기!</a>		
 	            				</c:otherwise>
 							</c:choose>
 					</div>
+					
+					
 					<div class="item">
 						<h2 class="nino-sectionHeading" style="padding-bottom: 5px">
 						<span style="font-size: 20px" class="nino-subHeading">YATA! 예약서비스 - 1</span><span style="font-size: 20px">예약 및 반납일 선택</span><br></h2>
@@ -244,8 +246,7 @@
 							<input type="hidden" name="res_price" id="resPrice" value="">
 							<input type="hidden" name="res_point" id="resultPoint" value="">
 							
-							<input type="submit" class="nino-btn"
-								style="background-color: transparent;" value="결제">
+							<input type="submit" class="nino-btn" style="background-color: transparent;" value="결제">
 						</form>						
 					</div>
 				</div>
@@ -1100,6 +1101,11 @@
 		var firedFromBtn = false;
 		$('#nino-slider .item a').on('click', function(event) {
 			var idx = parseInt($(this).attr("data-idx"));
+
+			if(idx == 0 && ${ count > 0}) {
+				alert('야타 서비스 예약은 하루에 한 건만 가능합니다.');
+				return;		
+			}
 		
 			if(idx == 1) {
 

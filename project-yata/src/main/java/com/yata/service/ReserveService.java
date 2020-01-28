@@ -14,6 +14,8 @@ public interface ReserveService {
 
 	void returnCar(int res_num);
 
+	int searchNotReturnMemberByUserNum(int user_num);
+
 	
 
 }

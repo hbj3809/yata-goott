@@ -17,4 +17,6 @@ public interface ReserveMapper {
 
 	void returnCar(int res_num);
 
+	int selectNotReturnHistory(int user_num);
+
 }

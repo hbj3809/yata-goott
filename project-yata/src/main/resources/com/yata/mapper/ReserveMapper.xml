@@ -90,6 +90,12 @@
 		VALUES (#{res_num} )
 	</insert>
 	
-	
+	<select id="selectNotReturnHistory" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		from reserve
+		WHERE user_num = #{ user_num }
+		AND
+		res_num NOT IN (SELECT res_num FROM RETURN WHERE user_num = #{ user_num })
+	</select>
 	
 </mapper>
