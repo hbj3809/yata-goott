@@ -89,12 +89,18 @@
 		VALUES (#{res_num} , '1' )
 	</insert>
 	
+	<select id="selectNotReturnHistory" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		from reserve
+		WHERE user_num = #{ user_num }
+		AND
+		res_num NOT IN (SELECT res_num FROM RETURN WHERE user_num = #{ user_num })
+	</select>
+
 	<update id="returnCar2" parameterType="int">
 		UPDATE reserve 
 		SET res_cancel = '1' 
 		WHERE res_num = #{ res_num }
 	</update>
-	
-	
 	
 </mapper>

@@ -42,4 +42,10 @@ public class ReserveServiceImpl implements ReserveService {
 		
 	}
 
+	@Override
+	public int searchNotReturnMemberByUserNum(int user_num) {
+		return reserveMapper.selectNotReturnHistory(user_num);
+		
+	}
+
 }
