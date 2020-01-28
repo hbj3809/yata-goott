@@ -103,4 +103,9 @@
 		WHERE res_num = #{ res_num }
 	</update>
 	
+	<select id="selectReturnList" resultType="ReturnVO">
+		SELECT res_num, res_cancel, realtime, accept, revaccept, inner, outer
+		FROM return
+	</select>
+	
 </mapper>

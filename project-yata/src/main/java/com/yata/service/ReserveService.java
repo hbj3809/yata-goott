@@ -3,6 +3,7 @@ package com.yata.service;
 import java.util.List;
 
 import com.yata.vo.ReserveVO;
+import com.yata.vo.ReturnVO;
 
 public interface ReserveService {
 
@@ -15,6 +16,8 @@ public interface ReserveService {
 	void returnCar(int res_num);
 
 	int searchNotReturnMemberByUserNum(int user_num);
+
+	List<ReturnVO> findReturnList();
 
 	
 

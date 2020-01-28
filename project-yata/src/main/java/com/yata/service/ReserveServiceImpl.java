@@ -6,6 +6,7 @@ import java.util.List;
 import com.yata.mapper.MemberMapper;
 import com.yata.mapper.ReserveMapper;
 import com.yata.vo.ReserveVO;
+import com.yata.vo.ReturnVO;
 
 import lombok.Setter;
 
@@ -46,6 +47,12 @@ public class ReserveServiceImpl implements ReserveService {
 	public int searchNotReturnMemberByUserNum(int user_num) {
 		return reserveMapper.selectNotReturnHistory(user_num);
 		
+	}
+
+	@Override
+	public List<ReturnVO> findReturnList() {
+
+		return reserveMapper.selectReturnList();
 	}
 
 }

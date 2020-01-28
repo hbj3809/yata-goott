@@ -26,6 +26,7 @@ import com.yata.vo.CarVO;
 import com.yata.vo.MemberVO;
 import com.yata.vo.PointVO;
 import com.yata.vo.ReserveVO;
+import com.yata.vo.ReturnVO;
 
 @Controller
 @RequestMapping(path = { "/admin" })
@@ -104,8 +105,9 @@ public class DashBoardController {
 	}
 	
 	@GetMapping(path = { "/return-list" })
-	public String returnList() {
-		
+	public String returnList(Model model) {
+		List<ReturnVO> returns = reserveService.findReturnList();
+		model.addAttribute("returns", returns);
 		return "admin/return-list";
 	}
 	

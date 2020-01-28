@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.yata.vo.ReserveVO;
+import com.yata.vo.ReturnVO;
 
 @Mapper
 public interface ReserveMapper {
@@ -20,5 +21,7 @@ public interface ReserveMapper {
 	int selectNotReturnHistory(int user_num);
 
 	void returnCar2(int res_num);
+
+	List<ReturnVO> selectReturnList();
 
 }
