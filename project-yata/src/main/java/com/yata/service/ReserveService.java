@@ -19,6 +19,8 @@ public interface ReserveService {
 
 	List<ReturnVO> findReturnList();
 
+	void setReturnAccept(int res_num);
+
 	
 
 }

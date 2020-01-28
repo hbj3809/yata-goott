@@ -111,6 +111,13 @@ public class DashBoardController {
 		return "admin/return-list";
 	}
 	
+	@GetMapping(path = { "/returnaccept" })
+	public String returnAccept(int res_num) {
+		System.out.println(res_num);
+		reserveService.setReturnAccept(res_num);
+		return "admin/return-list";
+	}
+		
 	@GetMapping(path = { "/car-list" })
 	public String carList(Model model){
 		List<CarVO> cars = carService.findCar();

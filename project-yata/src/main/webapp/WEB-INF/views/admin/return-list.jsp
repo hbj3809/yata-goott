@@ -102,7 +102,7 @@
 															</div>
 															
 															<div class="modal-footer">
-																<a class="btn btn-primary" href="/project-yata/res/returnaccept?resNum=${ returnx.res_num }">승인</a>
+																<a class="btn btn-primary" href="/project-yata/admin/returnaccept?resNum=${ returnx.res_num }">승인</a>
 																<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
 															</div>
 														</div>
@@ -183,6 +183,7 @@
 
 	<!-- Page level custom scripts -->
 	<script src="/project-yata/resources/yata-member-admin/js/demo/datatables-demo.js"></script>
+
 
 </body>
 

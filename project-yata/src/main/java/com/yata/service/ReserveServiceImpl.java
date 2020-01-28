@@ -55,4 +55,10 @@ public class ReserveServiceImpl implements ReserveService {
 		return reserveMapper.selectReturnList();
 	}
 
+	@Override
+	public void setReturnAccept(int res_num) {
+		reserveMapper.updateResAccept(res_num);
+		
+	}
+
 }

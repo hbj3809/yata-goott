@@ -24,4 +24,6 @@ public interface ReserveMapper {
 
 	List<ReturnVO> selectReturnList();
 
+	void updateResAccept(int res_num);
+
 }

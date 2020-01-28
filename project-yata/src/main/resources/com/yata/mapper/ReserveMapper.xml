@@ -108,4 +108,10 @@
 		FROM return
 	</select>
 	
+	<update id="updateResAccept" parameterType="int">
+		UPDATE return 
+		SET accept = '1' 
+		WHERE res_num = #{ res_num }
+	</update>
+	
 </mapper>
