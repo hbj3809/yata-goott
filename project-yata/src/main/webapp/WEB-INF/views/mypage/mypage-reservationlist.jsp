@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,12 +13,17 @@
 
 <title>마이 페이지</title>
 
+<link href="/project-yata/resources/yata-member-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 <!-- Custom styles for this template-->
-<script
-	src="/project-yata/resources/yata-member-admin/vendor/fontawesome-free/js/all.min.js"></script>
+<script src="/project-yata/resources/yata-member-admin/vendor/fontawesome-free/js/all.min.js"></script>
+
+<link href="/project-yata/resources/yata-member-admin/vendor/datatables/dataTables.bootstrap4.min.css"
+	rel="stylesheet">
+
 
 </head>
 <body id="page-top" cz-shortcut-listen="true">
