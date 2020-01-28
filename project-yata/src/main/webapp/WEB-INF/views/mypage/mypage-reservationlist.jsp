@@ -68,64 +68,78 @@
 														<th>예약번호</th>
 														<th>회원번호</th>
 														<th>차량고유번호</th>
-														<th>취소여부</th>
 														<th>예약일자</th>
 														<th>예약기간</th>
 														<th>예약금액</th>
+														<th>반납여부</th>
 													</tr>
 												</thead>
-												<tbody>
+												<tbody>	
 														<tr>
 															<td>${ reserve.res_num }</td>
 															<td>${ reserve.member.user_num }</td>
 															<td>${ reserve.car.car_num }</td>
-															<td>${ reserve.res_cancel }</td>
 															<td>${ reserve.res_date }</td>
 															<td>${ reserve.res_term }</td>
 															<td>${ reserve.res_price }</td>
+															<td>
+															
+															<c:choose>
+																<c:when test="${not reserve.res_cancel}">
+																	<a class="dropdown-item" href="#" data-toggle="modal" data-target="#returnCar">
+													               		<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>반납
+													               	</a>
+																</c:when>
+																
+																<c:otherwise>
+																	[반납완료]
+																</c:otherwise>
+															</c:choose>
+															
+															</td>
 														</tr>
+														<!-- first modal -->
+														<div class="modal fade" id="returnCar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="exampleModalLabel">반납 하시겠습니까?</h5>
+																		<button class="close" type="button" data-dismiss="modal"
+																			aria-label="Close">
+																			
+																		</button>
+																	</div>
+																	
+																	<div class="modal-footer">
+																		<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+																		<a class="btn btn-primary" data-toggle="modal" href="#askReview">반납</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
+														<!-- second modal -->
+														<div class="modal fade" id="askReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="exampleModalLabel">후기를 작성하시겠습니까?</h5>
+																		<button class="close" type="button" data-dismiss="modal"
+																			aria-label="Close">
+																			
+																		</button>
+																	</div>
+																		
+																	<div class="modal-footer">
+																		<a class="btn btn-primary" href="/project-yata/mypage/return_car?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }">다음에</a>
+																		<a class="btn btn-primary" href="/project-yata/mypage/mypage-reviewwrite?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }">작성</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														
 												</tbody>
 											</table>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12 col-md-5">
-											<div class="dataTables_info" id="dataTable_info"
-												role="status" aria-live="polite">Showing 1 to 10 of 57
-												entries</div>
-										</div>
-										<div class="col-sm-12 col-md-7">
-											<div class="dataTables_paginate paging_simple_numbers"
-												id="dataTable_paginate">
-												<ul class="pagination">
-													<li class="paginate_button page-item previous disabled"
-														id="dataTable_previous"><a href="#"
-														aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-														class="page-link">Previous</a></li>
-													<li class="paginate_button page-item active"><a
-														href="#" aria-controls="dataTable" data-dt-idx="1"
-														tabindex="0" class="page-link">1</a></li>
-													<li class="paginate_button page-item "><a href="#"
-														aria-controls="dataTable" data-dt-idx="2" tabindex="0"
-														class="page-link">2</a></li>
-													<li class="paginate_button page-item "><a href="#"
-														aria-controls="dataTable" data-dt-idx="3" tabindex="0"
-														class="page-link">3</a></li>
-													<li class="paginate_button page-item "><a href="#"
-														aria-controls="dataTable" data-dt-idx="4" tabindex="0"
-														class="page-link">4</a></li>
-													<li class="paginate_button page-item "><a href="#"
-														aria-controls="dataTable" data-dt-idx="5" tabindex="0"
-														class="page-link">5</a></li>
-													<li class="paginate_button page-item "><a href="#"
-														aria-controls="dataTable" data-dt-idx="6" tabindex="0"
-														class="page-link">6</a></li>
-													<li class="paginate_button page-item next"
-														id="dataTable_next"><a href="#"
-														aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-														class="page-link">Next</a></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -134,7 +148,7 @@
 					</div>
 
 				</div>
-				<!-- /.container-fluid -->
+				<!-- /.container-fluid --> 
 
 			</div>
 			<!-- End of Main Content -->
