@@ -128,7 +128,8 @@ ${ fn:replace( car.car_content, lb, "<br>") }
 	<jsp:include page="/WEB-INF/views/cardetail/calculator.jsp" />
 
 	<div class="reserve-button">
-		<a href="#" class="btn btn-primary btn-lg active" role="button"
+		<a href="javascript:linkToOpener('/project-yata/');"
+		   class="btn btn-primary btn-lg active" role="button"
 			aria-pressed="true">예약하러 가기</a> 
 		<a href="javascript:linkToOpener('/project-yata/board/review-list');"
 		   class="btn btn-primary btn-lg active" role="button"
