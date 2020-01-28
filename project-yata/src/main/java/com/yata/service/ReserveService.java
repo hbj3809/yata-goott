@@ -10,7 +10,7 @@ public interface ReserveService {
 
 	List<ReserveVO> findReserves();
 	
-	void addReserve(ReserveVO res);
+	void addReserve(ReserveVO res, int res_point);
 
 	void returnCar(int res_num);
 

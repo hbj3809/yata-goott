@@ -26,6 +26,12 @@
 		where user_num = #{ user_num }
 	</update>
 	
+	<update id="updateActivePoint" parameterType="hashMap">
+		update tbl_point
+		set active_point = #{param2}
+		where user_num = #{ param1 }
+	</update>
+	
 	<update id="approval_member" parameterType="MemberVO">
 		update tbl_user
 		set user_active = '1'

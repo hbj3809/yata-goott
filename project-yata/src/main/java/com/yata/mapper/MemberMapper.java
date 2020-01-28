@@ -33,4 +33,6 @@ public interface MemberMapper {
 
 	void updatePasswd(MemberVO member);
 
+	void updateActivePoint(int user_num, int res_point);
+
 }

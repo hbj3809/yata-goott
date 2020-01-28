@@ -3,6 +3,7 @@ package com.yata.service;
 
 import java.util.List;
 
+import com.yata.mapper.MemberMapper;
 import com.yata.mapper.ReserveMapper;
 import com.yata.vo.ReserveVO;
 
@@ -12,6 +13,8 @@ public class ReserveServiceImpl implements ReserveService {
 //	<!-- 1.13 수정  -->
 	@Setter
 	private ReserveMapper reserveMapper;
+	@Setter
+	private MemberMapper memberMapper;
 
 	@Override
 	public ReserveVO findReserveByUser_num(int user_num) {
@@ -25,9 +28,10 @@ public class ReserveServiceImpl implements ReserveService {
 	}
 
 	@Override
-	public void addReserve(ReserveVO res) {
+	public void addReserve(ReserveVO res, int res_point) {
 		
 		reserveMapper.insertReserve(res);
+		memberMapper.updateActivePoint(res.getUser_num(), res_point);
 		
 	}
 

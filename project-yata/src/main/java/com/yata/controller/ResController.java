@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yata.service.ReserveService;
+import com.yata.vo.MemberVO;
+import com.yata.vo.PointVO;
 import com.yata.vo.ReserveVO;
 
 @Controller // @Component + spring mvc 기능 추가
@@ -19,10 +21,12 @@ public class ResController {
 	private ReserveService resService;
 
 	@PostMapping(path = { "" })
-	public String addReserve(ReserveVO res) {
+	public String addReserve(ReserveVO res, int res_point) {
+					
+		resService.addReserve(res, res_point);
 		
-		resService.addReserve(res);
-				
+		
+		
 		return String.format("redirect:mypage/reservationlist?user_num=%d",res.getUser_num());
 	}
 	

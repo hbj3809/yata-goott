@@ -242,6 +242,7 @@
 							<input type="hidden" name="car_num" id="carNum" value="">
 							<input type="hidden" name="user_num" id="userNum" value="${ loginuser.user_num }">
 							<input type="hidden" name="res_price" id="resPrice" value="">
+							<input type="hidden" name="res_point" id="resultPoint" value="">
 							
 							<input type="submit" class="nino-btn"
 								style="background-color: transparent;" value="결제">
@@ -253,19 +254,19 @@
 				<ol id="carousel-indicators" class="carousel-indicators clearfix">
 					<li data-target="#nino-slider" data-slide-to="0" class="active">
 						<div class="inner">
-							<span class="number">01</span>&nbsp;예약 - 1</div>
+							<span class="number">01</span>&nbsp;예약</div>
 					</li>
 					<li data-target="#nino-slider" data-slide-to="1" class="">
 						<div class="inner">
-							<span class="number">02</span>&nbsp;예약 - 2</div>
+							<span class="number">02</span>&nbsp;예약 - 1</div>
 					</li>
 					<li data-target="#nino-slider" data-slide-to="2" class="">
 						<div class="inner">
-							<span class="number">03</span>&nbsp;예약 - 3</div>
+							<span class="number">03</span>&nbsp;예약 - 2</div>
 					</li>
 					<li data-target="#nino-slider" data-slide-to="3" class="">
 						<div class="inner">
-							<span class="number">04</span>&nbsp;예약 - 4</div>
+							<span class="number">04</span>&nbsp;예약 - 3</div>
 					</li>
 				</ol>
 			</section>
@@ -1172,9 +1173,11 @@
 			console.log(totalPrice);
 			$('#td-totalPrice').text(totalPrice);
 			$('#usePoint').text(totalPrice);
-			var remainPrice = ($('#activePoint').text() - totalPrice);
+			var remainPrice = parseInt($('#activePoint').text() - totalPrice);
 			$('#remainPoint').text(remainPrice);
-
+			$('#resultPoint').val(remainPrice);
+			console.log($('#resultPoint').val());
+			
 			$('#resPrice').val(totalPrice);
 			$('#carNum').val(car_num);
 			
