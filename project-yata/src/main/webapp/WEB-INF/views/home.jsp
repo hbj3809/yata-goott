@@ -245,7 +245,7 @@
 							<input type="hidden" name="user_num" id="userNum" value="${ loginuser.user_num }">
 							<input type="hidden" name="res_price" id="resPrice" value="">
 							<input type="hidden" name="res_point" id="resultPoint" value="">
-							
+														
 							<input type="submit" class="nino-btn" style="background-color: transparent;" value="결제">
 						</form>						
 					</div>
@@ -1174,7 +1174,7 @@
 			//console.log(car_name,car_pri);
 			
 			$('#car_name').text("차량 이름 : " + car_maker);
-			$('#car_price').text("차량 가격 : " + real_price);
+			$('#car_price').text("차량 가격(1시간당) : " + real_price);
 
 			$('#carModal').modal('hide');
 
@@ -1190,7 +1190,14 @@
 			
 			$('#resPrice').val(totalPrice);
 			$('#carNum').val(car_num);
-			
+
+			var active_point = parseInt($('#activePoint').text()); // 보유포인트
+			var result_price = parseInt($('#resPrice').val()); // 렌트필요비용
+
+			if (active_point < result_price) {
+				alert('현재 보유하신 포인트가 부족합니다.\n포인트 내역으로 이동합니다.');
+				location.href="/project-yata/mypage/point";
+			}
 			
 		});
 				  
