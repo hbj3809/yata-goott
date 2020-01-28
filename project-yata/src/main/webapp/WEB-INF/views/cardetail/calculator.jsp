@@ -43,15 +43,7 @@ table>tbody>tr { width:100%}
 <div class="calculator" style="height: 235px;">
 		<h2 class="nino-sectionHeading">
 			<span class="text">금액 계산기</span>
-			<a href="#" class="btn btn-success btn-icon-split"
-		style="font-size: 15px; text-align: center; display: block; width: 400px;
-    margin: 0 auto;
-    margin-top: 20px;">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <span class="text" id="resultbtn">계산하기</span>                    
-                  </a>
+			<hr>
 		</h2>   
 		<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 250px; font-size: 14px; margin:0 auto;">
 <tbody>
@@ -64,13 +56,21 @@ table>tbody>tr { width:100%}
               <td class="sorting" style="border:0px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20%; font-size: 14px; text-align:center;">결과</td>
             </tr>        
         <tr role="row" class="odd">
-            <td style="border:0px"><input id="km" type="text" style="border:0; text-align:center;"> </input></td>
-            <td style="border:0px"><input id="fuel" type="text" value="${ car.car_fuel }" readonly="readonly" style="border:0; text-align:center;"> </input></td>
-            <td style="border:0px"><input id="gasoline" type="text" value="1750" readonly="readonly" style="border:0; text-align:center;"> </input></td>            
-            <td style="border:0px"><input id="result" type="text" value="1750" readonly="readonly" style="border:0; text-align:center;"> </input></td>
+            <td style="border:0px"><input id="km" type="text" style="border:0; text-align:center;" placeholder="주행거리를 입력하세요"></td>
+            <td style="border:0px"><input id="fuel" type="text" value="${ car.car_fuel }" readonly="readonly" style="border:0; text-align:center;"></td>
+            <td style="border:0px"><input id="gasoline" type="text" value="1750" readonly="readonly" style="border:0; text-align:center;"></td>            
+            <td style="border:0px"><input id="result" type="text" value="1750" readonly="readonly" style="border:0; text-align:center;"></td>
           </tr>
         </tbody>
-      </table>      
+      </table>
+      <br>
+      <a href="#" class="btn btn-success btn-icon-split" 
+			   style="font-size: 15px; text-align: center; display: block; width: 200px; margin: 0 auto;">
+               <span class="icon text-white-50">
+               	<i class="fas fa-check"></i>
+               </span>
+               <span class="text" id="resultbtn">계산하기</span>                    
+      </a>      
 	</div>
 	<script type="text/javascript">
 	// 계산하기 버튼 누르면 작동

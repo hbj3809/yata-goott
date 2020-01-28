@@ -114,7 +114,7 @@
 	<div class="car-content">
 		<h2 class="nino-sectionHeading">
 		</h2>
-		<h3 class="articleTitle">*${ car.carType.car_maker }&nbsp;${ car.carType.car_class }
+		<h3 class="articleTitle">*&nbsp;${ car.carType.car_maker }&nbsp;${ car.carType.car_class }&nbsp;*
 		</h3>
 		<p>
 		연비 : ${ car.car_fuel } L / KM<br> <br>
@@ -129,13 +129,12 @@ ${ fn:replace( car.car_content, lb, "<br>") }
 
 	<div class="reserve-button">
 		<a href="#" class="btn btn-primary btn-lg active" role="button"
-			aria-pressed="true">예약하러 가기</a> <a
-			href="javascript:linkToOpener('/project-yata/board/review-list');"
-			class="btn btn-primary btn-lg active" role="button"
-			aria-pressed="true">후기보기</a> <a
-			href="javascript:void(window.close())"
-			class="btn btn-secondary btn-sm" role="button" aria-pressed="true">취
-			소</a>
+			aria-pressed="true">예약하러 가기</a> 
+		<a href="javascript:linkToOpener('/project-yata/board/review-list');"
+		   class="btn btn-primary btn-lg active" role="button"
+		   aria-pressed="true">후기보기</a> 
+		<a href="javascript:void(window.close())"
+		   class="btn btn-secondary btn-sm" role="button" aria-pressed="true" style="height: 48px; text-align: center;">닫기</a>
 	</div>
 
 </body>
