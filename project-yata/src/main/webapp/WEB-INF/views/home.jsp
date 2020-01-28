@@ -1103,8 +1103,12 @@
 			var idx = parseInt($(this).attr("data-idx"));
 
 			if(idx == 0 && ${ count > 0}) {
-				alert('야타 서비스 예약은 하루에 한 건만 가능합니다.');
-				return;		
+				var result = confirm('아직 반납되지 않은 차량이 있습니다.\n야타 서비스 예약은 하루에 한 건만 가능합니다.\n예약 리스트로 이동하시겠습니까?');
+				if(result){ 
+					location.href="/project-yata/mypage/reservationlist?user_num=${loginuser.user_num}";
+				} else {
+					return;
+				}		
 			}
 		
 			if(idx == 1) {
