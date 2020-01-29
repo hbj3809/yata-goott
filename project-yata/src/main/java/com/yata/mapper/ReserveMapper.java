@@ -10,7 +10,7 @@ import com.yata.vo.ReturnVO;
 @Mapper
 public interface ReserveMapper {
 
-	ReserveVO findReserveByUser_num(int user_num);
+	List<ReserveVO> findReserveByUser_num(int user_num);
 
 	List<ReserveVO> findReserves();
 	

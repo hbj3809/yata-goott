@@ -18,7 +18,7 @@ public class ReserveServiceImpl implements ReserveService {
 	private MemberMapper memberMapper;
 
 	@Override
-	public ReserveVO findReserveByUser_num(int user_num) {
+	public List<ReserveVO> findReserveByUser_num(int user_num) {
 		
 		return reserveMapper.findReserveByUser_num(user_num);
 	}

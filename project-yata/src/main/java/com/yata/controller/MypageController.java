@@ -1,6 +1,7 @@
 package com.yata.controller;
 
 import java.io.File;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.ServletContext;
@@ -59,11 +60,11 @@ public class MypageController {
 
 	@GetMapping(path = { "/reservationlist" })
 	public String reservationlist(Model model, int user_num) {
-		ReserveVO reserve = reserveService.findReserveByUser_num(user_num);
-		if (reserve == null) {
+		List<ReserveVO> reserves = reserveService.findReserveByUser_num(user_num);
+		if (reserves == null) {
 			return "mypage/mypage-reservationlist";
 		}
-		model.addAttribute("reserve", reserve);
+		model.addAttribute("reserves", reserves);
 		return "mypage/mypage-reservationlist";
 	}
 

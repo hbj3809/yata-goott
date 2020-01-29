@@ -7,7 +7,7 @@ import com.yata.vo.ReturnVO;
 
 public interface ReserveService {
 
-	ReserveVO findReserveByUser_num(int user_num);
+	List<ReserveVO> findReserveByUser_num(int user_num);
 
 	List<ReserveVO> findReserves();
 	

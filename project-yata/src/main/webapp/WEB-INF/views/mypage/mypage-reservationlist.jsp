@@ -80,6 +80,8 @@
 													</tr>
 												</thead>
 												<tbody>	
+														
+														<c:forEach items="${ reserves }" var="reserve">
 														<tr>
 															<td>${ reserve.res_num }</td>
 															<td>${ reserve.member.user_num }</td>
@@ -103,6 +105,9 @@
 															
 															</td>
 														</tr>
+														</c:forEach>
+														
+															
 														<!-- first modal -->
 														<div class="modal fade" id="returnCar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog" role="document">

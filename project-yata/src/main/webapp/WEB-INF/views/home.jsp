@@ -246,7 +246,7 @@
 							<input type="hidden" name="res_price" id="resPrice" value="">
 							<input type="hidden" name="res_point" id="resultPoint" value="">
 														
-							<input type="submit" class="nino-btn" style="background-color: transparent;" value="결제">
+							<button class="nino-btn pay" style="background-color: transparent;">결제</button>
 						</form>						
 					</div>
 				</div>
@@ -1269,7 +1269,20 @@
 				alert('현재 보유하신 포인트가 부족합니다.\n포인트 내역으로 이동합니다.');
 				location.href="/project-yata/mypage/point";
 			}
-			
+
+			$('.pay').on('click', function(event) {
+						
+				var result = confirm('고객님의 보유포인트에서 '+ result_price + '포인트가 차감됩니다. 결제를 진행할까요?');
+				if(result) {
+					alert('결제가 완료되었습니다. 예약페이지로 이동합니다.');
+					$('.pay').submit();
+				} else { 
+					event.preventDefault();
+					alert('취소되었습니다.');
+				}
+								
+			});
+				
 		});
 				  
    });
