@@ -115,9 +115,13 @@
 	</insert>
 	
 	<delete id="deletePhoto" parameterType="int">
-	DELETE FROM car_photo 
-	WHERE car_num = #{car_num}
+		DELETE FROM car_photo 
+		WHERE car_num = #{car_num}
 	</delete>
 	
+	<select id="selectAllCars" resultType="int">
+		SELECT COUNT(*)
+		FROM car
+	</select>
 
 </mapper>

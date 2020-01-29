@@ -21,6 +21,8 @@ public interface ReserveService {
 
 	void setReturnAccept(int res_num);
 
+	int countAllReserves();
+
 	
 
 }

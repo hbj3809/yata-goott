@@ -32,5 +32,7 @@ public interface CarMapper {
 	void updateCarType(CarTypeVO carType);
 
 	void deletePhoto(int car_num);
+
+	int selectAllCars();
 	
 }

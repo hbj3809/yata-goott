@@ -113,5 +113,10 @@
 		SET accept = '1' 
 		WHERE res_num = #{ res_num }
 	</update>
+
+	<select id="selectAllReserves" resultType="int">
+		SELECT COUNT(*)
+		FROM reserve
+	</select>
 	
 </mapper>

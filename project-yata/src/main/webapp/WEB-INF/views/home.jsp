@@ -283,35 +283,106 @@
     	<div class="container">
     		<div layout="row" class="verticalStretch">
     			<div class="item">
-    				<div class="number">42</div>
+    				<div class="number member-cnt">${ user_count }</div>
     				<div class="text">신규회원 수</div>
     			</div>
     			<div class="item">
-    				<div class="number">123</div>
-    				<div class="text">후기작성자 수</div>
+    				<div class="number car-cnt">${ car_count }</div>
+    				<div class="text">보유차량</div>
     			</div>
     			<div class="item">
-    				<div class="number">35</div>
-    				<div class="text">후기사진 수</div>
+    				<div class="number review-cnt">250</div>
+    				<div class="text">총 후기</div>
     			</div>
     			<div class="item">
-    				<div class="number">99</div>
-    				<div class="text">이번달 예약 수</div>
+    				<div class="number res-cnt">${ res_count }</div>
+    				<div class="text">누적예약 수</div>
     			</div>
     			<div class="item">
-    				<div class="number">244</div>
+    				<div class="number allmem-cnt">244</div>
     				<div class="text">전체회원 수</div>
     			</div>
     		</div>
     	</div>
     </section><!--/#nino-counting-->
+	<script type="text/javascript">
 
-    
-    
+	var memberCountConTxt = 5;
+	  
+	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
+	   duration: 15000,
+	   step: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".member-cnt").text(num);
+	  },
+	  complete: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".member-cnt").text(num);
+	  }
+	});
 
-    
-    
+	var memberCountConTxt = 8;
+	  
+	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
+	   duration: 15000,
+	   step: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".car-cnt").text(num);
+	  },
+	  complete: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".car-cnt").text(num);
+	  }
+	});
 
+	var memberCountConTxt = 35;
+	  
+	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
+	   duration: 15000,
+	   step: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".review-cnt").text(num);
+	  },
+	  complete: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".review-cnt").text(num);
+	  }
+	});
+
+	var memberCountConTxt = 99;
+	  
+	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
+	   duration: 10000,
+	   step: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".res-cnt").text(num);
+	  },
+	  complete: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".res-cnt").text(num);
+	  }
+	});
+		
+	var memberCountConTxt = 296;
+	  
+	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
+	   duration: 15000,
+	   step: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".allmem-cnt").text(num);
+	  },
+	  complete: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".allmem-cnt").text(num);
+	  }
+	});
+
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	</script>
+    
     <!-- What We Do
     ================================================== -->
     <section id="nino-whatWeDo">

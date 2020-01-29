@@ -79,6 +79,11 @@ public class CarServiceImpl implements CarService {
 		carMapper.updateCarType(carType);
 		
 	}
+
+	@Override
+	public int countAllCars() {
+		return carMapper.selectAllCars();
+	}
 	
 
 }

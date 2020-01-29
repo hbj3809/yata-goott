@@ -205,4 +205,10 @@ public class MemberServiceImpl implements MemberService {
 		memberMapper.updatePasswd(member);	
 	}
 
+	@Override
+	public int countAllUsers() {
+		
+		return memberMapper.selectAllMember();
+	}
+
 }

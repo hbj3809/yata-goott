@@ -108,4 +108,9 @@
 		WHERE user_email = #{ user_email } AND user_phone = #{ user_phone }
 	</update>
 		
+	<select id="selectAllMember" resultType="int">
+		SELECT COUNT(*)
+		FROM tbl_user
+	</select>
+		
 </mapper>

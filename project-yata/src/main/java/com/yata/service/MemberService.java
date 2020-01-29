@@ -34,4 +34,6 @@ public interface MemberService {
 
 	void updatePasswd(MemberVO member);
 
+	int countAllUsers();
+
 }

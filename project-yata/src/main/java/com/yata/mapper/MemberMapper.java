@@ -35,4 +35,6 @@ public interface MemberMapper {
 
 	void updateActivePoint(int user_num, int res_point);
 
+	int selectAllMember();
+
 }

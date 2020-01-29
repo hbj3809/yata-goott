@@ -61,4 +61,9 @@ public class ReserveServiceImpl implements ReserveService {
 		
 	}
 
+	@Override
+	public int countAllReserves() {
+		return reserveMapper.selectAllReserves();
+	}
+
 }

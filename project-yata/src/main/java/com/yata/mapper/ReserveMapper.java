@@ -26,4 +26,6 @@ public interface ReserveMapper {
 
 	void updateResAccept(int res_num);
 
+	int selectAllReserves();
+
 }
