@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yata.mapper.BoardMapper;
 import com.yata.vo.BoardVO;
+import com.yata.vo.ReviewVO;
 
 import lombok.Setter;
 
@@ -49,7 +50,20 @@ public class BoardServiceImpl implements BoardService {
 		boardMapper.updateBoard(board);
 		
 	}
+	
+	@Override
+	public List<ReviewVO> reviewList() {
 		
+		return boardMapper.reviewList();
+	}
+	
+	@Override
+	public ReviewVO reviewDetail(int rev_num) {
+		
+		return boardMapper.reviewDetail(rev_num);
+	}
+
+	
 
 
 }

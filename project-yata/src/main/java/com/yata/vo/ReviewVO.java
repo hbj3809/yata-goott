@@ -20,4 +20,6 @@ public class ReviewVO {
 	private boolean rev_del;
 	private boolean rev_cancel;
 	
+	private CarVO car;
+	
 }

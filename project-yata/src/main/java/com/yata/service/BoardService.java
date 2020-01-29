@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.yata.vo.BoardVO;
+import com.yata.vo.ReviewVO;
 
 public interface BoardService {
 
@@ -16,5 +17,10 @@ public interface BoardService {
 	void deleteBoard(int brd_num);
 
 	void updateBoard(BoardVO board);
+	
+	List<ReviewVO> reviewList();
+	
+	ReviewVO reviewDetail(int rev_num);
+	
 
 }

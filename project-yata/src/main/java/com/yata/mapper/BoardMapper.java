@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.yata.vo.BoardVO;
+import com.yata.vo.ReviewVO;
 
 @Mapper
 public interface BoardMapper {
@@ -19,6 +20,9 @@ public interface BoardMapper {
 	void deleteBoard(int brd_num);
 
 	void updateBoard(BoardVO board);
+	
+	List<ReviewVO> reviewList();
 
+	ReviewVO reviewDetail(int rev_num);
 	
 }
