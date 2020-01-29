@@ -35,10 +35,11 @@ public class AppListener implements ServletContextListener, HttpSessionListener 
     	
     	ApplicationContext appCtx = WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext());
     	memberService = (MemberService)appCtx.getBean("memberService");
+    	carService = (CarService)appCtx.getBean("carService");
+    	resService = (ReserveService)appCtx.getBean("reserveService");
 
     	int user_cnt = memberService.countAllUsers();
     	int car_cnt = carService.countAllCars();
-    	
     	int res_cnt = resService.countAllReserves();
   	    	
     	sc.setAttribute("user_count", user_cnt);
