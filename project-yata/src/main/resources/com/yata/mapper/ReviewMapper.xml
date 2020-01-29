@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- package-name : com.springboard.mapper, class-name : BoardMapper -->
+<mapper namespace="com.yata.mapper.ReviewMapper">
+	<insert id="writeReview" parameterType="ReviewVO" useGeneratedKeys="true" keyColumn="user_num" keyProperty="user_num">
+		INSERT INTO review (rev_num, user_num, car_num , res_num , rev_title, rev_content, rev_grade, rev_photo , rev_writer)
+		VALUES (REVIEW_SEQUENCE.NEXTVAL, #{user_num}, #{car_num} , #{res_num}, #{rev_title}, #{rev_content}, #{rev_grade}, #{rev_photo}, #{rev_writer})
+	</insert>	
+	
+	<resultMap type="ReviewVO" id="ReviewMap">
+		<id column="rev_num" property="rev_num" />
+		<result column="car_num" property="car_num" />
+		<result column="res_num" property="res_num" />
+		<result column="user_num" property="user_num" />
+		<result column="rev_title" property="rev_title" />
+		<result column="rev_writer" property="rev_writer" />
+		<result column="rev_regDate" property="rev_regDate" />
+		<result column="rev_content" property="rev_content" />
+		<result column="rev_grade" property="rev_grade" />
+		<result column="rev_photo" property="rev_photo" />
+		<result column="rev_del" property="rev_del" />
+		<result column="rev_cancel" property="rev_cancel" />		
+		<association property="car" column="car_num" resultMap="CarMap" />
+		<association property="return" column="res_num" resultMap="ReturnMap" />
+		<association property="member" column="user_num" resultMap="memberMap" />
+	</resultMap>
+	<resultMap type="CarVO" id="CarMap">
+		<id column="car_num" property="car_num" />
+	</resultMap>
+	<resultMap type="ReturnVO" id="ReturnMap" >
+		<id column="res_num" property="res_num" />
+	</resultMap>
+	<resultMap type="MemberVO" id="memberMap" >
+		<id column="user_num" property="user_num" />
+	</resultMap>
+	
+	<select id="findReviewByUser_num" resultMap="ReviewMap" parameterType="int">
+		SELECT w.rev_num, m.user_num, c.car_num , r.res_num , w.rev_title, w.rev_writer, w.rev_content, w.rev_grade 
+		FROM review w
+		INNER JOIN car c 
+		ON w.car_num = c.car_num	
+		INNER JOIN tbl_user m
+		ON w.user_num = m.user_num
+		INNER JOIN return r
+		ON w.res_num = r.res_num
+		where w.user_num = #{ user_num }
+	</select>
+</mapper>

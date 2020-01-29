@@ -137,7 +137,7 @@
 																		
 																	<div class="modal-footer">
 																		<a class="btn btn-primary" href="/project-yata/mypage/return_car?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }">다음에</a>
-																		<a class="btn btn-primary" href="/project-yata/mypage/mypage-reviewwrite?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }">작성</a>
+																		<a class="btn btn-primary" href="/project-yata/mypage/review-write?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }&carNum=${ reserve.car.car_num }">작성</a>
 																	</div>
 																</div>
 															</div>

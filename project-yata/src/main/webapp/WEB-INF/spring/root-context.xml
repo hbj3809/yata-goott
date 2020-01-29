@@ -54,6 +54,13 @@
 	<bean id="carPhotoVO" class="com.yata.vo.CarPhotoVO">
 	</bean>
 	
+	<bean id="ReviewVO" class="com.yata.vo.ReviewVO">
+	</bean>
+	
+	<bean id="reviewService" class="com.yata.service.ReviewServiceImpl">
+		<property name="reviewMapper" ref="reviewMapper" />
+	</bean>	
+	
 	<bean id="reserveService" class="com.yata.service.ReserveServiceImpl">
 		<property name="reserveMapper" ref="reserveMapper" />
 		<property name="memberMapper" ref="memberMapper" />

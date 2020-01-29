@@ -14,5 +14,6 @@
 		<typeAlias type="com.yata.vo.ReserveVO" alias="ReserveVO" />
 		<typeAlias type="com.yata.vo.BoardVO" alias="BoardVO" />
 		<typeAlias type="com.yata.vo.ReturnVO" alias="ReturnVO" />
+		<typeAlias type="com.yata.vo.ReviewVO" alias="ReviewVO" />
 	</typeAliases>
 </configuration>

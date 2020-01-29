@@ -1,7 +1,10 @@
 package com.yata.controller;
 
+import java.io.File;
 import java.util.Locale;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +15,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yata.service.MemberService;
 import com.yata.service.ReserveService;
+import com.yata.service.ReviewService;
 import com.yata.vo.MemberVO;
 import com.yata.vo.ReserveVO;
+import com.yata.vo.ReviewVO;
 
 @Controller // @Component + spring mvc 기능 추가
 @RequestMapping(path = { "/mypage" })
@@ -30,6 +36,10 @@ public class MypageController {
 	@Qualifier("reserveService")
 	private ReserveService reserveService;
 
+	@Autowired
+	@Qualifier("reviewService")
+	private ReviewService reviewService;
+	
 	@GetMapping(path = { "mypage-main" })
 	public String mypage(Locale locale, Model model) {
 
@@ -58,8 +68,14 @@ public class MypageController {
 	}
 
 	@GetMapping(path = { "/reviewlist" })
-	public String reviewlist(Locale locale, Model model) {
-
+	public String reviewlist(Model model, int user_num) {
+		
+	ReviewVO review = reviewService.findReviewByUser_num(user_num);	
+	System.out.printf("d%-d%-d$\n",review.getRev_num(),review.getUser_num(),review.getCar_num());
+	if (review == null) {
+		return "mypage/mypage-main";
+	}
+		model.addAttribute("review", review);			
 		return "mypage/mypage-reviewlist";
 	}
 
@@ -100,4 +116,45 @@ public class MypageController {
 		return "redirect:/mypage/reservationlist?user_num=" + user_num;
 	}
 
+	@GetMapping(path = { "/review-write" }) // res_num 받아오면 그때 작업
+	public String showReviewWriteForm(
+			@RequestParam("resNum")int res_num, @RequestParam("userNum")int user_num, @RequestParam("carNum")int car_num,
+			Model model) { // 글쓰기 화면 보기
+		model.addAttribute("user_num", user_num);
+		model.addAttribute("car_num", car_num);
+		model.addAttribute("res_num", res_num);
+		return "mypage/mypage-reviewwrite";
+	}
+	
+	@PostMapping(path = { "/review-write" })
+	public String showReviewWriteForm(@RequestParam("rev_photo2") MultipartFile rev_photo,ReviewVO review,HttpServletRequest req) throws Exception{ // 글쓰기 화면 보기
+	
+	ServletContext application = req.getServletContext();
+	String path = application.getRealPath("resources/file/review-photo");
+	String fileName = rev_photo.getOriginalFilename();
+	
+	try {				
+		File file = new File(path, fileName);
+		rev_photo.transferTo( file );
+	} catch (Exception ex) {
+		ex.printStackTrace();
+	}
+	System.out.println("후기 사진 : " + fileName);
+	review.setRev_photo(fileName);
+	
+	reviewService.writeReview(review);
+		
+	if (review == null) {
+		return "mypage/mypage-main";
+	} else {
+		return "mypage/mypage-reviewlist";
+	}
+	
+	}
+	
+	@GetMapping(path = { "/review-detail" })
+	public String reviewDetail(MemberVO member, Model model) {
+						
+		return "mypage/mypage-reviewdetail";
+	}
 }

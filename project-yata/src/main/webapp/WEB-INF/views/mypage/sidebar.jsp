@@ -67,7 +67,7 @@
         <span>1:1 상담</span></a>
     </li>
 <li class="nav-item">
-      <a class="nav-link" href="/project-yata/mypage/reviewlist">
+      <a class="nav-link" href="/project-yata/mypage/reviewlist?user_num=${loginuser.user_num}">
         <i class="fas fa-fw fa-table"></i>
         <span>후기 리스트</span></a>
     </li>
