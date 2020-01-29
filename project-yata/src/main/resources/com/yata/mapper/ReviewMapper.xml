@@ -11,7 +11,7 @@
 		VALUES (REVIEW_SEQUENCE.NEXTVAL, #{user_num}, #{car_num} , #{res_num}, #{rev_title}, #{rev_content}, #{rev_grade}, #{rev_photo}, #{rev_writer})
 	</insert>	
 	
-	<resultMap type="ReviewVO" id="ReviewMap">
+	<resultMap type="ReviewVO" id="reviewMap">
 		<id column="rev_num" property="rev_num" />
 		<result column="car_num" property="car_num" />
 		<result column="res_num" property="res_num" />
@@ -23,36 +23,40 @@
 		<result column="rev_grade" property="rev_grade" />
 		<result column="rev_photo" property="rev_photo" />
 		<result column="rev_del" property="rev_del" />
-		<result column="rev_cancel" property="rev_cancel" />		
-		<association property="car" column="car_num" resultMap="CarMap" />
+		<result column="rev_cancel" property="rev_cancel" />
+		<!--
 		<association property="return" column="res_num" resultMap="ReturnMap" />
 		<association property="member" column="user_num" resultMap="memberMap" />
+		 -->
 	</resultMap>
-	<resultMap type="CarVO" id="CarMap">
+	<resultMap type="CarVO" id="carMap">
 		<id column="car_num" property="car_num" />
+		<result column="car_fuel" property="car_fuel" />
+		<result column="car_manual" property="car_manual" />
+		<result column="car_content" property="car_content" />
+		<result column="car_price" property="car_price" />
+		<result column="car_date" property="car_date" />
+		<association property="carType" select="findCarTypeByCar_num" column="car_num" />
 	</resultMap>
-	<resultMap type="ReturnVO" id="ReturnMap" >
-		<id column="res_num" property="res_num" />
-	</resultMap>
-	<resultMap type="MemberVO" id="memberMap" >
-		<id column="user_num" property="user_num" />
+	<resultMap type="CarTypeVO" id="carTypeMap">
+		<id column="car_num" property="car_num" />
+		<result column="car_maker" property="car_maker" />
+		<result column="car_class" property="car_class" />
 	</resultMap>
 	
-	<select id="findReviewByUser_num" resultMap="ReviewMap" parameterType="int">
-		SELECT w.rev_num, m.user_num, c.car_num , r.res_num , w.rev_title, w.rev_writer, w.rev_content, w.rev_grade 
+	<select id="findReviewByUser_num" resultMap="reviewMap" parameterType="int">
+		SELECT w.rev_num, w.user_num, w.car_num , w.res_num , w.rev_title, w.rev_writer, w.rev_content, w.rev_grade 
 		FROM review w
-		INNER JOIN car c 
-		ON w.car_num = c.car_num	
-		INNER JOIN tbl_user m
-		ON w.user_num = m.user_num
-		INNER JOIN return r
-		ON w.res_num = r.res_num
 		where w.user_num = #{ user_num }
 	</select>
-	
-	<select id="selectAllReviews" resultType="int">
-		SELECT COUNT(*)
-		FROM review
+	<select id="findCarByCar_num" resultMap="carMap" parameterType="int">
+		SELECT c.car_num, c.car_fuel, c.car_manual, c.car_content, c.car_price, c.car_date 
+		FROM Car c		
+		where c.car_num = #{ car_num }
 	</select>
-	
+	<select id="findCarTypeByCar_num" resultMap="carTypeMap" parameterType="int">
+		SELECT t.car_num, t.car_maker, t.car_class
+		FROM Car_Type t
+		where t.car_num = #{ car_num }
+	</select>
 </mapper>

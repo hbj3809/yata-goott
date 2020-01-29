@@ -60,24 +60,30 @@ public class MypageController {
 
 	@GetMapping(path = { "/reservationlist" })
 	public String reservationlist(Model model, int user_num) {
-		List<ReserveVO> reserves = reserveService.findReserveByUser_num(user_num);
-		if (reserves == null) {
+		ReserveVO reserve = reserveService.findReserveByUser_num(user_num);
+		if (reserve == null) {
 			return "mypage/mypage-reservationlist";
 		}
-		model.addAttribute("reserves", reserves);
+		model.addAttribute("reserve", reserve);
 		return "mypage/mypage-reservationlist";
 	}
 
 	@GetMapping(path = { "/reviewlist" })
-	public String reviewlist(Model model, int user_num) {
+	public String reviewlist(Locale locale, Model model, int user_num) {
 		
-	ReviewVO review = reviewService.findReviewByUser_num(user_num);	
-	System.out.printf("d%-d%-d$\n",review.getRev_num(),review.getUser_num(),review.getCar_num());
-	if (review == null) {
-		return "mypage/mypage-main";
-	}
-		model.addAttribute("review", review);			
+		List<ReviewVO> reviews = reviewService.findReviewByUser_num(user_num);
+		if (reviews == null) {
+			return "mypage/mypage-main";
+		}
+		model.addAttribute("reviews", reviews);
+//		System.out.println(review.getRes_num());
+//		System.out.println(review.getRev_num());
+//		System.out.println(review.getCar_num());
+//		System.out.println(review.getRev_title());
+//		System.out.println(review.getRev_writer());		
+		
 		return "mypage/mypage-reviewlist";
+		
 	}
 
 	@GetMapping(path = { "/update" })

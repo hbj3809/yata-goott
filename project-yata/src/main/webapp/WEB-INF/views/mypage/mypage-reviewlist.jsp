@@ -32,7 +32,7 @@
       <div id="content">
 
         <!-- Topbar -->
-				<jsp:include page="/WEB-INF/views/admin/modules/topbar.jsp" />p" />
+				<jsp:include page="/WEB-INF/views/admin/modules/topbar.jsp" />
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -49,18 +49,42 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                  <tbody>
-                  <tr role="row" class="odd">
-                      <td class="sorting_1">Airi Satou</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>33</td>
-                      <td>2008/11/28</td>
-                      <td>$162,700</td>
-                    </tr>
-                    </tbody>
-                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12">
+                <table class="table table-bordered dataTable" id="dataTable"
+												width="100%" cellspacing="0" role="grid"
+												aria-describedby="dataTable_info" style="width: 100%;">
+					<input type="hidden" id="user_num" name="user_num" value="${ reserve.user_num }">
+												<thead>
+													<tr>
+														<th>글번호</th>
+														<th>차량제조사</th>
+														<th>차량이름</th>
+														<th>후기제목</th>
+														<th>평점</th>
+														<th>작성자</th>
+														<th>작성일자</th>
+													</tr>
+												</thead>
+												<tbody>	
+												<c:forEach var="review" items="${ reviews }">
+														<tr><td>${ review.rev_num }</td>
+															<td>${ review.car.carType.car_maker }</td>
+															<td>${ review.car.carType.car_class }</td>
+															<td>
+																<a href="/project-yata/board/review-detail?revNum=${ review.rev_num }">
+																	${ review.rev_title }
+																</a>
+															</td>
+															<td>${ review.rev_grade }</td>
+															<td>${ review.rev_writer }</td>
+															<td>${ review.rev_regDate }</td>
+														</tr>
+												</c:forEach>
+												</tbody>
+											</table>
+                </div>
+                </div>
+                
               </div>
             </div>
           </div>
