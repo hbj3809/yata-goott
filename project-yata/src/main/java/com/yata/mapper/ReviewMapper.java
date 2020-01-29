@@ -11,4 +11,6 @@ public interface ReviewMapper {
 
 	ReviewVO findReviewByUser_num(int user_num);
 
+	int selectAllReviews();
+
 }

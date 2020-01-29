@@ -22,5 +22,7 @@ public interface CarService {
 	void modifyCar(CarVO car, List<CarPhotoVO> carPhotos, CarTypeVO carType, int car_num);
 
 	int countAllCars();
+
+	int countAllPhotos();
 	
 }

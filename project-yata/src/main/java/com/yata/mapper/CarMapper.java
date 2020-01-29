@@ -34,5 +34,7 @@ public interface CarMapper {
 	void deletePhoto(int car_num);
 
 	int selectAllCars();
+
+	int selectAllPhotos();
 	
 }

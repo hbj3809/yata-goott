@@ -284,14 +284,14 @@
     		<div layout="row" class="verticalStretch">
     			<div class="item">
     				<div class="number member-cnt">${ user_count }</div>
-    				<div class="text">신규회원 수</div>
+    				<div class="text">전체회원 수</div>
     			</div>
     			<div class="item">
     				<div class="number car-cnt">${ car_count }</div>
     				<div class="text">보유차량</div>
     			</div>
     			<div class="item">
-    				<div class="number review-cnt">250</div>
+    				<div class="number review-cnt">${ review_count }</div>
     				<div class="text">총 후기</div>
     			</div>
     			<div class="item">
@@ -299,18 +299,18 @@
     				<div class="text">누적예약 수</div>
     			</div>
     			<div class="item">
-    				<div class="number allmem-cnt">244</div>
-    				<div class="text">전체회원 수</div>
+    				<div class="number photo-cnt">${ photo_count }</div>
+    				<div class="text">차량사진 수</div>
     			</div>
     		</div>
     	</div>
     </section><!--/#nino-counting-->
 	<script type="text/javascript">
 
-	var memberCountConTxt = 5;
+	var memberCountConTxt = $('.member-cnt').text();
 	  
 	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
-	   duration: 15000,
+	   duration: 8000,
 	   step: function() {
 	    var num = numberWithCommas(Math.floor(this.val));
 	    $(".member-cnt").text(num);
@@ -321,10 +321,10 @@
 	  }
 	});
 
-	var memberCountConTxt = 8;
+	var memberCountConTxt = $('.car-cnt').text();;
 	  
 	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
-	   duration: 15000,
+	   duration: 8000,
 	   step: function() {
 	    var num = numberWithCommas(Math.floor(this.val));
 	    $(".car-cnt").text(num);
@@ -335,10 +335,10 @@
 	  }
 	});
 
-	var memberCountConTxt = 35;
+	var memberCountConTxt = $('.review-cnt').text();;
 	  
 	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
-	   duration: 15000,
+	   duration: 8000,
 	   step: function() {
 	    var num = numberWithCommas(Math.floor(this.val));
 	    $(".review-cnt").text(num);
@@ -349,10 +349,10 @@
 	  }
 	});
 
-	var memberCountConTxt = 99;
+	var memberCountConTxt = $('.res-cnt').text();
 	  
 	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
-	   duration: 10000,
+	   duration: 8000,
 	   step: function() {
 	    var num = numberWithCommas(Math.floor(this.val));
 	    $(".res-cnt").text(num);
@@ -363,17 +363,17 @@
 	  }
 	});
 		
-	var memberCountConTxt = 296;
+	var memberCountConTxt = $('.photo-cnt').text();;
 	  
 	  $({ val : 0 }).animate({ val : memberCountConTxt }, {
-	   duration: 15000,
+	   duration: 8000,
 	   step: function() {
 	    var num = numberWithCommas(Math.floor(this.val));
-	    $(".allmem-cnt").text(num);
+	    $(".photo-cnt").text(num);
 	  },
 	  complete: function() {
 	    var num = numberWithCommas(Math.floor(this.val));
-	    $(".allmem-cnt").text(num);
+	    $(".photo-cnt").text(num);
 	  }
 	});
 

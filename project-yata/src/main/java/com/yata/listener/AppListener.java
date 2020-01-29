@@ -19,6 +19,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import com.yata.service.CarService;
 import com.yata.service.MemberService;
 import com.yata.service.ReserveService;
+import com.yata.service.ReviewService;
 import com.yata.vo.MemberVO;
 
 @WebListener
@@ -27,7 +28,8 @@ public class AppListener implements ServletContextListener, HttpSessionListener 
 	private MemberService memberService;
 	private CarService carService;
 	private ReserveService resService;
-
+	private ReviewService revService;
+	
 	// 웹 애플리케이션이 시작 될 때 호출되는 메서드
     public void contextInitialized(ServletContextEvent sce)  { 
     	
@@ -37,14 +39,19 @@ public class AppListener implements ServletContextListener, HttpSessionListener 
     	memberService = (MemberService)appCtx.getBean("memberService");
     	carService = (CarService)appCtx.getBean("carService");
     	resService = (ReserveService)appCtx.getBean("reserveService");
+    	revService = (ReviewService)appCtx.getBean("reviewService");
 
     	int user_cnt = memberService.countAllUsers();
     	int car_cnt = carService.countAllCars();
     	int res_cnt = resService.countAllReserves();
-  	    	
+    	int pic_cnt = carService.countAllPhotos();
+  	    int rev_cnt = revService.countAllReviews();	
+    	
     	sc.setAttribute("user_count", user_cnt);
     	sc.setAttribute("car_count", car_cnt);
     	sc.setAttribute("res_count", res_cnt);
+    	sc.setAttribute("photo_count", pic_cnt);
+    	sc.setAttribute("review_count", rev_cnt);
     	
     	
     }

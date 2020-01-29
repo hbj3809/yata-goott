@@ -84,6 +84,11 @@ public class CarServiceImpl implements CarService {
 	public int countAllCars() {
 		return carMapper.selectAllCars();
 	}
+
+	@Override
+	public int countAllPhotos() {
+		return carMapper.selectAllPhotos();
+	}
 	
 
 }

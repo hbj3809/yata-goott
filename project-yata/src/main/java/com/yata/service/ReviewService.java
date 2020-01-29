@@ -8,4 +8,6 @@ public interface ReviewService {
 
 	ReviewVO findReviewByUser_num(int user_num);
 
+	int countAllReviews();
+
 }

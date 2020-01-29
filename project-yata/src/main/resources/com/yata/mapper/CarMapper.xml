@@ -123,5 +123,9 @@
 		SELECT COUNT(*)
 		FROM car
 	</select>
+	<select id="selectAllPhotos" resultType="int">
+		SELECT COUNT(*)
+		FROM car_photo
+	</select>
 
 </mapper>

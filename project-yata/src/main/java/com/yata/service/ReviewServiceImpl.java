@@ -23,4 +23,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewMapper.findReviewByUser_num(user_num);
 	}
 
+	@Override
+	public int countAllReviews() {
+		return reviewMapper.selectAllReviews();
+	}
+
 }
